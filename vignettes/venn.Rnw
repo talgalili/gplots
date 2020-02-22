@@ -6,6 +6,7 @@
 \author{Steffen M{\"{o}}ller}
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 
 \maketitle
 
