@@ -1,0 +1,231 @@
+
+R version 3.6.2 Patched (2020-01-11 r77654) -- "Dark and Stormy Night"
+Copyright (C) 2020 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library(gplots)
+
+Attaching package: 'gplots'
+
+The following object is masked from 'package:stats':
+
+    lowess
+
+> 
+> data(mtcars)
+> x  <- as.matrix(mtcars)
+> rc <- rainbow(nrow(x), start=0, end=.3)
+> cc <- rainbow(ncol(x), start=0, end=.3)
+> 
+> heatmap.2(x)  ## default - dendrogram plotted and reordering done.
+> heatmap.2(x, dendrogram="none") ##  no dendrogram plotted, but reordering done.
+> heatmap.2(x, dendrogram="row") ## row dendrogram plotted and row reordering done.
+> heatmap.2(x, dendrogram="col") ## col dendrogram plotted and col reordering done.
+> 
+> heatmap.2(x, keysize=2)  ## default - dendrogram plotted and reordering done.
+> 
+> 
+> heatmap.2(x, Colv=FALSE)
+Warning message:
+In heatmap.2(x, Colv = FALSE) :
+  Discrepancy: Colv is FALSE, while dendrogram is `both'. Omitting column dendogram.
+> heatmap.2(x, Colv=NULL)
+Warning message:
+In heatmap.2(x, Colv = NULL) :
+  Discrepancy: Colv is FALSE, while dendrogram is `both'. Omitting column dendogram.
+> 
+> heatmap.2(x, Rowv=FALSE)
+Warning message:
+In heatmap.2(x, Rowv = FALSE) :
+  Discrepancy: Rowv is FALSE, while dendrogram is `both'. Omitting row dendogram.
+> heatmap.2(x, Rowv=NULL)
+Warning message:
+In heatmap.2(x, Rowv = NULL) :
+  Discrepancy: Rowv is FALSE, while dendrogram is `both'. Omitting row dendogram.
+> 
+> heatmap.2(x, Rowv=FALSE, dendrogram="both") ## generate warning!
+Warning message:
+In heatmap.2(x, Rowv = FALSE, dendrogram = "both") :
+  Discrepancy: Rowv is FALSE, while dendrogram is `both'. Omitting row dendogram.
+> heatmap.2(x, Rowv=NULL, dendrogram="both")  ## generate warning!
+Warning message:
+In heatmap.2(x, Rowv = NULL, dendrogram = "both") :
+  Discrepancy: Rowv is FALSE, while dendrogram is `both'. Omitting row dendogram.
+> heatmap.2(x, Colv=FALSE, dendrogram="both") ## generate warning!
+Warning message:
+In heatmap.2(x, Colv = FALSE, dendrogram = "both") :
+  Discrepancy: Colv is FALSE, while dendrogram is `both'. Omitting column dendogram.
+> 
+> 
+> 
+> heatmap.2(x,dendrogram="both", Rowv=FALSE) ## row and col reordering done, but only col dendrogram plotted 
+Warning message:
+In heatmap.2(x, dendrogram = "both", Rowv = FALSE) :
+  Discrepancy: Rowv is FALSE, while dendrogram is `both'. Omitting row dendogram.
+> heatmap.2(x,dendrogram="row",  Rowv=FALSE) 
+Warning message:
+In heatmap.2(x, dendrogram = "row", Rowv = FALSE) :
+  Discrepancy: Rowv is FALSE, while dendrogram is `row'. Omitting row dendogram.
+> 
+> 
+> heatmap.2(x,dendrogram="col",  Rowv=FALSE)
+> heatmap.2(x,dendrogram="none", Rowv=FALSE) 
+> 
+> 
+> heatmap.2(x,dendrogram="both", Colv=FALSE) ## row and col reordering done, but only row dendrogram plotted
+Warning message:
+In heatmap.2(x, dendrogram = "both", Colv = FALSE) :
+  Discrepancy: Colv is FALSE, while dendrogram is `both'. Omitting column dendogram.
+> heatmap.2(x,dendrogram="row",  Colv=FALSE)
+> heatmap.2(x,dendrogram="col",  Colv=FALSE)
+Warning message:
+In heatmap.2(x, dendrogram = "col", Colv = FALSE) :
+  Discrepancy: Colv is FALSE, while dendrogram is `column'. Omitting column dendogram.
+> heatmap.2(x,dendrogram="none", Colv=FALSE) 
+> 
+> ## above statement is same as heatmap.2(x,Colv=FALSE)
+> heatmap.2(x,dendrogram="col", Colv=FALSE) ## col reordering done, but no dendrogram plotted 
+Warning message:
+In heatmap.2(x, dendrogram = "col", Colv = FALSE) :
+  Discrepancy: Colv is FALSE, while dendrogram is `column'. Omitting column dendogram.
+> 
+> 
+> hv <- heatmap.2(x, col=cm.colors(256), scale="column", 
++ 	       RowSideColors=rc, ColSideColors=cc, margin=c(5, 10), 
++ 	       xlab="specification variables", ylab= "Car Models", 
++ 	       main="heatmap(<Mtcars data>, \n        ..., scale=\"column\")", 
++                tracecol="green", density="density")
+> 
+> ## IGNORE_RDIFF_BEGIN
+> str(hv) # the two re-ordering index vectors
+List of 13
+ $ rowInd       : int [1:32] 31 17 16 15 5 25 29 24 7 6 ...
+ $ colInd       : int [1:11] 2 9 8 11 6 5 10 7 1 4 ...
+ $ call         : language heatmap.2(x = x, scale = "column", col = cm.colors(256), tracecol = "green",      margins = c(5, 10), ColSideColo| __truncated__ ...
+ $ colMeans     : Named num [1:11] 6.188 0.406 0.438 2.812 3.217 ...
+  ..- attr(*, "names")= chr [1:11] "cyl" "am" "vs" "carb" ...
+ $ colSDs       : Named num [1:11] 1.786 0.499 0.504 1.615 0.978 ...
+  ..- attr(*, "names")= chr [1:11] "cyl" "am" "vs" "carb" ...
+ $ carpet       : num [1:11, 1:32] 1.015 1.19 -0.868 3.212 0.361 ...
+  ..- attr(*, "dimnames")=List of 2
+  .. ..$ : chr [1:11] "cyl" "am" "vs" "carb" ...
+  .. ..$ : chr [1:32] "Maserati Bora" "Chrysler Imperial" "Lincoln Continental" "Cadillac Fleetwood" ...
+ $ rowDendrogram:  ..--[dendrogram w/ 2 branches and 32 members at h = 425, midpoint = 8.58, value = 1267]
+  ..  |--[dendrogram w/ 2 branches and 9 members at h = 215, midpoint = 1.84, value = 552]
+  ..  |  |--leaf "Maserati Bora" ( value.Maserati Bora = 63.2 )
+  ..  |  `--[dendrogram w/ 2 branches and 8 members at h = 135, midpoint = 2.69, value = 489]
+  ..  |     |--[dendrogram w/ 2 branches and 3 members at h = 40.8, midpoint = 0.75, value = 198]
+  ..  |     |  |--leaf "Chrysler Imperial" ( value.Chrysler Imperial = 66 )
+  ..  |     |  `--[dendrogram w/ 2 branches and 2 members at h = 15.6, midpoint = 0.5, value = 132]
+  ..  |     |     |--leaf "Lincoln Continental" ( value.Lincoln Continental = 66.1 )
+  ..  |     |     `--leaf "Cadillac Fleetwood" ( value.Cadillac Fleetwood = 66.2 )
+  ..  |     `--[dendrogram w/ 2 branches and 5 members at h = 102, midpoint = 1.62, value = 290]
+  ..  |        |--[dendrogram w/ 2 branches and 2 members at h = 40, midpoint = 0.5, value = 111]
+  ..  |        |  |--leaf "Hornet Sportabout" ( value.Hornet Sportabout = 53.7 )
+  ..  |        |  `--leaf "Pontiac Firebird" ( value.Pontiac Firebird = 57.4 )
+  ..  |        `--[dendrogram w/ 2 branches and 3 members at h = 21.3, midpoint = 0.75, value = 179]
+  ..  |           |--leaf "Ford Pantera L" ( value.Ford Pantera L = 61 )
+  ..  |           `--[dendrogram w/ 2 branches and 2 members at h = 10.1, midpoint = 0.5, value = 118]
+  ..  |              |--leaf "Camaro Z28" ( value.Camaro Z28 = 58.8 )
+  ..  |              `--leaf "Duster 360" ( value.Duster 360 = 59.7 )
+  ..  `--[dendrogram w/ 2 branches and 23 members at h = 262, midpoint = 6.33, value = 716]
+  ..     |--[dendrogram w/ 2 branches and 7 members at h = 103, midpoint = 2.06, value = 306]
+  ..     |  |--[dendrogram w/ 2 branches and 2 members at h = 33.6, midpoint = 0.5, value = 73.8]
+  ..     |  |  |--leaf "Valiant" ( value.Valiant = 35 )
+  ..     |  |  `--leaf "Hornet 4 Drive" ( value.Hornet 4 Drive = 38.7 )
+  ..     |  `--[dendrogram w/ 2 branches and 5 members at h = 51.8, midpoint = 1.62, value = 233]
+  ..     |     |--[dendrogram w/ 2 branches and 2 members at h = 14, midpoint = 0.5, value = 93.2]
+  ..     |     |  |--leaf "AMC Javelin" ( value.AMC Javelin = 46 )
+  ..     |     |  `--leaf "Dodge Challenger" ( value.Dodge Challenger = 47.2 )
+  ..     |     `--[dendrogram w/ 2 branches and 3 members at h = 2.14, midpoint = 0.75, value = 139]
+  ..     |        |--leaf "Merc 450SLC" ( value.Merc 450SLC = 46.4 )
+  ..     |        `--[dendrogram w/ 2 branches and 2 members at h = 0.983, midpoint = 0.5, value = 92.9]
+  ..     |           |--leaf "Merc 450SE" ( value.Merc 450SE = 46.4 )
+  ..     |           `--leaf "Merc 450SL" ( value.Merc 450SL = 46.5 )
+  ..     `--[dendrogram w/ 2 branches and 16 members at h = 142, midpoint = 3.59, value = 409]
+  ..        |--[dendrogram w/ 2 branches and 4 members at h = 14.8, midpoint = 0.875, value = 74.9]
+  ..        |  |--leaf "Honda Civic" ( value.Honda Civic = 17.7 )
+  ..        |  `--[dendrogram w/ 2 branches and 3 members at h = 10.4, midpoint = 0.75, value = 57.2]
+  ..        |     |--leaf "Toyota Corolla" ( value.Toyota Corolla = 18.8 )
+  ..        |     `--[dendrogram w/ 2 branches and 2 members at h = 5.15, midpoint = 0.5, value = 38.4]
+  ..        |        |--leaf "Fiat X1-9" ( value.Fiat X1-9 = 18.9 )
+  ..        |        `--leaf "Fiat 128" ( value.Fiat 128 = 19.4 )
+  ..        `--[dendrogram w/ 2 branches and 12 members at h = 113, midpoint = 2.3, value = 334]
+  ..           |--leaf "Ferrari Dino" ( value.Ferrari Dino = 34.5 )
+  ..           `--[dendrogram w/ 2 branches and 11 members at h = 74.4, midpoint = 3.61, value = 300]
+  ..              |--[dendrogram w/ 2 branches and 5 members at h = 64.9, midpoint = 1.25, value = 148]
+  ..              |  |--leaf "Merc 240D" ( value.Merc 240D = 24.6 )
+  ..              |  `--[dendrogram w/ 2 branches and 4 members at h = 15.7, midpoint = 1.5, value = 124]
+  ..              |     |--[dendrogram w/ 2 branches and 2 members at h = 0.615, midpoint = 0.5, value = 59.9]
+  ..              |     |  |--leaf "Mazda RX4" ( value.Mazda RX4 = 29.9 )
+  ..              |     |  `--leaf "Mazda RX4 Wag" ( value.Mazda RX4 Wag = 30 )
+  ..              |     `--[dendrogram w/ 2 branches and 2 members at h = 1.52, midpoint = 0.5, value = 63.6]
+  ..              |        |--leaf "Merc 280C" ( value.Merc 280C = 31.8 )
+  ..              |        `--leaf "Merc 280" ( value.Merc 280 = 31.9 )
+  ..              `--[dendrogram w/ 2 branches and 6 members at h = 50.1, midpoint = 0.969, value = 152]
+  ..                 |--leaf "Lotus Europa" ( value.Lotus Europa = 24.9 )
+  ..                 `--[dendrogram w/ 2 branches and 5 members at h = 33.2, midpoint = 0.938, value = 127]
+  ..                    |--leaf "Merc 230" ( value.Merc 230 = 27.2 )
+  ..                    `--[dendrogram w/ 2 branches and 4 members at h = 20.7, midpoint = 0.875, value = 99.5]
+  ..                       |--leaf "Volvo 142E" ( value.Volvo 142E = 26.3 )
+  ..                       `--[dendrogram w/ 2 branches and 3 members at h = 13.1, midpoint = 0.75, value = 73.3]
+  ..                          |--leaf "Datsun 710" ( value.Datsun 710 = 23.6 )
+  ..                          `--[dendrogram w/ 2 branches and 2 members at h = 8.65, midpoint = 0.5, value = 49.7]
+  ..                             |--leaf "Porsche 914-2" ( value.Porsche 914-2 = 24.8 )
+  ..                             `--leaf "Toyota Corona" ( value.Toyota Corona = 24.9 )
+ $ colDendrogram:  ..--[dendrogram w/ 2 branches and 11 members at h = 1475, midpoint = 7, value = 436]
+  ..  |--[dendrogram w/ 2 branches and 9 members at h = 116, midpoint = 4.5, value = 58.3]
+  ..  |  |--[dendrogram w/ 2 branches and 7 members at h = 34.8, midpoint = 1.5, value = 20.3]
+  ..  |  |  |--leaf "cyl" ( value.cyl = 6.19 )
+  ..  |  |  `--[dendrogram w/ 2 branches and 6 members at h = 18.9, midpoint = 2, value = 14.2]
+  ..  |  |     |--[dendrogram w/ 2 branches and 2 members at h = 3.61, midpoint = 0.5, value = 0.844]
+  ..  |  |     |  |--leaf "am" ( value.am = 0.406 )
+  ..  |  |     |  `--leaf "vs" ( value.vs = 0.438 )
+  ..  |  |     `--[dendrogram w/ 2 branches and 4 members at h = 10.7, midpoint = 1.5, value = 13.3]
+  ..  |  |        |--[dendrogram w/ 2 branches and 2 members at h = 8.6, midpoint = 0.5, value = 6.03]
+  ..  |  |        |  |--leaf "carb" ( value.carb = 2.81 )
+  ..  |  |        |  `--leaf "wt" ( value.wt = 3.22 )
+  ..  |  |        `--[dendrogram w/ 2 branches and 2 members at h = 2.98, midpoint = 0.5, value = 7.28]
+  ..  |  |           |--leaf "drat" ( value.drat = 3.6 )
+  ..  |  |           `--leaf "gear" ( value.gear = 3.69 )
+  ..  |  `--[dendrogram w/ 2 branches and 2 members at h = 33.3, midpoint = 0.5, value = 37.9]
+  ..  |     |--leaf "qsec" ( value.qsec = 17.8 )
+  ..  |     `--leaf "mpg" ( value.mpg = 20.1 )
+  ..  `--[dendrogram w/ 2 branches and 2 members at h = 657, midpoint = 0.5, value = 377]
+  ..     |--leaf "hp" ( value.hp = 147 )
+  ..     `--leaf "disp" ( value.disp = 231 )
+ $ breaks       : num [1:257] -3.21 -3.19 -3.16 -3.14 -3.11 ...
+ $ col          : chr [1:256] "#80FFFFFF" "#80FFFFFF" "#81FFFFFF" "#82FFFFFF" ...
+ $ vline        : num 0
+ $ colorTable   :'data.frame':	256 obs. of  3 variables:
+  ..$ low  : num [1:256] -3.21 -3.19 -3.16 -3.14 -3.11 ...
+  ..$ high : num [1:256] -3.19 -3.16 -3.14 -3.11 -3.09 ...
+  ..$ color: Factor w/ 254 levels "#80FFFFFF","#81FFFFFF",..: 1 1 2 3 4 5 6 7 8 9 ...
+ $ layout       :List of 3
+  ..$ lmat: num [1:3, 1:3] 6 0 4 0 0 1 5 2 3
+  ..$ lhei: num [1:3] 1.5 0.2 4
+  ..$ lwid: num [1:3] 1.5 0.2 4
+> ## IGNORE_RDIFF_END
+> 
+> ## Test row and column separators 
+> heatmap.2(x,dendrogram="col", colsep=1) ## one colsep
+> heatmap.2(x,dendrogram="col", rowsep=1) ## one rowsep
+> 
+> heatmap.2(x,dendrogram="col", colsep=1:2) ## two colseps
+> heatmap.2(x,dendrogram="col", rowsep=1:2) ## two rowseps
+> 
+> proc.time()
+   user  system elapsed 
+  1.190   0.064   1.245 
