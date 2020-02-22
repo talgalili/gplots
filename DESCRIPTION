@@ -23,19 +23,24 @@ Description: Various R programming tools for plotting data, including:
 Depends: R (>= 3.0)
 Imports: gtools, gdata, stats, caTools, KernSmooth
 Suggests: grid, MASS
-Version: 3.0.1.2
-Date: 2016-03-30
-Author: Gregory R. Warnes, Ben Bolker, Lodewijk Bonebakker, Robert
-	Gentleman, Wolfgang Huber Andy Liaw, Thomas Lumley, Martin
-	Maechler, Arni Magnusson, Steffen Moeller, Marc Schwartz, Bill
-	Venables
-Maintainer: ORPHANED
+Version: 3.0.2
+Date: 2020-02-22
+Authors@R: c(
+    person("Gregory R.", "Warnes", , role = "aut"),
+    person("Ben", "Bolker", , role = "aut"),
+    person("Lodewijk", "Bonebakker", , role = "aut"),
+    person("Robert", "Gentleman", role = "aut"),
+    person("Wolfgang", "Huber", role = "aut"),
+    person("Andy", "Liaw", role = "aut"),
+    person("Thomas", "Lumley", role = "aut"),
+    person("Martin", "Maechler", role = "aut"),
+    person("Arni", "Magnusson", role = "aut"),
+    person("Steffen", "Moeller", role = "aut"),
+    person("Marc", "Schwartz", role = "aut"),
+    person("Bill", "Venables", role = "aut"),
+    person("Tal", "Galili", , "tal.galili@gmail.com", c("ctb", "cre"))
+    )
 License: GPL-2
+URL: https://talgalili.github.io/gplots/
+BugReports: https://github.com/talgalili/gplots/issues
 NeedsCompilation: no
-Packaged: 2020-01-11 16:25:06 UTC; ripley
-Repository: CRAN
-Date/Publication: 2020-01-11 17:28:31
-X-CRAN-Original-Maintainer: Gregory R. Warnes <greg@warnes.net>
-X-CRAN-Comment: Orphaned and corrected on 2020-01-11.
- .
- Last update by original maintainer was in Mar 2016.
