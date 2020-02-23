@@ -42,6 +42,6 @@ Authors@R: c(
     person("Tal", "Galili", , "tal.galili@gmail.com", c("ctb", "cre"))
     )
 License: GPL-2
-URL: https://talgalili.github.io/gplots/
+URL: https://github.com/talgalili/gplots
 BugReports: https://github.com/talgalili/gplots/issues
 NeedsCompilation: no
