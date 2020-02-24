@@ -22,10 +22,10 @@ Description: Various R programming tools for plotting data, including:
   - spacing points in an x-y plot so they don't overlap ('space').
 Depends: R (>= 3.0)
 Imports: gtools, gdata, stats, caTools, KernSmooth
-Suggests: grid, MASS
+Suggests: grid, MASS, knitr
 VignetteBuilder: knitr
-Version: 3.0.2
-Date: 2020-02-22
+Version: 3.0.3
+Date: 2020-02-26
 Authors@R: c(
     person("Gregory R.", "Warnes", , role = "aut"),
     person("Ben", "Bolker", , role = "aut"),

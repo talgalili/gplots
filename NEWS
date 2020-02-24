@@ -1,9 +1,9 @@
-Release 3.0.2 - 2020-02-22
+Release 3.0.3 - 2020-02-26
 --------------------------
 
 Misc
 - Tal Galili took over to make sure the package stays on CRAN.
-
+- Moved to knitr
 
 Release 3.0.1 - 2016-03-30
 --------------------------
