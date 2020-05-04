@@ -108,7 +108,7 @@ heatmap.2 <- function (x,
     col <- get(col, mode="function")
 
   if(!missing(breaks) && any(duplicated(breaks)) )
-      stop("breaks may not contian duplicate values")
+      stop("breaks may not contain duplicate values")
 
   if(!missing(breaks) && (scale!="none"))
     warning("Using scale=\"row\" or scale=\"column\" when breaks are",
