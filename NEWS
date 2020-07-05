@@ -1,3 +1,8 @@
+Release 3.0.3 - 2020-07-05
+--------------------------
+Bug Fixes:
+- Fix "no visible global function definition for '%||%'": The package imports .memberDend and .midDend from stats in an unsafe way (i.e. using :::). I've moved to manually copy-pasting the functions into the package in order to keep it a bit safer. It has the downside of not using whartever improvements/bugfixes are intrudced to these functions moving forward. But for the time being, it's a reasonable solution.
+
 Release 3.0.3 - 2020-02-26
 --------------------------
 
