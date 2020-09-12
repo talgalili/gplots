@@ -206,7 +206,9 @@
 
    <span class='co'># Change the order to something useful..</span>
    <span class='co'># - default "mixedsort" ordering</span>
-   <span class='no'>trt2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/reorder.factor.html'>reorder</a></span>(<span class='no'>trt</span>)</div><div class='output co'>#&gt; <span class='error'>Error in reorder.factor(trt): object 'mixedsort' not found</span></div><div class='input'>   <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>trt2</span>)</div><div class='output co'>#&gt; <span class='error'>Error in summary(trt2): object 'trt2' not found</span></div><div class='input'>   <span class='co'># - using indexes:</span>
+   <span class='no'>trt2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/reorder.factor.html'>reorder</a></span>(<span class='no'>trt</span>)
+   <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>trt2</span>)</div><div class='output co'>#&gt;  300 MG  600 MG 1200 MG PLACEBO 
+#&gt;      34      25      28      13 </div><div class='input'>   <span class='co'># - using indexes:</span>
    <span class='no'>trt3</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/reorder.factor.html'>reorder</a></span>(<span class='no'>trt</span>, <span class='kw'>new.order</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>4</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>1</span>))
    <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='no'>trt3</span>)</div><div class='output co'>#&gt; PLACEBO  300 MG  600 MG 1200 MG 
 #&gt;      13      34      25      28 </div><div class='input'>   <span class='co'># - using label names:</span>
