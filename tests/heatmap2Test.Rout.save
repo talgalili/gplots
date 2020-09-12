@@ -15,15 +15,7 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
-> library(gplots)
-
-Attaching package: 'gplots'
-
-The following object is masked from 'package:stats':
-
-    lowess
-
-> 
+> suppressMessages(library(gplots))
 > data(mtcars)
 > x  <- as.matrix(mtcars)
 > rc <- rainbow(nrow(x), start=0, end=.3)

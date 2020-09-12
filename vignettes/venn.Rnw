@@ -32,7 +32,7 @@ The common form with overlapping circles only works with up to three
 sets, as seen here:
 \begin{center}
 <<fig=TRUE,echo=TRUE>>=
-library(gplots)
+suppressMessages(library(gplots))
 venn( list(A=1:5,B=4:6,C=c(4,8:10)) )
 @
 \end{center}

@@ -1,5 +1,4 @@
 suppressMessages(library(gplots))
-
 data(mtcars)
 x  <- as.matrix(mtcars)
 rc <- rainbow(nrow(x), start=0, end=.3)
