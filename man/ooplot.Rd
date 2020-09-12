@@ -202,6 +202,7 @@ ooplot(data, ...)
      
      ##
      ## xyplot, linear, barplot, stackbar
+     dev.off()
      mat <- matrix(c(1:16),4,4,byrow=TRUE)
      layout(mat)
      
