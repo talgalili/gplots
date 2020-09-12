@@ -212,7 +212,7 @@ ci2d(x, y = NULL,
    sd.x <- sd(geyser$duration)
    sd.y <- sd(geyser$waiting)
 
-   t.value <- qt(c(0.05,0.95), df=gdata::nobs(geyser$duration), lower=TRUE)
+   t.value <- qt(c(0.05,0.95), df=length(geyser$duration), lower=TRUE)
    ci.x <- mean.x +  t.value* sd.x
    ci.y <- mean.y +  t.value* sd.y
 

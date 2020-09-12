@@ -21,11 +21,11 @@ Description: Various R programming tools for plotting data, including:
   - plotting means and confidence intervals ('plotCI', 'plotmeans'),
   - spacing points in an x-y plot so they don't overlap ('space').
 Depends: R (>= 3.0)
-Imports: gtools, gdata, stats, caTools, KernSmooth
+Imports: gtools, stats, caTools, KernSmooth
 Suggests: grid, MASS, knitr
 VignetteBuilder: knitr
-Version: 3.0.4
-Date: 2020-07-05
+Version: 3.1.0
+Date: 2020-09-12
 Authors@R: c(
     person("Gregory R.", "Warnes", , role = "aut"),
     person("Ben", "Bolker", , role = "aut"),

@@ -30,13 +30,13 @@ export(
        space,
        textplot,
        venn,
-       wapply
+       wapply,
+       nobs,
+       reorder.factor
 )
 
 importFrom(gtools, invalid)
 importFrom(gtools, odd)
-importFrom(gdata, nobs)
-importFrom(gdata, reorder.factor)
 
 importFrom(stats, reorder)
 importFrom(stats, na.omit)

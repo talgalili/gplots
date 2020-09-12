@@ -106,7 +106,7 @@ plotmeans( Sepal.Length ~ Species, data=iris, barwidth=2, connect=FALSE,
            main="Means and 95\% Confidence Intervals\nof Sepal Length by Species")
 
 info <- sapply( split(iris$Sepal.Length, iris$Species),
-                function(x) round(c(Mean=mean(x), SD=sd(x), N=gdata::nobs(x)),2) )
+                function(x) round(c(Mean=mean(x), SD=sd(x), N=nrow(x)),2) )
 
 textplot( info, valign="top"  )
 title("Sepal Length by Species")
