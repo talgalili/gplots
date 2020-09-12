@@ -1,4 +1,4 @@
-library(gplots)
+suppressMessages(library(gplots))
 
 dat <- as.matrix(read.csv(file="dat.csv", row.names=1))
 dist2 <- function(x) as.dist(1-cor(t(x), method="pearson"))

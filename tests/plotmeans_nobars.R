@@ -2,6 +2,6 @@
 ## Bug repoted by Alan Yong, Research Geophysicist,
 ## US DEPARTMENT OF THE INTERIOR
 
-library(gplots)
+suppressMessages(library(gplots))
 data(state)
 plotmeans(state.area ~ state.region, bars=FALSE)

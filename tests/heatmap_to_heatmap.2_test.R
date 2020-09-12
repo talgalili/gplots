@@ -1,4 +1,4 @@
-library(gplots)
+suppressMessages(library(gplots))
 data(mtcars)
 
 x <- as.matrix(mtcars)
