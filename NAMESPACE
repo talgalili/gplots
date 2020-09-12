@@ -37,9 +37,11 @@ export(
 
 importFrom(gtools, invalid)
 importFrom(gtools, odd)
+importFrom(gtools, mixedsort)
 
 importFrom(stats, reorder)
 importFrom(stats, na.omit)
+importFrom(stats, nobs)
 
 importFrom(caTools, runsd)
 importFrom(caTools, runmean)
@@ -72,6 +74,13 @@ S3method(textplot, character)
 S3method(textplot, data.frame)
 S3method(textplot, default)
 S3method(textplot, matrix)
+
+## nobs stuff
+S3method(nobs, data.frame)
+S3method(nobs, default)
+S3method(nobs, lm)      # now provided by stats package
+
+S3method(reorder, factor)
 
 # imports recommended by R CMD check
 importFrom("grDevices", "col2rgb", "contourLines", "dev.flush",
