@@ -25,7 +25,7 @@ Imports: gtools, stats, caTools, KernSmooth
 Suggests: grid, MASS, knitr
 VignetteBuilder: knitr
 Version: 3.1.0
-Date: 2020-09-12
+Date: 2020-09-18
 Authors@R: c(
     person("Gregory R.", "Warnes", , role = "aut"),
     person("Ben", "Bolker", , role = "aut"),

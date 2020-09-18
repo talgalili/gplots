@@ -31,7 +31,6 @@ export(
        textplot,
        venn,
        wapply,
-       nobs,
        reorder.factor
 )
 
@@ -74,11 +73,6 @@ S3method(textplot, character)
 S3method(textplot, data.frame)
 S3method(textplot, default)
 S3method(textplot, matrix)
-
-## nobs stuff
-S3method(nobs, data.frame)
-S3method(nobs, default)
-S3method(nobs, lm)      # now provided by stats package
 
 S3method(reorder, factor)
 
