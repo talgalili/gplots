@@ -24,8 +24,8 @@ Depends: R (>= 3.0)
 Imports: gtools, stats, caTools, KernSmooth
 Suggests: grid, MASS, knitr
 VignetteBuilder: knitr
-Version: 3.1.0
-Date: 2020-09-18
+Version: 3.1.1
+Date: 2020-11-28
 Authors@R: c(
     person("Gregory R.", "Warnes", , role = "aut"),
     person("Ben", "Bolker", , role = "aut"),

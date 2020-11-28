@@ -1,3 +1,11 @@
+Release 3.1.1 - 2020-11-28
+--------------------------
+Bug Fixes:
+- Fix "Error in plot.window(...) : need finite 'ylim' values" in "Running examples in 'gplots-Ex.R' failed"
+
+
+
+
 Release 3.1.0 - 2020-09-18
 --------------------------
 Major change:

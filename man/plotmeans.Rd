@@ -102,7 +102,7 @@ plotmeans(formula, data=NULL, subset, na.action,
 
 
 \examples{
-
+  # library(gplots)
   # show comparison with boxplot
   data(state)
   plotmeans(state.area ~ state.region)
@@ -129,6 +129,7 @@ plotmeans(formula, data=NULL, subset, na.action,
             data=esoph,
             xlab="Age Group and Alcohol Consumption",
             ylab="# Cases / # Controls",
+            ylim = c(-.9,1.4),
             main=c("Fraction of Cases for by Age and Alcohol Consumption",
                    "Ile-et-Vilaine Esophageal Cancer Study")
             )
