@@ -747,9 +747,12 @@ heatmap.2 <- function (x,
             mtext(side=2,key.ylab, line=par("mgp")[1], padj=0.5, cex=par("cex") * par("cex.lab"))
         }
       else
+        {
           if (is.null(key.title))
-              title("Color Key")
-
+              key.title <- "Color Key"
+          if (!is.na(key.title))
+              title(key.title)
+        }
       if(trace %in% c("both","column") )
           {
               vline.vals <- scale01(vline, min.raw, max.raw)
