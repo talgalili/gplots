@@ -7,6 +7,10 @@ checking Rd files ... [1s/2s] WARNING
 checkRd: (7) barplot2.Rd:219: invalid email address: marc\_schwartz@comcast.net
 checkRd: (7) venn.Rd:59: invalid email address: steffen\_moeller@gmx.de
 
+- Fix note:
+
+checking Rd cross-references ... NOTE
+Undeclared package ‘r2d2’ in Rd xrefs
 
 
 Release 3.1.2 - 2021-01-09
