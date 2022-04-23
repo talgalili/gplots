@@ -12,6 +12,11 @@ checkRd: (7) venn.Rd:59: invalid email address: steffen\_moeller@gmx.de
 checking Rd cross-references ... NOTE
 Undeclared package ‘r2d2’ in Rd xrefs
 
+- Fix note:
+
+Found if() conditions comparing class() to string:
+File 'gplots/R/heatmap.2.R': if (class(col) == "function") ...
+Use inherits() (or maybe is()) instead.
 
 Release 3.1.2 - 2021-01-09
 --------------------------
