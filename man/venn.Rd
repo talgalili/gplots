@@ -56,7 +56,7 @@ venn(data, universe=NA, small=0.7, showSetLogicLabel=FALSE,
   }
 }
 \author{
-  Steffen Moeller \email{steffen\_moeller@gmx.de},
+  Steffen Moeller (email was steffen\_moeller@gmx.de, may no longer be active),
   with cleanup and packaging by Gregory R. Warnes
   \email{greg@warnes.net}.}
 \examples{

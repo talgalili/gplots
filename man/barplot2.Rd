@@ -216,7 +216,7 @@
   midpoints of each \emph{group} of bars, see example.
 }
 \author{Original barplot() by R-Core. Enhancements by Marc
-  Schwartz \email{marc\_schwartz@comcast.net}
+  Schwartz (email was marc\_schwartz@comcast.net, may no longer be active)
 }
 \note{
   Prior to \R 1.6.0, \code{barplot} behaved as if \code{axis.lty = 1},
