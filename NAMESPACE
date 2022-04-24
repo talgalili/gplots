@@ -97,3 +97,5 @@ importFrom("stats", "as.dendrogram", "cooks.distance", "density",
            "residuals", "sd", "var", "weights")
 
 importFrom("utils", "str")
+
+importFrom("methods", "is")
