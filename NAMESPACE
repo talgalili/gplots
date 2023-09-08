@@ -5,6 +5,7 @@ export(
        barplot2,
        bluered,
        boxplot2,
+       bubbleplot,
        ci2d,
        col2hex,
        colorpanel,
@@ -48,6 +49,8 @@ importFrom(caTools, runmean)
 importFrom(KernSmooth, bkde2D)
 importFrom(KernSmooth, dpik)
 
+importFrom(utils, type.convert)
+
 S3method(balloonplot, default)
 S3method(balloonplot, table)
 
@@ -55,6 +58,9 @@ S3method(bandplot, default)
 S3method(bandplot, formula)
 
 S3method(barplot2, default)
+
+S3method(bubbleplot, default)
+S3method(bubbleplot, formula)
 
 S3method(lowess, default)
 S3method(lowess, formula)

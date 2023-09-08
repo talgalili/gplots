@@ -27,8 +27,8 @@ redblue(n)
 }
 \details{
   The values for \code{low, mid, high} can be given as
-  color names ('red'), plot color index (2=red), and HTML-style RGB,
-  ("\#FF0000"=red). 
+  color names (\code{"red"}), plot color index (\code{2}), and
+  HTML-style RGB, (\code{"#FF0000"}).
 
   If \code{mid} is supplied, then the returned color panel will consist
   of \code{n - floor(n/2)} HTML-style RGB elements which vary smoothly
