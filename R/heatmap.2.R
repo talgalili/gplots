@@ -405,7 +405,8 @@ heatmap.2 <- function (x,
   ## draw the side bars
   if(!missing(RowSideColors)) {
     par(mar = c(margins[1],0, 0,0.5))
-    image(rbind(1:nr), col = RowSideColors[rowInd], axes = FALSE)
+    iy <- if (revC) nr:1 else 1:nr
+    image(rbind(iy), col = RowSideColors[rowInd], axes = FALSE)
     plot.index <- plot.index + 1
   }
   if(!missing(ColSideColors)) {
