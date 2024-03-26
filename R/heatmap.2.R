@@ -511,6 +511,7 @@ heatmap.2 <- function (x,
           xpd.orig <- par("xpd")
           par(xpd=NA)
           ypos <- axis(4, iy, labels=rep("", nr), las=2, line= -0.5, tick=0)
+          if (revC) ypos <- rev(ypos)
           text(x=par("usr")[2] + (1.0 + offsetRow) * strwidth("M"),
                y=ypos,
                labels=labRow,
