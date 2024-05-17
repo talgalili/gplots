@@ -1,3 +1,20 @@
+Release 3.2.0 - 2023-09-08
+--------------------------
+New Features:
+
+* New function bubbleplot() draws a scatterplot with varying symbol sizes and
+  colors. Provides an alternative to balloonplot().
+
+* New example dataset catch.d containing catch at age for the 2015 Icelandic
+  saithe fish stock assessment, and catch.r containing model residuals.
+
+Bug Fixes:
+
+- Removed escaped LaTeX specials in Rd files (barplot2, colorpanel, qqnorm.aov,
+  venn) that were raising R CMD check NOTEs.
+
+- Removed invalid URLs from README.md identified by R CMD check --as-cran.
+
 Release 3.1.3 - 2022-04-24
 --------------------------
 Bug Fixes:

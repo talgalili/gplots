@@ -1,75 +1,3 @@
-%% Revision 2.1 2005/06/06
-%% - Modified default behavior with 0's and NA's in
-%%   'height' so that these values are not plotted.
-%% - Warning messages added in the case of the above.
-
-%% Revision 2.0 2005/04/27
-%% - Added panel.first and panel.last arguments
-%% - As per R 2.0.0, the default barplot() method by default uses a
-%%   gamma-corrected grey palette (rather than the heat color
-%%   palette) for coloring its output when given a matrix.
-
-% $Id: barplot2.Rd 1646 2013-03-24 05:19:04Z warnes $
-%% $Log$
-%% Revision 1.12  2005/12/07 18:48:54  nj7w
-%% Changed the default grey colors to heat colors, if height is matrix
-%%
-%% Revision 1.11  2005/12/06 22:41:08  nj7w
-%% Fixed minor error in documentation of barplot2
-%%
-%% Revision 1.10  2005/06/09 14:20:28  nj7w
-%% Updating the version number, and various help files to synchronize splitting of gregmisc bundle in 4 individual components.
-%%
-%% Revision 1.3  2005/06/06 21:44:51  nj7w
-%% Changes based on Marc Schwartz's suggestions to handel 0's and NA's appropriately.
-%%
-%% Revision 1.9  2004/06/28 20:16:44  warnes
-%% - Default 2-d color set to grey as in (v2.0.0) r-devel
-%% - The default (v1.9.1) barplot method now handles vectors and 1-d arrays
-%%   (e.g., obtained by table()) the same, and uses grey instead of
-%%   heat color palettes in these cases.  (Also fixes PR#6776.)
-%% - Updated to reflect the addition of 'offset' argument in base
-%% - Fix bug in stacked barplots, which would not be plotted properly
-%%
-%
-% Revision 1.8  2004/06/26
-% - Default 2-d color set to grey as in (v2.0.0) r-devel
-% - The default (v1.9.1) barplot method now handles vectors and 1-d arrays
-%   (e.g., obtained by table()) the same, and uses grey instead of
-%   heat color palettes in these cases.  (Also fixes PR#6776.)
-% - Updated to reflect the addition of 'offset' argument in base
-% - Fix bug in stacked barplots, which would not be plotted properly
-%
-% Revision 1.7  2003/12/02 16:58:46  warnes
-%
-% - Remove '%' character from example code to avoid errors.
-%
-% Revision 1.6  2003/12/01 16:00:08  warnes
-%
-% - updated to match changes to barplot() in base.
-%
-% Revision 1.5  2003/11/18 18:59:08  warnes
-%
-% - Tiny fix to remove R CMD check error.
-%
-% Revision 1.4  2003/01/30 21:43:05  warnes
-%
-% - Added argument 'add' to allow for the addition of a barplot to an
-%   existing graphic. Default is FALSE
-%
-% Revision 1.2  2002/09/23 14:27:17  warnes
-%
-% - Fixed syntax errors in barplot2.Rd and CrossTable.Rd
-% - Fixed incorrect translation of 'F' (distribution) to 'FALSE' in glh.test.Rd
-%
-% Revision 1.1  2002/09/23 13:38:53  warnes
-%
-% - Added CrossTable() and barplot2() code and docs contributed by Marc Schwartz.
-% - Permit combinations() to be used when r>n provided repeat.allowed=TRUE
-% - Bumped up version number
-%
-%
-
 \name{barplot2}
 \alias{barplot2}
 \alias{barplot2.default}
@@ -216,7 +144,7 @@
   midpoints of each \emph{group} of bars, see example.
 }
 \author{Original barplot() by R-Core. Enhancements by Marc
-  Schwartz (email was marc\_schwartz@comcast.net, may no longer be active)
+  Schwartz.
 }
 \note{
   Prior to \R 1.6.0, \code{barplot} behaved as if \code{axis.lty = 1},

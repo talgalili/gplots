@@ -30,10 +30,8 @@
    this effects can be used as a basis for estimation of the
    experimental variance. This small effects will show up in the plot as
    a straight line, other effects can be judged against this as a
-   background. Heavily used by Box, Hunter \& Hunter, which attributes
+   background. Heavily used by Box, Hunter & Hunter, which attributes
    the idea to Daniel.
-
-   This is a simpler implementation than the one in S-Plus.
 }
 \value{
   If \code{label=TRUE}, the vector of points identified, else nothing of
