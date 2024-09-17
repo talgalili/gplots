@@ -18,7 +18,7 @@ venn(data, universe=NA, small=0.7, showSetLogicLabel=FALSE,
     of group intersections, or a data frame containing boolean indicators of
     group intersectionship (see below)}
   \item{universe}{Subset of valid name/index elements. Values  ignore values
-    in code{data} not in this list will be ignored. Use \code{NA} to
+    in \code{data} not in this list will be ignored. Use \code{NA} to
     use all elements of \code{data} (the default).}
   \item{small}{Character scaling of the smallest group counts}
   \item{showSetLogicLabel}{Logical flag indicating whether the internal
@@ -56,9 +56,8 @@ venn(data, universe=NA, small=0.7, showSetLogicLabel=FALSE,
   }
 }
 \author{
-  Steffen Moeller (email was steffen\_moeller@gmx.de, may no longer be active),
-  with cleanup and packaging by Gregory R. Warnes
-  \email{greg@warnes.net}.}
+  Steffen Moeller, with cleanup and packaging by Gregory R. Warnes.
+}
 \examples{
 
 ##

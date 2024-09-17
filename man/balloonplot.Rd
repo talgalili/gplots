@@ -119,9 +119,12 @@ balloonplot(x, ...)
   Alonso-Allende \email{allende@cnb.uam.es}.}
 
 \author{ Gregory R. Warnes \email{greg@warnes.net} }
+\seealso{
+  \code{\link{plot.table}}.
 
-\seealso{ \code{\link{plot.table}} }
-
+  \code{\link{bubbleplot}} provides an alternative interface and visual
+  style based on scatterplots instead of tables.
+}
 \examples{
 \testonly{
 set.seed(12425421)
