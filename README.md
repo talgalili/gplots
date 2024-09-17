@@ -1,9 +1,6 @@
-
-[![Build Status](https://travis-ci.org/talgalili/gplots.png?branch=master)](https://travis-ci.org/talgalili/gplots)
-[![codecov.io](https://codecov.io/github/talgalili/gplots/coverage.svg?branch=master)](https://codecov.io/github/talgalili/gplots?branch=master)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/gplots)](https://cran.r-project.org/package=gplots)
-![](https://cranlogs.r-pkg.org/badges/gplots?color=yellow)
-![](https://cranlogs.r-pkg.org/badges/grand-total/gplots?color=yellowgreen)
+[![CRAN Monthly](https://cranlogs.r-pkg.org/badges/gplots)](https://cranlogs.r-pkg.org/badges/gplots?color=yellow)
+[![CRAN Total](https://cranlogs.r-pkg.org/badges/grand-total/gplots)](https://cranlogs.r-pkg.org/badges/grand-total/gplots?color=yellowgreen)
 
 # gplots
 
