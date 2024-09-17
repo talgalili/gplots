@@ -10,17 +10,8 @@ boxplot2  <- function( ..., top=FALSE, shrink=1.0, textcolor=NULL )
     boxcall$top  <- boxcall$shrink  <- boxcall$textcolor  <- NULL
     boxcall[[1]]  <- as.name("boxplot")
 
-    if(is.R())
-      {
-        box <- eval(boxcall, parent.frame())
-        mids <- 1:length(box$n)
-      }
-    else
-      {
-        mids <- eval(boxcall, parent.frame())
-        boxcall$plot <- FALSE
-        box <- eval(boxcall, parent.frame())
-      }
+    box <- eval(boxcall, parent.frame())
+    mids <- 1:length(box$n)
 
     if(top)
       {
@@ -35,19 +26,8 @@ boxplot2  <- function( ..., top=FALSE, shrink=1.0, textcolor=NULL )
     tcex <- par("cex")
     par(cex=shrink*tcex)
 
-    if(is.R())
-      text( x=mids, y=where, labels=paste("n=",box$n,sep=""), adj=adj,
-			      col=textcolor)
-    else
-      {
-        if( is.null(textcolor) )
-          textcolor <- 1
-        space <- ifelse(top, -1, 1) * par("1em")[2] / 2
-
-        text( x=mids, y=where + space, labels=paste("n=",box$n,sep=""), adj=adj[1],
-             col=textcolor)
-
-      }
+    text(x=mids, y=where, labels=paste("n=",box$n,sep=""), adj=adj,
+         col=textcolor)
 
     par(cex=tcex)
 
