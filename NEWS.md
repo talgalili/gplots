@@ -11,7 +11,7 @@ New Features:
 Bug Fixes:
 
 - Improved heatmap.2() so the 'revC' argument correctly flips the RowSideColors
-  and row labels.
+  and row labels. Code contributed by Jarkko Toivonen.
 
 - Removed escaped LaTeX specials in Rd files (barplot2, colorpanel, qqnorm.aov,
   venn) that were raising R CMD check NOTEs.
