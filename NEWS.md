@@ -1,4 +1,4 @@
-Development - YYYY-MM-DD
+Release 3.2.0 - 2024-09-28
 --------------------------
 New Features:
 
