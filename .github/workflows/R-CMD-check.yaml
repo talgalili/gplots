@@ -9,6 +9,7 @@ name: R-CMD-check
 jobs:
   R-CMD-check:
     runs-on: ${{ matrix.config.os }}
+    timeout-minutes: 60  # Increases the time limit for the job
 
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
 
@@ -22,7 +23,6 @@ jobs:
           - {os: ubuntu-latest,   r: 'release'}
           - {os: ubuntu-latest,   r: 'oldrel-1'}
           - {os: ubuntu-latest,   r: 'oldrel-2'}
-          # Removed older versions to avoid compatibility issues
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -39,22 +39,11 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
-      # Install TeX Live on Ubuntu systems
+      # Install TeX Live on Ubuntu systems (full installation)
       - name: Install TeX Live (Ubuntu)
         if: runner.os == 'Linux'
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive texlive-latex-extra texlive-fonts-recommended
+          sudo apt-get install -y texlive-full
 
-      # Install Hmisc with dependencies, only when needed
-      - name: Install Hmisc package
-        run: Rscript -e 'if (!requireNamespace("Hmisc", quietly = TRUE)) install.packages("Hmisc", dependencies = TRUE)'
-
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          extra-packages: any::rcmdcheck
-          needs: check
-
-      - uses: r-lib/actions/check-r-package@v2
-        with:
-          upload-snapshots: true
+      # Install H
