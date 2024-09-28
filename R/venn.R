@@ -33,7 +33,7 @@ getVennCounts.matrix <- function(l, universe=NA, verbose=F, ...)
 
 # l offers a list of arrays, their values are to
 # be tested for the size of their intersects.
-getVennCounts.list<-function(l, universe=NA, verbose=F, intersections=TRUE) {
+getVennCounts.list<-function(l, universe=NA, verbose=F, intersections=TRUE, ...) {
   if (verbose) cat("Interpreting data as list.\n")
   numSets<-length(l)
   result.table<-NULL
