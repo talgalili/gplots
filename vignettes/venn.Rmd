@@ -1,8 +1,18 @@
 ---
 title: "Venn Diagrams with `gplots`"
+date: "`r Sys.Date()`"
 author: "Steffen Möller"
-output: pdf_document
+output: 
+  html_vignette: 
+    toc: yes
+editor_options: 
+  chunk_output_type: console
 ---
+<!--
+%\VignetteEngine{knitr::rmarkdown}
+%\VignetteIndexEntry{A quick introduction to dendextend (start here)}
+-->
+
 
 Venn diagrams [Wikipedia](http://en.wikipedia.org/wiki/Venn_diagram) allow for a quick overview on the number of elements that multiple sets share. When those elements represent traits of real objects, like observations in biomedical sciences, marketing, etc., this may direct researchers to further investigations or decisions.
 
