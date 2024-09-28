@@ -1,0 +1,43 @@
+---
+title: "Venn Diagrams with `gplots`"
+author: "Steffen Möller"
+output: pdf_document
+---
+
+Venn diagrams [Wikipedia](http://en.wikipedia.org/wiki/Venn_diagram) allow for a quick overview on the number of elements that multiple sets share. When those elements represent traits of real objects, like observations in biomedical sciences, marketing, etc., this may direct researchers to further investigations or decisions.
+
+The `gplots` package provides Venn diagrams for up to five sets. The R code to produce the diagrams is straightforward. The plot function behaves the same, depending only on the number of overlapping circles to draw. Its input is a table that is produced by another function. The `venn()` function calls one after the other and is the only one to be seen by the user. The values shown are returned invisibly.
+
+The `venn()` function accepts either a list of sets as an argument, or it takes a binary matrix—one column per set—indicating for every element, one per row, the membership with every set.
+
+The common form with overlapping circles works with up to three sets, as seen here:
+
+```{r, fig=TRUE, echo=TRUE, message=FALSE}
+suppressMessages(library(gplots))
+venn( list(A=1:5,B=4:6,C=c(4,8:10)) )
+```
+
+
+The names of columns or the list elements are the set names. To squeeze extra circles in, those circles need to become ellipses. This works for four sets:
+
+```{r, fig=TRUE, echo=TRUE, message=FALSE}
+v.table <- venn( list(A=1:5,B=4:6,C=c(4,8:10),D=c(4:12)) )
+print(v.table)
+```
+
+
+And maybe even more impressively for five:
+
+```{r, fig=TRUE, echo=TRUE, message=FALSE}
+venn( list(A=1:5,B=4:6,C=c(4,8:10),D=c(4:12),E=c(2,4,6:9)) )
+```
+
+The man page of venn() lists options to change the appearance of the plots, e.g., the names of the sets may be omitted, and sizes changed. However, there is ample opportunity to extend the functionality of this package, such as:
+
+* More dimensions
+* Colors
+* Variation of size of circles with the number of members in the set
+* Density plot rather than numbers, identification of individual entries
+
+The prime personal interest is in the increase of dimensions. Please send patches for features you are most interested in.
+
