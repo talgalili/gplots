@@ -88,15 +88,11 @@ plotCI <- function (x,
      {
        if(is.null(ylim))
          ylim <- range(c(y, ui, li), na.rm=TRUE)
-       if(is.null(xlim) && !is.R() )
-         xlim <- range( x, na.rm=TRUE)
      }
    else if(err=="x")
      {
        if(is.null(xlim))
          xlim <- range(c(x, ui, li), na.rm=TRUE)
-       if(is.null(ylim) && !is.R() )
-         ylim <- range( x, na.rm=TRUE)
      }
 
   if(!add)

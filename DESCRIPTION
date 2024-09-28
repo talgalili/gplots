@@ -12,8 +12,8 @@ Description: Various R programming tools for plotting data, including:
   - enhanced regression diagnostic plots ('lmplot2', 'residplot'),
   - formula-enabled interface to 'stats::lowess' function ('lowess'),
   - displaying textual data in plots ('textplot', 'sinkplot'),
-  - plotting a matrix where each cell contains a dot whose size
-    reflects the relative magnitude of the elements ('balloonplot'),
+  - plotting dots whose size reflects the relative magnitude of the
+    elements ('balloonplot', 'bubbleplot'),
   - plotting "Venn" diagrams ('venn'),
   - displaying Open-Office style plots ('ooplot'),
   - plotting multiple data on same region, with separate axes
@@ -22,7 +22,8 @@ Description: Various R programming tools for plotting data, including:
   - spacing points in an x-y plot so they don't overlap ('space').
 Depends: R (>= 3.0)
 Imports: gtools, stats, caTools, KernSmooth, methods
-Suggests: grid, MASS, knitr, r2d2
+Suggests: grid, MASS, knitr, r2d2, nlme
+LazyData: yes
 VignetteBuilder: knitr
 Version: 3.1.3
 Date: 2022-04-24

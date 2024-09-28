@@ -1,6 +1,5 @@
 # $Id: qqnorm.aov.R 625 2005-06-09 14:20:30Z nj7w $
 
-if(is.R())
 qqnorm.aov <- function (y, full = FALSE, label = FALSE, omit = NULL,
                         xlab = paste(if(full) "" else "Half", " Normal plot"),
                         ylab = "Effects", ...)
