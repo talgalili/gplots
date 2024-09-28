@@ -10,7 +10,8 @@ editor_options:
 ---
 <!--
 %\VignetteEngine{knitr::rmarkdown}
-%\VignetteIndexEntry{A quick introduction to dendextend (start here)}
+%\VignetteIndexEntry{Venn Diagrams with `gplots`}
+%\VignetteEncoding{UTF-8}
 -->
 
 
