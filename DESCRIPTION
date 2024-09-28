@@ -43,6 +43,6 @@ Authors@R: c(
     person("Tal", "Galili", , "tal.galili@gmail.com", c("ctb", "cre"))
     )
 License: GPL-2
-URL: https://github.com/talgalili/gplots
+URL: https://github.com/talgalili/gplots, https://talgalili.github.io/gplots/
 BugReports: https://github.com/talgalili/gplots/issues
 NeedsCompilation: no

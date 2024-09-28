@@ -4,6 +4,7 @@
 [![codecov.io](https://codecov.io/github/talgalili/gplots/coverage.svg?branch=master)](https://app.codecov.io/github/talgalili/gplots?branch=master)
 [![R-CMD-check](https://github.com/talgalili/gplots/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/talgalili/gplots/actions/workflows/R-CMD-check.yaml)
 
+**[gplots website](https://talgalili.github.io/gplots/) (built using [pkgdown](https://pkgdown.r-lib.org/))**
 
 # gplots
 
