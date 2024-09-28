@@ -39,6 +39,13 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
+      # Install TeX Live on Ubuntu systems
+      - name: Install TeX Live (Ubuntu)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive texlive-latex-extra texlive-fonts-recommended
+
       # Install Hmisc with dependencies, only when needed
       - name: Install Hmisc package
         run: Rscript -e 'if (!requireNamespace("Hmisc", quietly = TRUE)) install.packages("Hmisc", dependencies = TRUE)'
