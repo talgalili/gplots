@@ -10,7 +10,7 @@
 
 \maketitle
 
-Venn diagrams\footnote{http://en.wikipedia.org/wiki/Venn\_diagram} 
+Venn diagrams\footnote{https://en.wikipedia.org/wiki/Venn\_diagram} 
 allow for a quick overview on the number of elements that multiple
 sets share. And when those elements are representing traits of
 real objects, like observations in biomedical sciences/marketing/...,
