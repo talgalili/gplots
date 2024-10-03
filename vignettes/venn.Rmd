@@ -15,7 +15,7 @@ editor_options:
 -->
 
 
-Venn diagrams [Wikipedia](http://en.wikipedia.org/wiki/Venn_diagram) allow for a quick overview on the number of elements that multiple sets share. When those elements represent traits of real objects, like observations in biomedical sciences, marketing, etc., this may direct researchers to further investigations or decisions.
+Venn diagrams [Wikipedia](https://en.wikipedia.org/wiki/Venn_diagram) allow for a quick overview on the number of elements that multiple sets share. When those elements represent traits of real objects, like observations in biomedical sciences, marketing, etc., this may direct researchers to further investigations or decisions.
 
 The `gplots` package provides Venn diagrams for up to five sets. The R code to produce the diagrams is straightforward. The plot function behaves the same, depending only on the number of overlapping circles to draw. Its input is a table that is produced by another function. The `venn()` function calls one after the other and is the only one to be seen by the user. The values shown are returned invisibly.
 

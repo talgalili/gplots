@@ -1,3 +1,9 @@
+Development - YYYY-MM-DD
+--------------------------
+New Features:
+
+* New function adjust_hsv() to adjust colors in HSV space.
+
 Release 3.2.0 - 2024-09-28
 --------------------------
 New Features:
