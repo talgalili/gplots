@@ -1,9 +1,9 @@
-adjust.hsv <- function(col, h=NULL, s=NULL, v=NULL, alpha=NULL)
+adjust_hsv <- function(col, h=NULL, s=NULL, v=NULL, alpha=NULL)
 {
   # Recursion if vector of colors is passed
   if(length(col) > 1)
   {
-    unname(sapply(col, adjust.hsv, h=h, s=s, v=v, alpha=alpha))
+    unname(sapply(col, adjust_hsv, h=h, s=s, v=v, alpha=alpha))
   }
   else
   {

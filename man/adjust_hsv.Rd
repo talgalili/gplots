@@ -1,9 +1,9 @@
-\name{adjust.hsv}
-\alias{adjust.hsv}
+\name{adjust_hsv}
+\alias{adjust_hsv}
 \title{Adjust Color in HSV Space}
 \description{Adjust color hue, saturation, and/or alpha value.}
 \usage{
-adjust.hsv(col, h=NULL, s=NULL, v=NULL, alpha=NULL)
+adjust_hsv(col, h=NULL, s=NULL, v=NULL, alpha=NULL)
 }
 \arguments{
   \item{col}{a color or vector of colors.}
@@ -26,9 +26,9 @@ adjust.hsv(col, h=NULL, s=NULL, v=NULL, alpha=NULL)
 }
 \examples{
 col <- "#123456"
-col2 <- adjust.hsv(col, h=0.1)
-col3 <- adjust.hsv(col, s=0.1)
-col4 <- adjust.hsv(col, v=0.7)
+col2 <- adjust_hsv(col, h=0.1)
+col3 <- adjust_hsv(col, s=0.1)
+col4 <- adjust_hsv(col, v=0.7)
 
 barplot(rep(1, 4), col=c(col, col2, col3, col4))
 }
