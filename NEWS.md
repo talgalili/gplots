@@ -2,9 +2,10 @@ Development - YYYY-MM-DD
 --------------------------
 New Features:
 
-* New function adjust_hsv() to adjust colors in HSV space.
+Bug Fixes:
 
-Release 3.2.0 - 2024-09-28
+
+Release 3.2.0 - 2024-10-05
 --------------------------
 New Features:
 
@@ -13,6 +14,8 @@ New Features:
 
 * New example dataset catch.d containing catch at age for the 2015 Icelandic
   saithe fish stock assessment, and catch.r containing model residuals.
+
+* New function adjust_hsv() to adjust colors in HSV space.
 
 Bug Fixes:
 
