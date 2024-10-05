@@ -40,7 +40,7 @@ Authors@R: c(
     person("Steffen", "Moeller", role = "aut"),
     person("Marc", "Schwartz", role = "aut"),
     person("Bill", "Venables", role = "aut"),
-    person("Tal", "Galili", , "tal.galili@gmail.com", c("ctb", "cre"))
+    person("Tal", "Galili", , "tal.galili@gmail.com", c("aut", "cre"))
     )
 License: GPL-2
 URL: https://github.com/talgalili/gplots, https://talgalili.github.io/gplots/

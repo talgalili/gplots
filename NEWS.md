@@ -1,13 +1,13 @@
 Development - YYYY-MM-DD
---------------------------
-New Features:
+==========================
+## New Features:
 
-Bug Fixes:
+## Bug Fixes:
 
 
-Release 3.2.0 - 2024-10-05
---------------------------
-New Features:
+gplots 3.2.0 - 2024-10-05
+==========================
+## New Features:
 
 * New function bubbleplot() draws a scatterplot with varying symbol sizes and
   colors. Provides an alternative to balloonplot().
@@ -17,7 +17,7 @@ New Features:
 
 * New function adjust_hsv() to adjust colors in HSV space.
 
-Bug Fixes:
+## Bug Fixes:
 
 - Improved heatmap.2() so the 'revC' argument correctly flips the RowSideColors
   and row labels. Code contributed by Jarkko Toivonen.
@@ -27,9 +27,9 @@ Bug Fixes:
 
 - Removed invalid URLs from README.md identified by R CMD check --as-cran.
 
-Release 3.1.3 - 2022-04-24
---------------------------
-Bug Fixes:
+gplots 3.1.3 - 2022-04-24
+==========================
+## Bug Fixes:
 - Fix warning:
 
 checking Rd files ... [1s/2s] WARNING
@@ -47,46 +47,46 @@ Found if() conditions comparing class() to string:
 File 'gplots/R/heatmap.2.R': if (class(col) == "function") ...
 Use inherits() (or maybe is()) instead.
 
-Release 3.1.2 - 2021-01-09
---------------------------
-Bug Fixes:
+gplots 3.1.2 - 2021-01-09
+==========================
+## Bug Fixes:
 - heatmap.2: Also use key.title in cases without density #4
 
 
 
 
-Release 3.1.1 - 2020-11-28
---------------------------
-Bug Fixes:
+gplots 3.1.1 - 2020-11-28
+==========================
+## Bug Fixes:
 - Fix "Error in plot.window(...) : need finite 'ylim' values" in "Running examples in 'gplots-Ex.R' failed"
 
 
 
 
-Release 3.1.0 - 2020-09-18
---------------------------
-Major change:
+gplots 3.1.0 - 2020-09-18
+==========================
+## Major change:
 - Removed gdata from imports by bringing into the package the functions nobs and reorder.factor.
   - Removed the gdata package from "imports" since it is currently broken and is scheduled to archive in 2020-09-25 (leading to gplots to be archived as well, unless this is resolved). By removing this connection, gplots will be able to remain safely on CRAN. In prectice, I've moved reorder.factor and nobs into this package, as well as removed the use of 'nobs' from some examples.
   - Added the reorder.factor and nobs function (from gdata)
 
 
-Release 3.0.4 - 2020-07-05
---------------------------
-Bug Fixes:
+gplots 3.0.4 - 2020-07-05
+==========================
+## Bug Fixes:
 - Fix "no visible global function definition for '%||%'": The package imports .memberDend and .midDend from stats in an unsafe way (i.e. using :::). I've moved to manually copy-pasting the functions into the package in order to keep it a bit safer. It has the downside of not using whartever improvements/bugfixes are intrudced to these functions moving forward. But for the time being, it's a reasonable solution.
 
-Release 3.0.3 - 2020-02-26
---------------------------
+gplots 3.0.3 - 2020-02-26
+==========================
 
-Misc
+## Misc
 - Tal Galili took over to make sure the package stays on CRAN.
 - Moved to knitr
 
-Release 3.0.1 - 2016-03-30
---------------------------
+gplots 3.0.1 - 2016-03-30
+==========================
 
-Bug Fixes:
+## Bug Fixes:
 
 - An error in plotLowess() prevented it from finding objects in
 	the caller's environment.
@@ -96,10 +96,10 @@ Bug Fixes:
   not a named numeric vector.
 
 
-Release 3.0.0 - 2016-03-28
----------------------------
+gplots 3.0.0 - 2016-03-28
+==========================-
 
-New Features:
+## New Features:
 
 - venn():
     - now support matrices of indicator values. Previously indicator
@@ -128,7 +128,7 @@ New Features:
       that generates a scatterplot of the raw data with a lowess
       curve superimposed.
 
-Bug Fixes:
+## Bug Fixes:
 
 - Defunct message for boxplot.n() was recommending the wrong
   function.
@@ -147,17 +147,17 @@ Bug Fixes:
 - venn():
   - Fix warning message that was missing spaces between words.
 
-Other Changes:
+## Other Changes:
 
 - The smartlegend(), plot.lm2(), and boxplot.n() functions are now
   defunct. Please use grephics::legend(), lmplot2() or boxplot2()
   respectively.
 
 
-Release 2.17.0 - 2015-05-01
----------------------------
+gplots 2.17.0 - 2015-05-01
+==========================-
 
-New Features:
+## New Features:
 
 - heatmap.2() has two new arguments, 'colRow' and 'colCol' to control
   the color of row and column text labels. See the man page for
@@ -173,7 +173,7 @@ New Features:
   the attribute 'intersections'.  This can be disabled using the
   argument 'intersection=FALSE' (Patch by Steffen Möller.)
 
-Bug Fixes:
+## Bug Fixes:
 
 - In heatmap.2(), the color key now properly handles color breaks that
   are not equally spaced. (Issue reported by Tim Richter-Heitmann.)
@@ -189,7 +189,7 @@ Bug Fixes:
 - In the balloonplot() examples, explicitly specify the 'neworder'
   argument to gplots:::reorder.factor to prevent errors.
 
-Other Changes:
+## Other Changes:
 
 - smartlegend() is now deprecated because the relative positioning
   feature ('top', 'right') has been added to graphics::legend().
@@ -200,30 +200,30 @@ Other Changes:
 
 - Update out-of-date URLs in man pages.
 
-Release 2.16.0 - 2015-01-02
----------------------------
+gplots 2.16.0 - 2015-01-02
+==========================-
 
-New Features:
+## New Features:
 
 - plotmeans() has a new argument, 'text.n.label' which specifies the
   text used for labeling the number of elements in a group.
 
-Bug Fixes:
+## Bug Fixes:
 
 - plotmeans() now respects (optional) graphical arguments captured in
   '...' when drawing the x axis.
 
 
-Release 2.15.0 - 2014-12-01
----------------------------
+gplots 2.15.0 - 2014-12-01
+==========================-
 
-New features:
+## New Features:
 
 - Convert bandplot() to S3-method dispatch and add method for class
   formula, so that 'bandplot( y ~ x, data=dataframe )' now works as
   expected.
 
-Other changes:
+## Other Changes:
 
 - heatmap.2() now uses a local *non-byte-compiled* copy of
   plot.dengrogram, because the byte-compiled stats:::plot.dendrogram
@@ -235,10 +235,10 @@ Other changes:
   the user increase the recursion limit (via,
   e.g. 'options("expressions"=20000)' ) and rerun.
 
-Release 2.14.2 - 2014-09-17
----------------------------
+gplots 2.14.2 - 2014-09-17
+==========================-
 
-Bug Fixes:
+## Bug Fixes:
 
 - heatmap.2() was not respecting key.title=NA when density.info="none".
 
@@ -255,24 +255,24 @@ Bug Fixes:
   a message is generated indicating how to increase the relevant
   recursion limit via options("expressions"=...).
 
-Release 2.14.1 - 2014-06-30
----------------------------
+gplots 2.14.1 - 2014-06-30
+==========================-
 
-Bug Fixes:
+## Bug Fixes:
 
 - Correct heatmap.2() bug in Colv dendrogram object dimension checking introduced
   in 2.14.0.  (Reported by Yong Fuga Li.)
 
 
-Release 2.14.0 - 2014-06-18
----------------------------
+gplots 2.14.0 - 2014-06-18
+==========================-
 
-Bug Fixes:
+## Bug Fixes:
 
 - heatmap.2(): Fix typo in heatmap.2() that caused an error when
   'Rowv=FALSE'. (Reported by Yuanhua Liu.)
 
-Enhancements:
+## Enhancements:
 
 - heatmap.2(): Add new 'reorderfun' argument to allow the user to
   specify an alternative function to reorder rows/columns based on
@@ -288,15 +288,15 @@ Enhancements:
   emprical confidence regions.
 
 
-Release 2.13.0 - 2014-04-04
----------------------------
+gplots 2.13.0 - 2014-04-04
+==========================-
 
-Bug Fixes:
+## Bug Fixes:
 
 - heatmap.2 was not properly handling row trace reference line ('hline').
   Patch submitted by Ilia Kats.
 
-Enhancements:
+## Enhancements:
 
 - In heatmap.2, when the row or column trace is enabled, show the
   corresponding reference line in the color key.
@@ -306,10 +306,10 @@ Enhancements:
   This allows the user to add additional plots to the page.
 
 
-Release 2.12.1 - 2013-10-14
----------------------------
+gplots 2.12.1 - 2013-10-14
+==========================-
 
-API Changes:
+## API Changes:
 
 - boxplot.n() has been renamed to boxplot2() to avoid potential S3
   method calling issues.
@@ -317,20 +317,20 @@ API Changes:
 - plot.lm2() has been rename to lmplot2() to avoid potential S3 method
   calling issues.
 
-Enhancements:
+## Enhancements:
 
 - Add heatmap.2() parameters to control row and column label rotation
   ('srtRow', 'srtCol'), justification ('adjRow', 'adjCol'), and space
   from plot edge ('offsetRow', 'offsetCol').
 
-Bug Fixes:
+## Bug Fixes:
 
 - Fix error in in venn() when all groups contained the same number of TRUE cases.
 
 - Correct error in overplot() when that occured when a group-category contained no
   finite values.
 
-Other Changes:
+## Other Changes:
 
 - Changes to overplot() to avoid warnings from upcoming enhancements to R CMD check.
 
@@ -343,49 +343,49 @@ Other Changes:
   warning in R CMD check.
 
 
-Release 2.11.3 - 2013-06-27
----------------------------
+gplots 2.11.3 - 2013-06-27
+==========================-
 
-Enhancements:
+## Enhancements:
 
 - Modify sinkplot() to use a local environment rather than the global
   environment, to conform to CRAN policies.
 
-Bug Fixes:
+## Bug Fixes:
 
 - Fixed typo/spelling error in plotmeans() man page.
 
 
-Release 2.11.2 - 2013-03-24
----------------------------
+gplots 2.11.2 - 2013-03-24
+==========================-
 
-Enhancements:
+## Enhancements:
 
 - Add ci.width argument to barplot2() to allow varying the length of
   the 't' at the end of confidence interval bars.
 
-Bug Fixes:
+## Bug Fixes:
 
 - Fix error in heatmap.2 when colsep argument had length 1.
 
-Updates:
+## Updates:
 
 - Update manual page for lowess.default() to
   match changed argument list for lowess() in R 3.0.0
 
 
-Release 2.11.1 - 2012-12-14
----------------------------
+gplots 2.11.1 - 2012-12-14
+==========================-
 
-Bug Fixes:
+## Bug Fixes:
 
 - Replace corrupted BalloonPlot.pdf in inst/doc.
 
 
-Release 2.11.0 - 2012-06-08
----------------------------
+gplots 2.11.0 - 2012-06-08
+==========================-
 
-New Features:
+## New Features:
 
 - Objects returned by hist2d() have been changed:
   1) $x and $y now contain the n midpoints of the bins in each direction
@@ -394,7 +394,7 @@ New Features:
 
 - Add lwd argument to plotmeans().
 
-Bug Fixes:
+## Bug Fixes:
 
 - Correct error in handling binning in hist2d(): (N+1)x(N+1) bins were
    being created instead of NxN bins, and the highest row/column in
@@ -403,18 +403,18 @@ Bug Fixes:
 - Changes to fix R CMD check warnings
 
 
-Release 2.10.1 - 2011-09-02
----------------------------
+gplots 2.10.1 - 2011-09-02
+==========================-
 
-New features:
+## New Features:
 
 - Make results of hist2d() and ci2d() into objects, and add print()
   methods to display them.
 
-Release 2.10.0 - 2011-08-26
----------------------------
+gplots 2.10.0 - 2011-08-26
+==========================-
 
-New Features:
+## New Features:
 
 - New ci2d() function to create 2-dimensional empirical confidence
   intervals utilizing KernSmooth:bkde2D and gplots::hist2d().
@@ -422,22 +422,22 @@ New Features:
 
 - Add 'alpha' argument to rich.colors() to control transparency.
 
-Improvements:
+## Improvements:
 
 - Accellerate hist2d by replacing for() loop with tapply(), and allow
   user to specify summary function applied (per suggestion by Peter
   Hagedorn).
 
-Bug Fixes:
+## Bug Fixes:
 
 - Correct error in heatmap.2() that arises when data includes NA values
   (identified by Melissa Key).
 
 
-Release 2.8.0 - 2010-06-10
---------------------------
+gplots 2.8.0 - 2010-06-10
+==========================
 
-Improvements:
+## Improvements:
 
 - venn() now returns an object of class venn() and a plot method for
   this class is provided.
@@ -446,43 +446,43 @@ Improvements:
   Steffen Moeller
 
 
-Release 2.7.5 - ??
---------------------------
+gplots 2.7.5 - ??
+==========================
 
-Improvements:
+## Improvements:
 
 - Performance of 'hist2d' improved thanks to a suggestion from
   Joerg van den Hoff.
 
-Release 2.7.4 - 2009-11-12
---------------------------
+gplots 2.7.4 - 2009-11-12
+==========================
 
-Bug Fixes:
+## Bug Fixes:
 
 - Correct bug reported by Alan Yong:  plotmeans() failed when bars=FALSE.
 
-Release 2.7.3 - 2009-10-22
---------------------------
+gplots 2.7.3 - 2009-10-22
+==========================
 
-Bug Fixes:
+## Bug Fixes:
 
 - Correct bug reported by Rudolf Talens: heatmap.2() incorrectly
   transposed the displayed matrix when the option symm=TRUE.
 
 
-Release 2.7.2 - 2009-05-08
---------------------------
+gplots 2.7.2 - 2009-05-08
+==========================
 
-Bug Fixes:
+## Bug Fixes:
 
 - Correct bug reported by Ken Lo:  cox2hex() had blue and green
   components swapped.
 
 
-Release 2.7.1 - 2009-05-08
---------------------------
+gplots 2.7.1 - 2009-05-08
+==========================
 
-New Features:
+## New Features:
 
 
 - Enhancements to heatmap.2()
@@ -524,7 +524,7 @@ New Features:
   ('absolute').
 
 
-Bug Fixes:
+## Bug Fixes:
 
 - balloonplot() now properly handles dimension labels provided by
   'xlab' and 'ylab'
@@ -537,15 +537,15 @@ Bug Fixes:
 - Update Greg's email address to 'greg@random-technologies-llc.com'
 
 
-Release 2.6.0 - 2008-04-07
---------------------------
+gplots 2.6.0 - 2008-04-07
+==========================
 
-New Features:
+## New Features:
 
 - heatmap() now allows control of the location of individual plot components
    (e.g. color key)
 
-Bug Fixes:
+## Bug Fixes:
 
 - Fix bug in handling rowsep, per suggestion by Steven Paugh
 
@@ -557,10 +557,10 @@ Bug Fixes:
 
 - Various typo fixes
 
-Release 2.5.0 - 2007-11-02
---------------------------
+gplots 2.5.0 - 2007-11-02
+==========================
 
-New Features:
+## New Features:
 
 - textplot() now converts tab characters to spaces before processing to
   avoid problems with computing height and width of text that includes
@@ -568,7 +568,7 @@ New Features:
 
 - Add col2hex() function to convert color names to rgb hex codes
 
-Bug Fixes:
+## Bug Fixes:
 
 - Correct balloonplot.default to properly show specified x and y axis
   labels when explicitly provided
@@ -577,34 +577,34 @@ Bug Fixes:
 
 - Fix typos and code/doc mismatches identified by the latest R CMD check
 
-Other:
+## Other:
 
 - Clarify GPL version
 
-Release 2.4.0 - 2007-02-08
---------------------------
+gplots 2.4.0 - 2007-02-08
+==========================
 
-New Features:
+## New Features:
 
 - Add parameters to bandplot() to control line width and type.
 
 - Add paramaeters to textplot.matrix() to allow specification of the
    color of the matrix data, rows, and column
 
-Bug Fixes:
+## Bug Fixes:
 
 
-Other:
+## Other:
 
 
-Release 2.3.2 - 2006-11-14
---------------------------
+gplots 2.3.2 - 2006-11-14
+==========================
 
 - heatmap.2.Rd: Fix example that was broken by changes in 2.3.0.
 
 
-Release 2.3.1
--------------
+gplots 2.3.1
+==========================
 
 - Changed maintainer back to Greg Warnes
 
@@ -614,8 +614,8 @@ Release 2.3.1
   were specified as dendrograms
 
 
-Release 2.3.0
--------------
+gplots 2.3.0
+==========================
 
  - heatmap.2.R, heatmap.2.Rd:
 
@@ -626,8 +626,8 @@ Release 2.3.0
 
 
 
-Release 2.2.0
--------------
+gplots 2.2.0
+==========================
 
  - plotmeans.R: Fixed bug in plotmeans - based on Stefano Calza's
 	        suggestion (the function didn't account for factors
@@ -652,8 +652,8 @@ Release 2.2.0
 		 if no 'middle' color is desired.
 
 
-Release 2.0.8
--------------
+gplots 2.0.8
+==========================
 
  - Added DESCRIPTION and removed DESCRIPTION.in
 
