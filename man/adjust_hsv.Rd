@@ -21,6 +21,8 @@ adjust_hsv(col, h=NULL, s=NULL, v=NULL, alpha=NULL)
 \value{Adjusted colors in hexadecimal string format.}
 \author{Arni Magnusson.}
 \seealso{
+  \code{\link[grDevices]{adjustcolor}} adjusts colors in RGB space.
+
   \code{\link{col2rgb}}, \code{\link{rgb2hsv}}, and \code{\link{hsv}} are the
   underlying functions used to convert and adjust the colors.
 }
@@ -30,5 +32,6 @@ col2 <- adjust_hsv(col, h=0.1)
 col3 <- adjust_hsv(col, s=0.1)
 col4 <- adjust_hsv(col, v=0.7)
 
-barplot(rep(1, 4), col=c(col, col2, col3, col4))
+barplot(rep(1, 4), col=c(col, col2, col3, col4),
+        names=c("original", "h", "s", "v"))
 }
