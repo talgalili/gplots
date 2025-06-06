@@ -1,7 +1,7 @@
 \name{adjust_hsv}
 \alias{adjust_hsv}
 \title{Adjust Color in HSV Space}
-\description{Adjust color hue, saturation, and/or alpha value.}
+\description{Adjust hue, saturation, value, and/or opacity.}
 \usage{
 adjust_hsv(col, h=NULL, s=NULL, v=NULL, alpha=NULL)
 }
@@ -10,13 +10,13 @@ adjust_hsv(col, h=NULL, s=NULL, v=NULL, alpha=NULL)
   \item{h}{the desired hue.}
   \item{s}{the desired saturation.}
   \item{v}{the desired value.}
-  \item{alpha}{the desired transparency.}
+  \item{alpha}{the desired opacity.}
 }
 \details{
   Colors can be specified as a color name, a hexadecimal string, or an integer.
 
-  Hue, saturation, value, and transparency are specified as values from 0 to 1,
-  or \code{NULL} to leave unchanged.
+  Hue, saturation, value, and opacity are specified as values from 0 to 1, or
+  \code{NULL} to leave unchanged.
 }
 \value{Adjusted colors in hexadecimal string format.}
 \author{Arni Magnusson.}
