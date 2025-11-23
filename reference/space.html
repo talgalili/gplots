@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.3.0</span>
       </span>
     </div>
 
@@ -54,7 +54,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Space points in an x-y plot so they don't overlap.</h1>
-
+    <small class="dont-index">Source: <a href="https://github.com/talgalili/gplots/blob/master/R/space.R" class="external-link"><code>R/space.R</code></a></small>
     <div class="hidden name"><code>space.Rd</code></div>
     </div>
 
@@ -63,68 +63,74 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">space</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, s<span class="op">=</span><span class="fl">1</span><span class="op">/</span><span class="fl">50</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span>, direction<span class="op">=</span><span class="st">"x"</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">space</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, s <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">50</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span>, direction <span class="op">=</span> <span class="st">"x"</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <p></p>
+
+
 <dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
 <dd><p>numeric vector of x coordonates.</p></dd>
 
-  <dt id="arg-y">y<a class="anchor" aria-label="anchor" href="#arg-y"></a></dt>
+
+<dt id="arg-y">y<a class="anchor" aria-label="anchor" href="#arg-y"></a></dt>
 <dd><p>numeric vector of x coordonates.</p></dd>
 
-  <dt id="arg-s">s<a class="anchor" aria-label="anchor" href="#arg-s"></a></dt>
-<dd><p>either a single numeric value or 2 element vector specifying
-  the minimum distance between points in the x and y dimensions as a
-  fraction of the x and y range.  Defaults to 1/50.</p></dd>
 
-  <dt id="arg-na-rm">na.rm<a class="anchor" aria-label="anchor" href="#arg-na-rm"></a></dt>
-<dd><p>logical indicating whether pairs where one or both
-    elements are missing should be removed.  Defaults to TRUE.</p></dd>
+<dt id="arg-s">s<a class="anchor" aria-label="anchor" href="#arg-s"></a></dt>
+<dd><p>either a single numeric value or 2 element vector specifying the
+minimum distance between points in the x and y dimensions as a fraction of
+the x and y range.  Defaults to 1/50.</p></dd>
 
-  <dt id="arg-direction">direction<a class="anchor" aria-label="anchor" href="#arg-direction"></a></dt>
-<dd><p>"x" or "y", indicating which direction points should
-    be moved to accomplish spacine.</p></dd>
+
+<dt id="arg-na-rm">na.rm<a class="anchor" aria-label="anchor" href="#arg-na-rm"></a></dt>
+<dd><p>logical indicating whether pairs where one or both elements
+are missing should be removed.  Defaults to TRUE.</p></dd>
+
+
+<dt id="arg-direction">direction<a class="anchor" aria-label="anchor" href="#arg-direction"></a></dt>
+<dd><p>"x" or "y", indicating which direction points should be
+moved to accomplish spacine.</p></dd>
+
+</dl></div>
+    <div id="value">
+    <h2>Value</h2>
+    <p>list with two components</p>
+<dl><dt>x</dt>
+<dd><p>(modified) x location for each
+input point</p></dd>
+ <dt>y</dt>
+<dd><p>y location of each input point</p></dd>
 
 </dl></div>
     <div id="details">
     <h2>Details</h2>
     <p>In an x-y plot where at least one variable has discrete levels several
-  points may be plotted at or very near the same coordonates.
-  This makes it difficult to guage the number of points in a specific
-  region.  A common method of resolving this problem is to 'jitter' the
-  points by adding random noise.</p>
+points may be plotted at or very near the same coordonates.  This makes it
+difficult to guage the number of points in a specific region.  A common
+method of resolving this problem is to 'jitter' the points by adding random
+noise.</p>
 <p>This function takes a different approach to the same problem.</p>
-<p>When there are two or more points with the same (x,y) value (or
-  within x+-s[1] and x+-s[2]), it spaces these out in the x direction
-  so that the points are separated by at least distance s.</p>
+<p>When there are two or more points with the same (x,y) value (or within
+x+-s[1] and x+-s[2]), it spaces these out in the x direction so that the
+points are separated by at least distance s.</p>
 <p>Another method for dealing with overploting is available in the
-  <code><a href="https://rdrr.io/r/graphics/sunflowerplot.html" class="external-link">sunflowerplot</a></code> function.</p>
-    </div>
-    <div id="value">
-    <h2>Value</h2>
-    <p>list with two components</p>
-<dl><dt>x</dt>
-<dd><p>(modified) x location for each input point</p></dd>
-
-  <dt>y</dt>
-<dd><p>y location of each input point</p></dd>
-
-</dl></div>
-    <div id="author">
-    <h2>Author</h2>
-    <p>Gregory R. Warnes <a href="mailto:greg@warnes.net">greg@warnes.net</a></p>
+<code><a href="https://rdrr.io/r/graphics/sunflowerplot.html" class="external-link">sunflowerplot</a></code> function.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
     <div class="dont-index"><p><code><a href="https://rdrr.io/r/base/jitter.html" class="external-link">jitter</a></code>, <code><a href="https://rdrr.io/r/graphics/sunflowerplot.html" class="external-link">sunflowerplot</a></code></p></div>
     </div>
+    <div id="author">
+    <h2>Author</h2>
+    <p>Gregory R. Warnes <a href="mailto:greg@warnes.net">greg@warnes.net</a></p>
+    </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span>   <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">10</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span>   <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">10</span><span class="op">)</span></span></span>
 <span class="r-in"><span>   <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>,<span class="va">x</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>   <span class="va">prepar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"mfrow"</span><span class="op">)</span></span></span>
@@ -153,6 +159,7 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>   <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="va">prepar</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="space-2.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -167,7 +174,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
       </footer></div>

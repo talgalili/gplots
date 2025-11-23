@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.3.0</span>
       </span>
     </div>
 
@@ -54,7 +54,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Plot a Venn diagram</h1>
-
+    <small class="dont-index">Source: <a href="https://github.com/talgalili/gplots/blob/master/R/venn.R" class="external-link"><code>R/venn.R</code></a></small>
     <div class="hidden name"><code>venn.Rd</code></div>
     </div>
 
@@ -63,78 +63,89 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">venn</span><span class="op">(</span><span class="va">data</span>, universe<span class="op">=</span><span class="cn">NA</span>, small<span class="op">=</span><span class="fl">0.7</span>, showSetLogicLabel<span class="op">=</span><span class="cn">FALSE</span>,</span>
-<span>     simplify<span class="op">=</span><span class="cn">FALSE</span>, show.plot<span class="op">=</span><span class="cn">TRUE</span>, intersections<span class="op">=</span><span class="cn">TRUE</span>, <span class="va">names</span>,</span>
-<span>     <span class="va">...</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># S3 method for class 'venn'</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">...</span>, small<span class="op">=</span><span class="fl">0.7</span>, showSetLogicLabel<span class="op">=</span><span class="cn">FALSE</span>,</span>
-<span>     simplify<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">venn</span><span class="op">(</span></span>
+<span>  <span class="va">data</span>,</span>
+<span>  universe <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  small <span class="op">=</span> <span class="fl">0.7</span>,</span>
+<span>  showSetLogicLabel <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  simplify <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  show.plot <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  intersections <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  <span class="va">names</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <p></p>
-<dl><dt id="arg-data-x">data,x<a class="anchor" aria-label="anchor" href="#arg-data-x"></a></dt>
-<dd><p>Either a list list containing vectors of names or indices
-    of group intersections, or a data frame containing boolean indicators of
-    group intersectionship (see below)</p></dd>
 
-  <dt id="arg-universe">universe<a class="anchor" aria-label="anchor" href="#arg-universe"></a></dt>
-<dd><p>Subset of valid name/index elements. Values  ignore values
-    in <code>data</code> not in this list will be ignored. Use <code>NA</code> to
-    use all elements of <code>data</code> (the default).</p></dd>
 
-  <dt id="arg-small">small<a class="anchor" aria-label="anchor" href="#arg-small"></a></dt>
+<dl><dt id="arg-data-x">data, x<a class="anchor" aria-label="anchor" href="#arg-data-x"></a></dt>
+<dd><p>Either a list list containing vectors of names or indices of
+group intersections, or a data frame containing boolean indicators of group
+intersectionship (see below)</p></dd>
+
+
+<dt id="arg-universe">universe<a class="anchor" aria-label="anchor" href="#arg-universe"></a></dt>
+<dd><p>Subset of valid name/index elements. Values ignore values
+in <code>data</code> not in this list will be ignored. Use <code>NA</code> to use all
+elements of <code>data</code> (the default).</p></dd>
+
+
+<dt id="arg-small">small<a class="anchor" aria-label="anchor" href="#arg-small"></a></dt>
 <dd><p>Character scaling of the smallest group counts</p></dd>
 
-  <dt id="arg-showsetlogiclabel">showSetLogicLabel<a class="anchor" aria-label="anchor" href="#arg-showsetlogiclabel"></a></dt>
-<dd><p>Logical flag indicating whether the internal
-    group label should be displayed</p></dd>
 
-  <dt id="arg-simplify">simplify<a class="anchor" aria-label="anchor" href="#arg-simplify"></a></dt>
-<dd><p>Logical flag indicating whether unobserved groups
-    should be omitted.</p></dd>
+<dt id="arg-showsetlogiclabel">showSetLogicLabel<a class="anchor" aria-label="anchor" href="#arg-showsetlogiclabel"></a></dt>
+<dd><p>Logical flag indicating whether the internal group
+label should be displayed</p></dd>
 
-  <dt id="arg-show-plot">show.plot<a class="anchor" aria-label="anchor" href="#arg-show-plot"></a></dt>
+
+<dt id="arg-simplify">simplify<a class="anchor" aria-label="anchor" href="#arg-simplify"></a></dt>
+<dd><p>Logical flag indicating whether unobserved groups should be
+omitted.</p></dd>
+
+
+<dt id="arg-show-plot">show.plot<a class="anchor" aria-label="anchor" href="#arg-show-plot"></a></dt>
 <dd><p>Logical flag indicating whether the plot should be
-    displayed.  If false, simply returns the group count matrix.</p></dd>
+displayed.  If false, simply returns the group count matrix.</p></dd>
 
-  <dt id="arg-intersections">intersections<a class="anchor" aria-label="anchor" href="#arg-intersections"></a></dt>
-<dd><p>Logical flag indicating
-    if the returned object should have the attribute
-    "individuals.in.intersections" featuring for every set a list of
-    individuals that are assigned to it.</p></dd>
 
-  <dt id="arg-y">y<a class="anchor" aria-label="anchor" href="#arg-y"></a></dt>
-<dd><p>Ignored</p></dd>
+<dt id="arg-intersections">intersections<a class="anchor" aria-label="anchor" href="#arg-intersections"></a></dt>
+<dd><p>Logical flag indicating if the returned object should
+have the attribute "individuals.in.intersections" featuring for every set a
+list of individuals that are assigned to it.</p></dd>
 
-  <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Optional graphical parameters.</p></dd>
 
-  <dt id="arg-names">names<a class="anchor" aria-label="anchor" href="#arg-names"></a></dt>
+<dt id="arg-names">names<a class="anchor" aria-label="anchor" href="#arg-names"></a></dt>
 <dd><p>Optional vector of group names.</p></dd>
 
+
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
+<dd><p>Optional graphical parameters.</p></dd>
+
+
+<dt id="arg-y">y<a class="anchor" aria-label="anchor" href="#arg-y"></a></dt>
+<dd><p>Ignored</p></dd>
+
 </dl></div>
-    <div id="details">
-    <h2>Details</h2>
-    <p><code>data</code> should be either a named list of vectors containing
-  character string names ("GeneAABBB", "GeneBBBCY", .., "GeneXXZZ") or
-  indexes of group intersections (1, 2, .., N), or a data frame containing
-  indicator variables (TRUE, FALSE, TRUE, ..) for group intersectionship.
-  Group names will be taken from the component list element or column
-  names.</p>
-    </div>
     <div id="value">
     <h2>Value</h2>
-    <p>Invisibly returns an object of class "venn", containing:</p><ul><li><p>A matrix of all possible sets of groups, and the observed count
-      of items belonging to each The fist column contains observed
-      counts, subsequent columns contain 0-1 indicators of group
-      intersectionship.</p></li>
-<li><p>If <code>intersections=TRUE</code>, the attribute <code>intersections</code>
-      will be a list of vectors containing the names of the elements
-      belonging to each subset.</p></li>
+    <p>Invisibly returns an object of class "venn", containing:</p><ul><li><p>A matrix of all possible sets of groups, and the observed count of
+items belonging to each The fist column contains observed counts,
+subsequent columns contain 0-1 indicators of group intersectionship.</p></li>
+<li><p>If <code>intersections=TRUE</code>, the attribute <code>intersections</code> will be a
+list of vectors containing the names of the elements belonging to each
+subset.</p></li>
 </ul></div>
+    <div id="details">
+    <h2>Details</h2>
+    <p><code>data</code> should be either a named list of vectors containing character
+string names ("GeneAABBB", "GeneBBBCY", .., "GeneXXZZ") or indexes of group
+intersections (1, 2, .., N), or a data frame containing indicator variables
+(TRUE, FALSE, TRUE, ..) for group intersectionship.  Group names will be
+taken from the component list element or column names.</p>
+    </div>
     <div id="author">
     <h2>Author</h2>
     <p>Steffen Moeller, with cleanup and packaging by Gregory R. Warnes.</p>
@@ -143,6 +154,7 @@
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">##</span></span></span>
 <span class="r-in"><span><span class="co">## Example using a list of item names belonging to the</span></span></span>
 <span class="r-in"><span><span class="co">## specified group.</span></span></span>
@@ -160,349 +172,346 @@
 <span class="r-in"><span><span class="va">input</span>  <span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">GroupA</span>,<span class="va">GroupB</span>,<span class="va">GroupC</span>,<span class="va">GroupD</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">input</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "YMIII" "TGRSB" "EDQGT" "PJDAK" "JSWWK" "UYLOB" "YERZG" "RIOLM" "DLXKU"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "VTDFY" "RMAEP" "VBTNM" "SHIPQ" "VXQWD" "JQKSZ" "JJKNI" "QPMWC" "QQAJB"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "XTRKL" "EEGGG" "FSGGO" "UHDMH" "QGTDI" "AXDMY" "UCCWI" "FFNWH" "XNMLQ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "GZQZM" "JBXRU" "QBCLV" "EDSRI" "FSFWT" "VQLTJ" "HPMVK" "EXHLU" "IJJRE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "PEQCJ" "CTXQJ" "UEWSV" "ATLMY" "WKUPX" "CPFTV" "FQPYR" "RILGB" "DKHEL"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "JCIDI" "SBIEA" "MMQSM" "FHWLJ" "VYNOG" "YMCMZ" "RLPYL" "BLBGS" "QIVKH"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "IKKZA" "WNCBJ" "GTHER" "RXWMV" "OGBDE" "AHDRZ" "CMTPQ" "ADVQM" "LAPDM"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "ZFQSC" "ZFSGS" "NTSKM" "XEIML" "NLCGE" "NRKXT" "FRWGN" "EDVLI" "OHKPP"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "DEJXH" "CAEPI" "NUGIR" "CTQAH" "THFVD" "YGHYR" "NJTFO" "ELGUI" "VKNMJ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "QCQYM" "NJAAF" "MGYFU" "SSQMS" "ZLSYT" "XFRMN" "CQFRD" "OGJBW" "NOVTT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "VALVS" "VEUTP" "BPYQN" "DTUNJ" "MYOHQ" "YTLNJ" "IMKMQ" "ZZEFR" "LSGRC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "ILCPG" "XLRET" "TQGJB" "OPZDH" "XEUKR" "QLIDJ" "DEJHX" "SMXKI" "LPUDQ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "JTHVY" "IITIH" "VTTWS" "DZESC" "XRWLY" "EETXA" "TILQM" "DEVMB" "MILSE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [118] "JGOFD" "LKPNQ" "GNADE" "VLYNP" "AZZNR" "BQPMG" "GBZRN" "WSWRG" "ZZNBK"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [127] "MSOYN" "REHJC" "FLVAN" "BOEWQ" "REPUE" "ZYNUB" "CAFSA" "PNFVW" "YZEGX"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [136] "VFMUP" "OBEEH" "GVSWW" "QBATS" "FJIDR" "NQFKN" "XBHHA" "ZULKL" "SLTBK"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [145] "UGEQR" "XLAZZ" "HVVJY" "EXADT" "YXLER" "RGKIA" "RWCFT" "KJQIL" "TDKDI"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [154] "HUYMF" "NDLWN" "QUIYZ" "RWQRC" "VRCUY" "WVEAX" "LOXNJ" "KFQEN" "KWSVW"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [163] "SWCZP" "BLQZQ" "NDIUI" "GFJIZ" "PKSFY" "GJMOI" "HXKMK" "AHKEN" "VKIZK"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [172] "DWCPR" "SAJSX" "LDVDJ" "OYLFM" "TWLSW" "HWLNL" "PMRKN" "UUABD" "LGEZW"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [181] "WMDQQ" "TRVNP" "NDRUX" "XJMPD" "NNHTV" "CQIMT" "EBETB" "NSKHG" "TUFEN"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [190] "HBCKT" "CQCXI" "MSBLF" "AKDQI" "MTFZZ" "KLUNS" "ZUUYV" "FPCEU" "FTQQY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [199] "IIMDF" "PUFUS" "RUQLK" "GSSQG" "KIUTG" "SECSL" "NTEPI" "AVBXA" "ARPIW"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [208] "NFRZT" "ZLXCO" "AWAOB" "CFUVR" "SIMFZ" "FHNTU" "PRTPE" "ENYGM" "YBBNB"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [217] "XKVWP" "IIXXE" "VSVKU" "GCCNI" "DQAQJ" "CHHZV" "ZFZFA" "TIHWF" "FBVKW"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [226] "XGTPM" "LMZAH" "CAQVR" "LUYHW" "HFGFP" "DCKWJ" "UPMLR" "RGCQE" "QURGV"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [235] "OKSVU" "RFYGE" "BBMST" "NHOZP" "QDPNF" "NQCQW" "KPZES" "WYGZV" "TQZGP"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [244] "TKAEU" "XSCCN" "RGUOJ" "FSQSO" "NFSGU" "PIBAW" "VVNNS" "NQKHR" "CAWDQ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [253] "BUWLA" "MUYCQ" "TVYYJ" "YYBEN" "CYXUZ" "ZVMPS" "GLOQV" "TXMHX" "MELKZ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [262] "TVUKT" "ABUCB" "DVSVN" "YSRVC" "AQWMD" "ACHTF" "OEFPV" "YAVVE" "ASMJV"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [271] "TFSET" "JETOX" "FTIPT" "BOAWV" "XIOEJ" "GWWLE" "JBVGX" "BDLQC" "HWFUN"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [280] "QHANP" "LSJDC" "VBSCC" "ABEMT" "UGDLC" "XQCFD" "TPUBB" "AECDH" "TOFMJ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [289] "QZHIM" "UGTLY" "YZJRC" "MJIEP" "CDHIU" "RHCYI" "QQIXI" "NSRJR" "OKOFY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [298] "JMLIJ" "DIUCE" "SQZXR" "WBFWJ" "ZCEQT" "FQTJD" "PKMTY" "REGHA" "TSZEW"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [307] "CNIGR" "HWFMB" "IQLDM" "QGZJS" "RLCTQ" "CASZE" "EEKPP" "NDVLC" "BPQZG"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [316] "KAPCQ" "PESCC" "IKZUW" "ZGZGI" "VOJBR" "ZWTTH" "PSIUX" "RKQRB" "XUOUB"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [325] "JUOBX" "DUKGW" "WAICA" "XODZH" "KMQCB" "BUSUE" "KNMST" "FWEPE" "MTLXT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [334] "NTTIS" "LTWFM" "EFGQT" "CNWHB" "NXDPR" "DBENV" "NNQKY" "LIDPN" "CVRZH"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [343] "PHGRU" "YLKRA" "TCUQK" "JDTNH" "JPMVL" "RTOTK" "UURZW" "IDUGD" "TMRSS"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [352] "PCSXL" "XMLCQ" "VFDLE" "LKHAF" "CTTEQ" "BHZPH" "PEGKE" "EWTBX" "OINFR"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [361] "KYRJQ" "LBLJX" "SGPJB" "UPYMG" "YKRMH" "VEWNH" "DPURT" "QBOOQ" "SRVEG"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [370] "PHWGC" "PURYK" "UKZTO" "JFXKH" "BSOVT" "GHFFA" "VKYIE" "GGCEX" "XTDCZ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [379] "MRIGY" "XEFBQ" "TCCXT" "ELCJJ" "MKQSV" "BUMEC" "ULCKN" "LFYLT" "LZQQQ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [388] "OOFAL" "IRBGU" "LODJK" "JYTWP" "RBMMS" "GFYZG" "KWBFR" "XLHWL" "KJXHG"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [397] "IMGXL" "XDIPD" "RVXBP" "MGPFN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "TQQYP" "IUCET" "RYYNW" "ICDNI" "RKTFK" "PMLRX" "CCNIC" "EQCJN" "AIPHY"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "WGPAO" "HSRNI" "YTZBK" "JXHGO" "ILQMD" "KNFKX" "PAISA" "KYIEG" "FYPZR"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "LCJJH" "HHZVS" "LCTQZ" "UWVXW" "KSKPI" "WCZPA" "ODJKD" "QNCXF" "APCQX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "HWZBE" "FCZVU" "SKHGB" "LOEPS" "CCFPV" "SVYNB" "ETJYK" "SGGOT" "NMYAF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "VNNMW" "KIZKY" "ENUCP" "YZVRZ" "GMXHM" "NNKZX" "FDESB" "WPJJR" "NRNID"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "BIEAF" "BMMSO" "EKANT" "ZEMNF" "NWVWN" "BLJXK" "JYTMW" "AHZPA" "QEYDK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "NMSTG" "NPHZR" "KVWPB" "TTHIV" "USUYW" "KRMHD" "ILGBC" "CSXLR" "JVZSV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "LCKNR" "BSMWZ" "UYCQW" "TSPIM" "HKBAR" "QNBTQ" "GXDIU" "HLDVZ" "GTPMN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "QPFKS" "XKMKF" "SOVTZ" "IBAWN" "XWMVL" "TQAHO" "CHTFM" "ZRBQM" "CBJBE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "XCSGM" "EGHAH" "SLXCN" "WIGJB" "LUNSE" "FENAM" "SPOTI" "WKZJD" "TPUXN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "RVNPX" "NITQE" "ZQQQO" "AQVRM" "KSDXJ" "MHVYX" "GRSBV" "PQZGH" "TWSGE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "HGRUZ" "UHYRH" "NWHBA" "QWPEN" "ISPZJ" "ZQKFA" "RCUYV" "CZFYC" "KHELV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "HDRZK" "OVTTR" "PCEUT" "AIDFO" "UXDBW" "KSVUL" "ILPHN" "ZOJEY" "IUTGE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [118] "PSEFD" "HZPHS" "LKLSJ" "BVGXU" "CQYQI" "BJUZZ" "QOWTX" "IXXEP" "DKJPQ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [127] "GZGIV" "LSYTA" "FYLTV" "XLERO" "MIIIW" "BDNST" "SGRCN" "DTNHE" "WCPRL"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [136] "TZQNM" "KNADL" "YXUZP" "ZADXP" "CQYMB" "KAKNH" "MFNZQ" "MQSMN" "YVHDN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [145] "ZXBYE" "FZFAS" "SAUFC" "PMVKK" "GOFDF" "THERV" "JNKZL" "HTJYO" "RWLIH"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [154] "MJTEV" "GAGMG" "XDMYV" "KZTOS" "MZAHZ" "UIYZJ" "GAIES" "CSJFB" "IWCFG"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [163] "GLHUS" "IYANA" "KHAFJ" "LOQVJ" "BETBW" "DRJHE" "VZMUJ" "MGRWU" "EJXHM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [172] "IWMJI" "MLCQQ" "HNTUU" "FISSE" "TDFYL" "TTAVI" "SYEZR" "NDMBM" "NCBJK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [181] "LBGSS" "LOQZC" "QSSVJ" "FCDHD" "VRYAN" "EBUJV" "FHPTM" "LGUIY" "ALVSE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [190] "CCXTC" "IYDOE" "TIWOK" "GVPUZ" "OTTTW" "YFRAK" "WIDHR" "FGQTJ" "GNEQT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [199] "ADKDT" "GNDEE" "BZRNK" "WQRCG" "HWGCN" "MGPYC" "PZDHJ" "GYBKN" "UAVEJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [208] "RPIWG" "SOYNI" "XBYGF" "BMSTN" "IEKJY" "VZVYK" "FOLWN" "ILHDZ" "JOEZX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [217] "OLQMQ" "JDAKN" "OUJHS" "QUYGL" "UEHWC" "SIJKR" "IVKHR" "AZUGQ" "TTWSH"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [226] "UXQYA" "MOHXT" "FUVRO" "OXNJK" "BBBVX" "DUFFT" "FYZGE" "FNIBS" "HOZPO"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [235] "BWDDA" "BEEHY" "XDGXI" "WEMIN" "WFITH" "NMCPN" "VSAMY" "LQZQH" "HHJLG"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [244] "NKAYI" "GVUYK" "QCFDY" "HKPPK" "GCRRR" "WSVWS" "CZKSG" "GQQFE" "YTQEN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [253] "OEHGZ" "IFKLF" "WEPEX" "VXFMC" "GLMKO" "RTRSA" "FJZQT" "EGKEH" "UASGJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [262] "LYNPO" "GMZKD" "XLXRM" "BBNBC" "GZRCN" "FPNRL" "QHLHQ" "RTPEA" "HPXCR"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [271] "EVMBA" "FGFPB" "OEXBI" "SFWTL" "GMIPA" "MQCBT" "RRFYC" "YOHQG" "UFBPN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [280] "AVVEL" "RGVZT" "UGRTC" "YSXTQ" "ZNOYV" "JMPDN" "XGZGE" "FAFBM" "XVQYA"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [289] "PDFML" "ILSEN" "XNKTA" "RDPAV" "ZNBKB" "NEZMB" "VJGIB" "GTLYI" "PADUV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [298] "OAWVQ" "VZZOC" "IAQLW" "DVDJE" "BRWYJ" "XYCMR" "EWNHT" "ENSUZ" "YNUBI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [307] "WOKRV" "AWDBA" "QORJQ" "YKNLY" "LRETC" "MYYCR" "NADEK" "LFGJM" "VXBPO"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [316] "KKFPG" "CCWIG" "TTISX" "LWSKR" "SAVLM" "VFRNS" "WFMBA" "KKXUC" "OFMJQ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [325] "QDWLI" "FHEGS" "UOUBO" "NQTON" "ZYXYA" "JZMQX" "YTWPP" "NDWRW" "MADFN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [334] "KMTYV" "HASTU" "CALKN" "XUOMU" "CEQTX" "KIZLS" "QDOET" "DQGTZ" "OGVMA"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [343] "ZFPWV" "ZWJFW" "JQILW" "UQLKN" "GLPOF" "SBQZY" "ZHIML" "POFWT" "KXOQX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [352] "ORUBU" "EPHMH" "XQWDG" "QKHRC" "KLKLZ" "TIPTD" "YSSBA" "BDZXE" "PYQNK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [361] "EXENV" "NIYQE" "DDQNJ" "ZEGXZ" "OPBWK" "DFRZV" "VRYMQ" "IRFEM" "YGCYT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [370] "PARLJ" "RQEBT" "DOEGP" "SSQGW" "QRRAH" "BEMTM" "MITGL" "CMJLY" "YGAIF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [379] "YRJQS" "QIMTU" "JLGHJ" "VJXUX" "PHBRO" "LPXPC" "CKWJW" "EWSVE" "PURTU"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [388] "SJVKR" "SIWOB" "WAPAI" "KUQKV" "FXKHY" "QWRFG" "PCXFH" "PAXQV" "TOTKE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [397] "HJEAY" "VSXLX" "IIDXX" "WFUNF"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[2]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "FXVQY" "QBOOQ" "AORUB" "PPYOH" "JIFKL" "SUHYR" "VSVKU" "HIAQL" "UPYMG"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "OFCZV" "KYRJQ" "VOJBR" "CZQBG" "RVVZD" "VLFGJ" "XMVVN" "OIEYP" "TRJRB"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "PJDAK" "CAWDQ" "UGTLY" "XTDCZ" "GWGPA" "WFMVD" "EUCTP" "ZULKL" "MBZRN"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "EKUYW" "BNPBF" "QOHIZ" "QZHIM" "VBSCC" "LDVDJ" "QGNEQ" "JMLGP" "GJMOI"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "XCNMA" "UXDGX" "DWCPR" "OKKFP" "GLOQV" "PXEPS" "TNEZM" "WOUJH" "ABUCB"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "RSAVL" "EIEMM" "ASQJQ" "CYSVI" "AFHPT" "LGMZK" "EAHUB" "JJKNI" "IIMDF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "KFRHL" "OUAVE" "TXMHX" "MMQSM" "GVOQL" "NTTAV" "NZADX" "PKNFK" "TIHWF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "MSBLF" "JZQCZ" "LYYBV" "KLUNS" "OGJBW" "CVRZH" "YMIII" "KJHEO" "DZESC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "XZGEN" "QAGKJ" "ZBDZX" "NQCQW" "GFJIZ" "FEOJA" "CQCXI" "BRHKR" "PSZIE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "LZNOY" "PAYBP" "DJLHU" "DATCW" "IKKZA" "CVHIX" "FUGRT" "JJVZS" "UPSEF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "OBLUC" "GNADE" "GQOWT" "SZOUJ" "THFVD" "TVXFM" "FCQYQ" "VNWVW" "MSOYN"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "UOFIO" "ONATZ" "OCWEK" "RFYJH" "VXQWD" "CXUZH" "ZFZFA" "DRXHH" "YZCRQ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "ANXQH" "TOFMJ" "BXCSG" "HOGTN" "TILQM" "PJCDV" "FIWCF" "ECCFP" "SCPLR"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [118] "KRZUH" "LNNKZ" "XCCXU" "BPQZG" "XUOUB" "VXXYJ" "YYGCY" "AHJEA" "CILHD"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [127] "WJOEZ" "XEUKR" "MGYFU" "FPCEU" "GVSWW" "HMWMO" "ZBUCK" "KTPUX" "JJNZB"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [136] "MANBN" "SABYO" "SPAIS" "QCDQO" "RMAEP" "REPUE" "BZQPN" "EUMIW" "ZHWZB"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [145] "DVSVN" "YBYXE" "BADKD" "JRDPA" "NNITQ" "AWAOB" "JDTNH" "YXVYY" "HTDIJ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [154] "BUMEC" "WVEAX" "YSRVC" "GBZRN" "ZNPHZ" "MSIJK" "GGQQF" "VMYYC" "QCQYM"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [163] "RQLER" "QDPNF" "JMLIJ" "EANKE" "OKAUH" "JQKSZ" "EXADT" "NUGIR" "RGUOJ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [172] "PUFUS" "SOFSM" "REHJC" "EDQGT" "XTSPI" "BUSUE" "YJYTM" "NYTZB" "PULJB"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [181] "PQXCE" "EBETB" "DUCUP" "RWQRC" "WPODU" "CNWHB" "OEFPV" "ATLMY" "HZHRE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [190] "JSWWK" "OHSIB" "KWBFR" "ZLSYT" "NFRZT" "WTIWO" "VPHBR" "VKNMJ" "AKDQI"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [199] "HBRBU" "FFNWH" "WDKJP" "MWIDH" "PKMTY" "MJIEP" "XEFBQ" "RWCFT" "CENDF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [208] "IHTJY" "XPIMA" "TVUKT" "SGAGM" "MGPFN" "IIXXE" "VQGRC" "IMGSX" "NXDPR"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [217] "CTQAH" "LLOEP" "MANTZ" "OAOBG" "NVZMU" "YQMJC" "WGKSP" "JYGAI" "SSJDC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [226] "BJDFG" "NQLUG" "ACHTF" "YAVVE" "XODZH" "KGXCA" "FSQSO" "LRNQE" "WJCFD"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [235] "MKLKL" "QZQKF" "QGYBK" "AQRRA" "TCUQK" "XJMPD" "KFQEN" "VWKZJ" "UZBWI"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [244] "VBTNM" "JFXKH" "OOEXB" "KIUTG" "UGEQR" "BMNHB" "THMEW" "VQHER" "JOEHG"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [253] "CQFRD" "SRVEG" "KRPAE" "XLAZZ" "LOUTU" "MWPJJ" "SMWSN" "YMTXG" "JPMVL"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [262] "RYSSB" "DEJHX" "LIDPN" "NOGVM" "UJYGF" "EHOZF" "MDPSX" "ZTOBO" "BLQZQ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [271] "LKHAF" "CNIGR" "FSFWT" "XCXTQ" "LQODV" "HBCKT" "ANMYA" "QVOSJ" "TGRSB"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [280] "VXBYG" "ZKXTG" "YYBEN" "QHHJL" "LBLJX" "NMRUD" "QGVPU" "PNFVW" "MKUQK"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [289] "KGMIP" "PCCRX" "QYSXT" "EFNIB" "HIXMT" "TQZGP" "TDKDI" "QGTDI" "HPMVK"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [298] "XMLCQ" "QGZJS" "OQWRF" "QUIYZ" "TCCXT" "YMGRW" "VFMUP" "BEXON" "KQCNM"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [307] "PMJTE" "PEGKE" "XQCFD" "CHHZV" "HLWPY" "GAXSN" "MUPOH" "LKPNQ" "HSNVF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [316] "ECBUW" "YERZG" "JZWJF" "BAZUG" "ZUIHY" "XBHHA" "YMCMZ" "GCXHG" "SLPUT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [325] "TPUBB" "FTIPT" "JBVGX" "OPZDH" "NLCGE" "SECSL" "OINFR" "LFENA" "JJHYS"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [334] "AXYCM" "OQATO" "QBATS" "OUSUY" "ZTSKQ" "UXGHW" "XEIML" "EETXA" "NFSGU"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [343] "RFYGE" "CMTPQ" "PURYK" "AXDMY" "LUIBK" "NBFXV" "FBVKW" "FJIDR" "FQPYR"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [352] "SFJFI" "MIVAL" "PJYUF" "WAZFP" "NNUXG" "ITROK" "FLVAN" "NWOKR" "BLVKE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [361] "EEGGG" "LGEZW" "AHKEN" "NJTFO" "HISPZ" "YHLDV" "DBENV" "WYFRA" "YLIGE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [370] "RLPYL" "IJZMQ" "TUFEN" "SOZOK" "QLIDJ" "CCGTT" "GFYPZ" "HNXOK" "YZJRC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [379] "MTFZZ" "BUWLA" "RYSVI" "SNAKS" "OHSRN" "DCKWJ" "DQAQJ" "CVNNM" "DEJXH"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [388] "RJZID" "KGLHU" "XTWSG" "UCNJQ" "IROWO" "FQSSV" "KBSMW" "CFZHA" "MFGMD"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [397] "PRTPE" "VEWNH" "NSRJR" "VBDEY" "RHCYI" "FPARL" "CDHIU" "TSZEW" "AQWMD"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [406] "ZGZGI" "EDOEK" "OQNBT" "SKSDX" "OEDTK" "UFFAA" "IMKMQ" "NDLWN" "GSPOT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [415] "EAIPH" "UIRPS" "IJJRE" "YNNWY" "IMGXL" "LCVOU" "HTUQZ" "QMALB" "ABEMT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [424] "GUBHT" "SJIFG" "KUXDB" "MRTRS" "BUWVX" "VJNKZ" "GMEIS" "MUYCQ" "PCSXL"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [433] "FUVPX" "NGMXH" "RVJXU" "XLHWL" "TACJD" "FIIDX" "MLZPB" "LEXUS" "JHKBA"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [442] "LPUDQ" "KNDMB" "KZEMN" "AEBKV" "XNMLQ" "KPZES" "DKHEL" "JZPQG" "ZWTTH"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [451] "TEBUJ" "VLQGX" "SBIEA" "GWWLE" "PKSFY" "QQHLH" "IEICM" "KPKPJ" "WSWRG"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [460] "XCBJB" "CDCLI" "NOVTT" "ZVNSS" "YGHYR" "ZFSGS" "MYOHQ" "MVTRS" "IVJSO"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [469] "LAPDM" "LIQPH" "XRWLY" "GHFFA" "YQPFK" "IOILU" "NDUFF" "JIYDO" "VZQXC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [478] "IMMMW" "KIYIF" "ULCKN" "CGJJW" "RBWDD" "UIBXS" "KWSVW" "RBMMS" "KNMST"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [487] "CJJQS" "KUEEF" "VMWNN" "IXPVR" "SIWMJ" "KMQCB" "EOVJH" "BDLQC" "QANBM"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [496] "KIEEG" "EDSRI" "BXGZG" "GCCNI" "LZQQQ" "HUMNR" "GDURJ" "SMXHI" "FWEPE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [505] "AZGKM" "ZPSNG" "ASCTA" "CGVUY" "DMCLQ" "UUABD" "RUQLK" "HVVJY" "YXLER"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [514] "ARPIW" "QURGV" "AMQCT" "REGHA" "TDAXO" "CFOLW" "ICUDD" "QYVHD" "DEXEN"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [523] "CENUC" "JBXRU" "DNMCP" "EXHLU" "HUBNU" "LMADF" "HPQIZ" "OLWSK" "VLYNP"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [532] "JMHVY" "SQZXR" "OKOFY" "JGLPO" "PEQCJ" "ZZOJE" "EDVLI" "ZLXCO" "HGXHF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [541] "CWFIT" "ZDUNX" "FTQQY" "QVIER" "RHYGO" "DQBSD" "APIJB" "PSIUX" "BLBGS"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [550] "XIMOT" "IXWHA" "FVAJV" "NNOFC" "JNQTO" "ZFQSC" "FKAKN" "PPAJR" "XJFSQ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [559] "WMDQQ" "LDXKS" "GMKRS" "XTRKL" "VFDLE" "ANCSV" "GYTQE" "HWFMB" "FSGGO"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [568] "ALAAW" "CFAOO" "ILMMA" "QHANP" "WCWCY" "SMXKI" "BSOVT" "XBTRL" "CAFSA"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [577] "TUMDX" "ESLXC" "ASMJV" "BNRNI" "PHGRU" "ELCJJ" "LOXNJ" "VRCUY" "JKXOQ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [586] "KONHI" "UDDQN" "JFDES" "QSVYN" "VALVS" "DNWAO" "OSIWO" "LPADU" "AHDRZ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [595] "YVESI" "OYXBM" "MRIGY" "FCZKS" "YZEGX" "BQPMG" "IMBEO" "YCLDK" "DTUNJ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [604] "KQNCX" "XZYXY" "FGMSY" "CTXQJ" "KPDFM" "MKQSV" "XSCCN" "XGTPM" "BBMST"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [613] "TRVNP" "VQLTJ" "TMRSS" "FEHPV" "OBEEH" "FKKXU" "UYLOB" "NFIJG" "SIMFZ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [622] "JWCVN" "MXKFQ" "FRWGN" "OWIGJ" "RTAQC" "JTHVY" "PBJUZ" "AVAOC" "ZUEHW"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [631] "DPOFW" "NJAAF" "RVXBP" "MELKZ" "IITIH" "RSBES" "LTWFM" "ANDWR" "NTEPI"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [640] "KJXHG" "VKYIE" "TBRWY" "GJGPD" "URFHN" "PKVNI" "CAEPI" "OMYAP" "QPMWC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [649] "PIBAW" "ILCPG" "EDAJP" "QHZTH" "BMPAP" "WYGZV" "ZWAXW" "XGAIE" "XXEWB"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [658] "HKDQR" "PIEKJ" "VKIZK" "ZTZQN" "KZXDT" "YBBNB" "OGBDE" "FHNTU" "GVFRN"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [667] "BWBHM" "XHHGN" "PSENI" "SWCZP" "EZWMZ" "BPYQN" "NWAPA" "UUEZG" "SEPHM"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [676] "EZFPW" "ZCALK" "PSTDQ" "EVZVY" "TWLSW" "NOTTT" "DVYQK" "CASZE" "MHAST"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [685] "OOFAL" "XKVWP" "VTTWS" "TCZFY" "ZYNUB" "WFPZM" "AECDH" "IVSAF" "NDVLC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [694] "PESCC" "FBYWQ" "RIGEM" "NNPXR" "GMLSK" "NTTIS" "ZCEQT" "VTDFY" "NAAGM"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [703] "MTLXT" "PXWLG" "QNFRJ" "XFXPW" "GDOEG" "TZADP" "HTMMA" "RKVBZ" "KJQIL"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [712] "TWYWO" "TKPGE" "UTTHI" "ILKLS" "SHIPQ" "KMLIB" "VEUTP" "BBPBK" "NFLQC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [721] "JUOBX" "SSYEZ" "SLTBK" "FXUOM" "BKIAJ" "CYXUZ" "HFGFP" "HXLQP" "NQFKN"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [730] "YUFBP" "XCMJL" "MVAZY" "DIUCE" "DRRFY" "XVSXL" "OLPXP" "JYTWP" "GFYZG"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [739] "CPGNC" "LAGHX" "IQLDM" "NICDN" "NHMPB" "BOEOS" "VRZAV" "ZKMWK" "VYNOG"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [748] "RERWZ" "AHPXC" "JDLBE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "VZVYK" "JCFDH" "ORUBU" "SJVKR" "SQMSC" "VXBPO" "ZQHWO" "RRPZR" "XKFQE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "QKSZP" "AXSNX" "TEPIB" "SRJRU" "TDFYL" "QCFDY" "MKMQK" "BEMTM" "EFPVV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "UFUSQ" "CZFYC" "TZQNM" "NQKYE" "GEQRV" "MYAPX" "NGQVA" "ZNOYV" "RRFYC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "BETBW" "VYYJK" "YXUZP" "GVUYK" "CSJFB" "XMHXJ" "RBGUU" "KHAFJ" "FJIZQ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "OEHGZ" "PWNNG" "UWLAO" "HIPQU" "GLMKO" "VAZYS" "LCGER" "UMECI" "YBENF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "MXKIV" "SNYHX" "SCCNC" "AIPHY" "TIWOK" "QAQJB" "JNZBV" "IFKLF" "GMXHM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "GUOJD" "VSAFD" "JCDVM" "TDCZA" "JDAKN" "UVPXY" "XUZHM" "PZESG" "LGUIY"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "XCSGM" "XUOMU" "LDPPW" "ABYOL" "BXRUB" "IMOTO" "ESZJK" "DOEKM" "WTBXP"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "UIYZJ" "CZAKZ" "FCDHD" "JAAFP" "YLOBC" "KNMJH" "ILHDZ" "LXCOP" "MRKND"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "EKANT" "FQSCX" "VHIXZ" "EHVJA" "MCLQP" "KUYWU" "UXDBW" "JMPDN" "XVYYT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "GXDIU" "LHMSU" "YSUZL" "FSGUK" "LKLSJ" "QCQWC" "QGRCP" "YJCIT" "FYGES"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "CCNIC" "ELKZF" "CPLRW" "UPOHI" "UABDS" "UMNRN" "YSXTQ" "ANTZZ" "BBNBC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "KHELV" "HDTUK" "GCEXA" "BSCCD" "FOEHS" "KUPXA" "FXPWC" "LPUTF" "YKNLY"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [118] "LWSKR" "IQPHB" "UMDXF" "GHYRY" "BDZXE" "VSXLX" "GRSBV" "XWMVL" "CCXTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [127] "MIIIW" "DSRIS" "KZUWG" "WOKRV" "LQGXX" "ODZHF" "QODVB" "SMJVX" "MLIJZ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [136] "ICDNI" "QOWTX" "DUGDA" "GTDIS" "HASTU" "RTRSA" "HFFAR" "ZADPX" "QHERK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [145] "XADTF" "MGPYC" "DQGTZ" "DKJPQ" "LVKET" "ITIHO" "HTJYO" "FJZQT" "IUTGE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [154] "YSSBA" "LPYLB" "SBLFF" "GKIAM" "SOVTZ" "VIERG" "FNIBS" "ZNBKB" "VPBMM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [163] "MGXLR" "EQCJN" "QPMGZ" "HKBAR" "NMCPN" "GVPUZ" "PQIZC" "BVGXU" "ZEFRT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [172] "ANBNX" "VJSOE" "GKSPO" "JHEOS" "BTNMK" "LIDJB" "NCBJK" "GMSYR" "FFAAI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [181] "KDQIT" "NDWRW" "LYNPO" "SVYNB" "QGJBW" "PMWCG" "GZJSU" "CKWJW" "CHTFM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [190] "TUQZV" "SNSWR" "KOFYJ" "XKMKF" "EBUJV" "VEAXI" "WQRCG" "DCLIN" "CNJQD"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [199] "VZZOC" "ZEGXZ" "CMJLY" "YVHDN" "VAOCE" "IEYPG" "NMYAF" "VXFMC" "VOQLR"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [208] "HJEAY" "IEKJY" "VUQKR" "YGAIF" "MADFN" "SGRCN" "SJDCO" "WTTHO" "LMMAI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [217] "JHYSO" "XGHWM" "QATOH" "WIDHR" "AOBGI" "HANPK" "TFZZC" "UASGJ" "GMZKD"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [226] "KKXUC" "SOTIX" "VSAMY" "EDTKK" "DGRHQ" "WAXWQ" "QKHRC" "XDPRL" "KCBKC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [235] "QDOET" "AHZPA" "MJTEV" "ZGKMK" "VQLXH" "RKTFK" "YGCYT" "JJREO" "FGQTJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [244] "FYZGE" "RIGYP" "YRJQS" "RZUHW" "BUCKI" "ZQPNI" "OPBWK" "IMDFW" "ZADXP"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [253] "CDQOJ" "IGEMG" "AHUBX" "CXHGQ" "OGVMA" "QWMDP" "TWSGE" "PBHML" "DVQMK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [262] "LAZZN" "TIPTD" "AFSAD" "IYIFU" "DKDID" "KXOQX" "BRWYJ" "ODJKD" "EHPVD"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [271] "JDFGQ" "QSSVJ" "HMEWR" "HZTHW" "MYYCR" "OEXBI" "BPBKP" "CZKSG" "QNBTQ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [280] "NPHZR" "TPUXN" "TSKQZ" "GZGIV" "VRYAN" "WAOBN" "SZEWL" "DPNFE" "OFAOB"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [289] "HMPBA" "XDGXI" "KUQKV" "PAISA" "APCQX" "ZHIML" "ENSUZ" "VSWWY" "GOFDF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [298] "DHIUF" "GDLCY" "FYLTV" "UBHTS" "FRZTF" "YOJLL" "XWHAM" "AVVEL" "WBFRD"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [307] "PSNGQ" "JOEZX" "ROWOT" "QDWLI" "NDVAV" "JMOIB" "HHZVS" "AICAH" "MALBX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [316] "LCKXJ" "WCPRL" "WPJJR" "URGVC" "BYWQV" "RGVZT" "UEHWC" "MGSXG" "MHVYX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [325] "ILGBC" "GNEQT" "KLKLZ" "POFWT" "HSIBQ" "TAQCL" "HGRUZ" "BDNST" "YGZVO"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [334] "VNSSX" "NFRJY" "KRMHD" "FGMDG" "ANBMV" "BBBVX" "QEYDK" "VRYMQ" "KYIEG"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [343] "TLXTJ" "IMFZQ" "OUJHS" "XLQPK" "IYDOE" "QTJDB" "HWZBE" "NPXRZ" "EJHXX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [352] "GTLYI" "LIGEI" "CQYQI" "QPFKS" "KAEUN" "JXHGO" "MLCQQ" "GLHUS" "GTPMN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [361] "EVMBA" "UUYVV" "KMTYV" "MLIBU" "NWZEC" "NRNID" "TRKLN" "ZQKFA" "KQSVK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [370] "PQZGH" "SYEZR" "GCQEP" "NWAOK" "XGZGE" "ZHREN" "HKPPK" "KVBZM" "UEZGH"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [379] "LCPGL" "MEISM" "IOLMF" "AZFPD" "UYCQW" "FSETK" "MWSNE" "DVLIU" "TTAVI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [388] "ACJDV" "JKNIE" "KXTGB" "QLTJK" "FENAM" "YTWPP" "TROKP" "XNKTA" "QANJB"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [397] "IVALX" "ZFPWV" "DRJHE" "DVDJE" "FCZVU" "LFGJM" "NITQE" "EGKEH" "NCSVL"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [406] "UEEFC" "SOYNI" "LUNSE" "PMVKK" "JWPGA" "NNWYK" "UCUPF" "KAUHQ" "YXELJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [415] "XPVRT" "STDQH" "NWVWN" "CXTQF" "YOHQG" "ECSLQ" "ZGENX" "PODUA" "KWDQR"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [424] "LOQZC" "TWFMI" "EOJAF" "GCRRR" "SCTAU" "GQQFE" "IOEJP" "RWLYV" "FXKHY"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [433] "CUQKH" "JFSQJ" "MXHIS" "BMMSO" "ERWZA" "UHYRH" "OFALH" "LVANF" "VTHAD"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [442] "KZTOS" "OTTTW" "KIZKY" "BRBUW" "PCEUT" "YNOGJ" "HCYIH" "YZVRZ" "ENUCP"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [451] "RYYNW" "AGKJE" "NATZV" "FMVDP" "PSEFD" "XWLGJ" "ILPHN" "EGHAH" "MVVNJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [460] "HLDVZ" "TTHIV" "SPOTI" "XXYJL" "FHPTM" "SNVFO" "OEWQT" "KDQRU" "JGPDD"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [469] "CBJBE" "XVQYA" "VUKTT" "NXOKZ" "KVNIP" "DAXOY" "BJUZZ" "HHGEN" "TXQJL"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [478] "PIJBE" "TTWSH" "QPYRA" "NIGRT" "FHEGS" "OUTUQ" "QCXIL" "CUDDY" "OFMJQ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [487] "AYJIH" "TQQYP" "IRPSD" "WCZPA" "CBUWG" "ONHIX" "LPXPC" "QFKNJ" "JDUNF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [496] "XZDQR" "FLQCC" "FYUON" "VOSJQ" "ZPQGO" "FAOOY" "QXCEQ" "IWMJI" "IBXSR"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [505] "CQYMB" "MFNZQ" "XEPSF" "UOBXR" "FUVRO" "DDWLC" "IAQLW" "MCMZM" "BFWJZ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [514] "SRVCI" "JQILW" "RZAVC" "WWLEA" "SADNZ" "SKLKK" "RHKRN" "KMWKD" "TSKMO"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [523] "VJGIB" "YSVIR" "BYXEG" "EIMLY" "XQWDG" "DAJPZ" "RDPAV" "UBDAC" "SKHGB"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [532] "AYBPC" "JNKZL" "HWGCN" "URYKX" "COKTX" "LWPYZ" "VTRSG" "CWCYC" "CVOUP"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [541] "RWLIH" "RPIWG" "CCWIG" "BIEAF" "NUXGC" "SIWBB" "WCVNO" "NFVWZ" "MWNNE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [550] "KVWPB" "GYBKN" "UQMEN" "PMVLN" "ZYCLF" "FQENP" "MTPQK" "TOBOI" "GBDEY"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [559] "CSXLR" "FPZMR" "XYCMR" "ILQMD" "FMUPL" "MKRSP" "YTQEN" "BCLVF" "LOEPS"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [568] "DLBEP" "RQEBT" "IRFEM" "DXKSV" "RWGNJ" "UGIRJ" "XLXRM" "PCXFH" "FOLWN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [577] "MITGL" "AGHXJ" "WFUNF" "YTZBK" "EFBQX" "PYOHR" "ZOJEY" "OEOSN" "NPBFO"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [586] "SLXCN" "WCFTQ" "UKGWG" "EKPPM" "PIMAI" "XEAAT" "KIAJN" "MQSMN" "DURJH"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [595] "EXONG" "TLNJY" "CALKN" "IEMMN" "ZQZMR" "VAJVJ" "HKENK" "HYGOL" "LRETC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [604] "KAKNH" "HWLJL" "WFITH" "QUYGL" "DUFFT" "FISSE" "QNCXF" "GLPOF" "JLHUZ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [613] "TDVOS" "UUJGV" "DOQKC" "SIWOB" "VFRNS" "INFRM" "ZWMZY" "JVZSV" "JZMQX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [622] "GEZWX" "PGNCQ" "BZRNN" "WJBKF" "UMIWQ" "SAVLM" "OFIOB" "ANPQA" "HFVDD"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [631] "SBESN" "SQSOZ" "MBEOB" "WIGJB" "PUDQS" "ADKDT" "MLSKE" "VNNSW" "SSQGW"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [640] "OEPJD" "VVZDG" "UAVEJ" "TPEBZ" "NEIKT" "BHHAD" "BCKTF" "UQLKN" "ZQQQO"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [649] "JYGFX" "BIHLZ" "THVYC" "LSYTA" "QAJBO" "SZIEU" "QIXIM" "IIDXX" "FRHLD"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [658] "IYANA" "FDLET" "CCRXT" "UFENB" "NHTVS" "HNGIL" "QHLHQ" "ZCRQU" "DVLCA"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [667] "IWCFG" "XDMYV" "GFLLX" "TUNJY" "BTRLP" "ETOXB" "MWMOE" "ZQCZC" "JIEPL"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [676] "UYMFJ" "IEEGU" "ESCCI" "SBQZY" "JIFGL" "MDQQX" "EHJCJ" "YYBVK" "OZOKX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [685] "ULKLZ" "QMJCG" "QLERQ" "WGPAO" "WAPAI" "QCNMP" "KKFPG" "OLQMQ" "IXXEP"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [694] "AAGMS" "QWRFG" "FJFIF" "BTKOI" "ZYXYA" "XBYGF" "HOZFJ" "PYQNK" "BVKWW"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [703] "GYFUR" "XNJZB" "IBAWN" "EWNHT" "CLDKF" "VMPSW" "NAKSF" "LQZQH" "DIUIL"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [712] "PURTU" "MNMCH" "DRUXA" "ECDHF" "ZBWIE" "MAEPN" "SIUXU" "XLERO" "DLWNH"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [721] "UVZXP" "YFRAK" "HDMHP" "JTFOX" "PDFML" "AZUGQ" "LTBKX" "DTNHE" "GXHFP"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [730] "VESIK" "OJBRR" "NEZMB" "BWDDA" "QZGPU" "ENDFA" "MMMWT" "ETXAF" "EUTPO"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [739] "UYHWQ" "BLUCE" "ABDNX" "TLMYQ" "NOFCP" "FZHAV" "VSVNM" "FDESB" "EBKVK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [748] "QLUGL" "BZRNK" "GZRCN"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[3]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "NWAPA" "YZCRQ" "XANPQ" "RLGIV" "SJIFG" "UHDMH" "NDIUI" "HUYMF" "PPAJR"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "PJDAK" "UGTLY" "VRZAV" "VEHVJ" "KRZUH" "WFOEH" "JJVZS" "DGXDI" "UTTHI"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "XXLXR" "PIEKJ" "OMFNZ" "XTWSG" "ZZEFR" "WJOEZ" "WMDQQ" "LVPBM" "SABYO"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "LMZAH" "QANBM" "FQTJD" "PTPEB" "MSOYN" "VMNMC" "CQFRD" "KWBFR" "UIBXS"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "MVAZY" "TOPBW" "CAWDQ" "EFYUO" "FTQQY" "HCOKT" "EHOZF" "EESZJ" "MRIGY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "VALVS" "DCKWJ" "CWFIT" "QVOSJ" "NDFRZ" "JZQCZ" "KPDFM" "AZZNR" "SFJFI"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "MVTRS" "CTXQJ" "BQPMG" "OWIGJ" "CVNNM" "YXVYY" "DEJHX" "XCNMA" "TKSPP"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "SLPUT" "NNPXR" "QYSXT" "XIMOT" "XNMLQ" "FUGRT" "NICDN" "LIQPH" "ZHWZB"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "KNMST" "ASMJV" "TDAXO" "OLWSK" "NFRZT" "PHWGC" "ABUCB" "HFGFP" "RLCTQ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "WSADN" "XFISS" "AVAOC" "DZQHW" "LDXKS" "JPMVL" "PQXCE" "LRNQE" "NLCGE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "KIUTG" "SAJSX" "QSVYN" "PSTDQ" "NBFXV" "ZKXTG" "GFYPZ" "GTHER" "TQZGP"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "RWQRC" "TILQM" "MRTRS" "RGUOJ" "YZJRC" "URFHN" "TBRWY" "MWIDH" "SSYEZ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "HNXOK" "AECDH" "DQAQJ" "BCSJF" "TRVNP" "NNUXG" "OHSIB" "SSJDC" "AHJEA"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [118] "BNRNI" "UOFIO" "PKMTY" "SIWMJ" "ITROK" "VJNKZ" "BXCSG" "HMWMO" "XMLCQ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [127] "YCLDK" "PMRKN" "OQWPE" "JGOFD" "JRDPA" "RGCQE" "XJFSQ" "THFVD" "ZLSYT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [136] "MTLXT" "VTDFY" "FLVAN" "VLFGJ" "OEDTK" "GLOQV" "OIEYP" "QUIYZ" "JTHVY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [145] "FKSKP" "OKSVU" "RVVZD" "WNKAY" "DTUNJ" "YGFLL" "SHIPQ" "MUASG" "KONHI"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [154] "MUPOH" "BNPBF" "LRYYN" "METQI" "EVQLX" "FKKXU" "YYBEN" "KRPAE" "NAAGM"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [163] "QZHIM" "NHHGE" "EIEMM" "RHYGO" "ZUEHW" "RZRBQ" "DQBSD" "TXMHX" "VRCUY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [172] "WMSKJ" "XBTRL" "VSVKU" "RKVBZ" "YMTXG" "ZLXCO" "XFXPW" "GBZRN" "JOEHG"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [181] "QHZTH" "XFRMN" "LPADU" "QAGKJ" "JJHYS" "LOXNJ" "PXEPS" "IJZMQ" "DSNYH"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [190] "NDRUX" "ZFQSC" "YERZG" "OUSUY" "GVFRN" "ZZNBK" "SGPJB" "KUXDB" "SLTBK"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [199] "CJJQS" "NKIZL" "LGEZW" "NTTIS" "IMGXL" "PMITG" "OOEXB" "MGYFU" "OQNBT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [208] "BDLQC" "GFHEG" "LMADF" "VBDEY" "KJHEO" "RTOTK" "MXKFQ" "NVZMU" "KUEEF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [217] "UENSU" "OMYAP" "CENUC" "XZYCL" "GJGPD" "DLXKU" "XCMJL" "GHFFA" "HTDIJ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [226] "CAEPI" "NWEMI" "CPGNC" "IIMDF" "MTFZZ" "LAPDM" "TNEZM" "XLRET" "ZUVZX"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [235] "CHHZV" "LLOEP" "QCQYM" "LAGHX" "EUUJG" "LSJDC" "RHCYI" "TWLSW" "IMBEO"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [244] "JKXOQ" "EDOEK" "CQDWL" "PEGKE" "CXUZH" "WNCBJ" "RIGEM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "UABDS" "PIJBE" "SBESN" "AGHXJ" "KNFKX" "MZAHZ" "SAUFC" "UQMEN" "SRJRU"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "MKMQK" "FZHAV" "MQCTT" "KUPXA" "IRFEM" "EHVJA" "RFHNU" "MNMCH" "YYDNY"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "ZCRQU" "BOOQY" "DVLIU" "RVNPX" "VSXLX" "MXHIS" "GPFNA" "QODVB" "UEHWC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "XBYGF" "OAWVQ" "FSGSU" "LKLSJ" "VVJYQ" "CBJBE" "CKWJW" "SBQZY" "LTBKX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "ZXDTP" "QCFDY" "FRZTF" "AYBPC" "XEWBQ" "MLGPC" "RPAEI" "MITGL" "SLXCN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "JOEZX" "COKTX" "HZTHW" "ZQXCP" "XUZHM" "IDPNA" "LOQZC" "QTJDB" "DOEGP"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "LOEPS" "ZOJEY" "EXONG" "AZFPD" "JLGHJ" "TWSGE" "XMHXJ" "UBNUZ" "BYWQV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "DUNXH" "DPNFE" "NATZV" "HHZVS" "VHIXZ" "TROKP" "LQZQH" "OLQMQ" "FHEGS"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "XLXRM" "MCMZM" "LGIVR" "QPYRA" "DFRZV" "GLMKO" "AZUGQ" "YNUBI" "DCLIN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "ANKEL" "UMIWQ" "GJBWB" "EUTPO" "OGVMA" "LIDJB" "EDTKK" "ILGBC" "FGQTJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "LOQVJ" "NPBFO" "UYMFJ" "IMFZQ" "BPBKP" "GCQEP" "NWVWN" "XDGXI" "THERV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "KHELV" "KWDQR" "NMCPN" "XGZGE" "JYGFX" "THVYC" "VVZDG" "KVBZM" "TOBOI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "UGRTC" "QPMGZ" "MNHBM" "FISSE" "ASZEN" "GZJSU" "AOBGI" "GHYRY" "UKGWG"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [118] "ILPHN" "VZZOC" "CUDDY" "ESCCI" "TWFMI" "ANTZZ" "DSRIS" "ZHIML" "SQSOZ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [127] "EJXHM" "FIJGJ" "PCEUT" "QHERK" "MOHXT" "PMVLN" "GXDIU" "CHTFM" "NQTON"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [136] "MDQQX" "CQYQI" "XKFQE" "UEEFC" "OEHGZ" "AXSNX" "GOFDF" "NWHBA" "EICML"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [145] "OXNJK" "RRPZR" "MMMWT" "TLNHM" "DIPDW" "PMLRX" "SWWKQ" "IOEJP" "ROWOT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [154] "MYAPX" "GAIES" "MTXGG" "WLNLY" "NEIKT" "CZKSG" "IMDFW" "JIFGL" "ZNOYV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [163] "AAGMS" "LCGER" "CVOUP" "TTEQW" "TNPQO" "EPUEG" "IFKLF" "JNKZL" "TDFYL"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [172] "FZFAS" "VZVYK" "KQSVK" "CXHGQ" "HWGCN" "ZQBGD" "IUTGE" "BUCKI" "SWRGU"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [181] "ZRBQM" "MZNAI" "ESZJK" "HSIBQ" "RWLIH" "PWNNG" "TRKLN" "HHGNP" "BZRNN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [190] "KVWPB" "UAVEJ" "YGZVO" "FJFIF" "HZPHS" "BTRLP" "PODUA" "KNADL" "OUTUQ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [199] "AJSXG" "MLCQQ" "ZYXYA" "NXOKZ" "SJDCK" "JJREO" "XWMVL" "OFALH" "FGFPB"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [208] "RVEGT" "TSKMO" "QANJB" "ABYOL" "ZFPWV" "ZWMZY" "JHYSO" "QCXIL" "UVZXP"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [217] "BHHAD" "PYOHR" "UEZGH" "FAFBM" "IUCET" "VESIK" "TQQYP" "LVKET" "TSPIM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [226] "BFXVS" "BCLVF" "TIWOK" "VJSOE" "NPHZR" "UWLAO" "AQVRM" "JYUFN" "XZDQR"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [235] "SJDCO" "SOVTZ" "SKLKK" "IQPHB" "MQCBT" "WBFRD" "VZMUJ" "DKDID" "EFBQX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [244] "XVYYT" "WTBXP" "SNVFO" "ELKZF" "ZEMNF" "MLSKE" "VUQND"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[4]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "JXSLX" "REPUE" "QURGV" "SMWSN" "MXKFQ" "CGVUY" "RHCYI" "GBZRN" "GQANJ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "RBMMS" "TXMHX" "JSKLK" "WAICA" "LRNQE" "THMEW" "RTOTK" "DCKWJ" "ESOTI"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "KMQCB" "LIQPH" "LSJDC" "RVXBP" "ETDVO" "FFNWH" "PIBAW" "JMLGP" "HBRBU"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "FWEPE" "JUOBX" "BXGZG" "MDPSX" "YYGCY" "WUQME" "CENUC" "HQDOE" "HDGRH"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "HSNVF" "NQFJX" "RLCTQ" "NOTTT" "CDCLI" "TILQM" "LAPDM" "PTPEB" "JETOX"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "WOUJH" "TRVNP" "QGZJS" "RGCQE" "AQWMD" "FGLMK" "LKHAF" "VYOJL" "IJWPG"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "CYSVI" "KSNSW" "PXWLG" "XJMPD" "BBPBK" "LZQQQ" "VEHVJ" "IXPVR" "NDVLC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "NBFXV" "WGCRR" "AZGKM" "XKVWP" "EOLQM" "HTUQZ" "CWFIT" "KTPUX" "SIRFE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "ENYGM" "XHHGN" "DGXDI" "TDDWL" "BOEOS" "LDVDJ" "QQHLH" "GFJIZ" "FSQSO"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "BOEWQ" "NFRZT" "IRBGU" "KXNJZ" "XVSXL" "TVXFM" "NNOFC" "CAWDQ" "ZWAXW"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "UKZTO" "XFISS" "PAIDF" "GWWLE" "EETXA" "HPQIZ" "QMZNA" "JZPQG" "QHHJL"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "RBWDD" "ELGUI" "NTTAV" "WVJGI" "ZKMWK" "QYVHD" "TDKDI" "HMWMO" "PBJUZ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "XVRYM" "PULJB" "CQCXI" "CILHD" "TCZFY" "RLGIV" "ACHTF" "FQPYR" "ZTSKQ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [118] "XIMOT" "OKSVU" "FXVQY" "DWCPR" "YCLDK" "FUBDA" "SJIFG" "KXEAA" "CFOLW"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [127] "EANKE" "BRHKR" "HTMMA" "FIWCF" "WFMVD" "QBOOQ" "WLDPP" "PNIYQ" "AHJEA"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [136] "KWBFR" "FIIDX" "URFHN" "XGAIE" "LEXUS" "CJJQS" "REGHA" "KJQIL" "OQNBT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [145] "VKIZK" "SAJSX" "VJNKZ" "XBHHA" "LYYBV" "LPADU" "UDRJH" "PMJTE" "OWIGJ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [154] "CHHZV" "WJOEZ" "LFCDH" "HXLQP" "BUWVX" "QNFRJ" "CCSFB" "NBIHL" "VVZZO"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [163] "KGLHU" "DQBSD" "NOVTT" "ZFZFA" "VPHBR" "JMHVY" "DJLHU" "AKDQI" "REHJC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [172] "LNWZE" "ZZEFR" "NWEMI" "EBETB" "ADVQM" "SQZXR" "KBSMW" "LFENA" "QQAJB"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [181] "BXCSG" "VKYIE" "ZBDZX" "FEHPV" "IJJRE" "WNKAY" "VTTWS" "VXBYG" "ILKLS"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [190] "DEVMB" "QCDQO" "SWCZP" "OEDTK" "UENSU" "ANCSV" "MKLKL" "FJIDR" "BKIAJ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [199] "LRYYN" "EZFPW" "UJYGF" "NNPXR" "DUCUP" "TWLSW" "YGNDE" "NFIJG" "BUWLA"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [208] "WZXBY" "VBSCC" "HWFMB" "UOFIO" "FXUOM" "ARPIW" "NYTZB" "JWCVN" "VLYNP"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [217] "NNQKY" "XZGEN" "FQSSV" "RJZID" "YSRVC" "GTHER" "FKAKN" "BLQZQ" "RWCFT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [226] "IDEXK" "OMFNZ" "GYTQE" "MSOYN" "RYSSB" "ZTZQN" "WFOEH" "XIOEJ" "TOFMJ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [235] "PMITG" "BNPBF" "JPMVL" "RNDVA" "MVTRS" "CAFSA" "PESCC" "OBLUC" "BLBGS"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [244] "CFUVR" "TFAFB" "IROWO" "RILGB" "NNITQ" "FKSKP" "RSBQZ" "AECDH" "MTNPQ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [253] "QBCLV" "TCUQK" "RSAVL" "RVJXU" "SHIPQ" "AETJY" "WPODU" "SUHYR" "BJLGH"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [262] "UGDLC" "PCSXL" "UUEZG" "CVRZH" "DNMCP" "DUKGW" "LDXKS" "KPDFM" "QQIXI"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [271] "ZVNSS" "XMLCQ" "ABEMT" "DPURT" "XTSPI" "BDLQC" "IHTJY" "XLRET" "SSJDC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [280] "TBRWY" "FTIPT" "ICUDD" "TSZEW" "VALVS" "KIUTG" "TCCXT" "OKOFY" "NSRJR"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [289] "TUFEN" "CGJJW" "XRTGH" "MILSE" "FEOJA" "PXEPS" "KLUNS" "GMEIS" "SEPHM"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [298] "XSCCN" "IMMMW" "HZHRE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "QOWTX" "FUVRO" "AHUBX" "ZWMZY" "NDMBM" "YCZGK" "IUTGE" "DLQCH" "SIWOB"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "IFKLF" "FQENP" "WFMBA" "EDTKK" "WQRCG" "ZFPWV" "JOEZX" "CNMAT" "OFMJQ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "LQZQH" "MQCBT" "CWEKF" "NAKSF" "LCJJH" "HOZPO" "YXUZP" "VEAXI" "UOUBO"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "SAVLM" "CBUWG" "WKZJD" "UMDXF" "DVLCA" "PYOHR" "HFVDD" "OHIZP" "OEXBI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "GXHFP" "YNUBI" "FPZMR" "QKHRC" "KHELV" "NPHZR" "FSGSU" "GZRCN" "HIPQU"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "FISSE" "ENSUZ" "MOHXT" "EGKEH" "YLFMU" "KXOQX" "UYHWQ" "LAAWV" "YBENF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "QLERQ" "IYDOE" "TTAVI" "SIUXU" "LPXPC" "MQCTT" "FSETK" "QORJQ" "IMFZQ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "KQRBN" "QCNMP" "BMSTN" "MZNAI" "FDLET" "COKTX" "WOKRV" "BZRNN" "SOYNI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "PAJRW" "RFHNU" "PFTVF" "NOFCP" "BETBW" "AGKJE" "UIYZJ" "VSAMY" "DKDID"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "QPYRA" "EWSVE" "OGTNM" "RTGHI" "LHMSU" "NFVWZ" "QCFDY" "QAJBO" "GPJBM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "ANKEL" "ZHREN" "HPXCR" "TUNJY" "NIGRT" "QLDMB" "GBDEY" "HOZFJ" "SCTAU"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "QPFKS" "VSAFD" "ZQPNI" "VSVNM" "NHTVS" "NWAOK" "DSRIS" "FZFAS" "BBOSV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "BTNMK" "FCDHD" "BDZXE" "FENAM" "SBESN" "UASGJ" "NMYAF" "VNSSX" "NATZV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [118] "OXNJK" "BUCBF" "KHAFJ" "SQSOZ" "JJQSL" "AGHXJ" "MRSSJ" "DIUIL" "VPBMM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [127] "CPLRW" "NWZEC" "GCEXA" "UFUSQ" "ZEGXZ" "SYZJT" "TIPTD" "GHYRY" "CKWJW"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [136] "JFSQJ" "JYGFX" "KSDXJ" "MSKJS" "OUTUQ" "IAQLW" "ZXBYE" "ANBMV" "IYANA"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [145] "LOQVJ" "TWFMI" "WCPRL" "PZESG" "VUQND" "EKPPM" "YOJLL" "EXONG" "OZOKX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [154] "VSXLX" "BENVP" "QAQJB" "ZQKFA" "LIGEI" "ULJBV" "SWJHH" "VRZHF" "MWSNE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [163] "EPUEG" "EGHAH" "FOEHS" "KOFYJ" "EIMLY" "LXCOP" "EBUJV" "BVGXU" "QFRDX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [172] "RVNPX" "BFXVS" "NCBJK" "NMSTG" "TMMAL" "KXTGB" "BLUCE" "HSRNI" "ANTZZ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [181] "SSQGW" "VTRSG" "JLHUZ" "FCZVU" "MMMWT" "ISPZJ" "SGRCN" "ZQCZC" "AHZPA"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [190] "MLIJZ" "XDMYV" "UEEFC" "UVZXP" "YYBVK" "WAXWQ" "NITQE" "JTFOX" "GAIES"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [199] "MWNNE" "LAZZN" "DUNXH" "GMSYR" "VZMUJ" "OVJHX" "ZPQGO" "HKPPK" "TDVOS"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [208] "RRFYC" "XYCMR" "ILPHN" "HDMHP" "BZRNK" "JHEOS" "INFRM" "KSVUL" "HWZBE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [217] "IMOTO" "JKNIE" "TLNJY" "FJZQT" "FSGUK" "FRHLD" "TOBOI" "YVHDN" "FRZTF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [226] "BOOQY" "RKXTP" "LKLSJ" "QWMDP" "VVZDG" "JZIDQ" "RTPEA" "YSXTQ" "SJDCK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [235] "MYAPX" "OGVMA" "XQWDG" "XWLGJ" "FAOOY" "KKZAJ" "GEQRV" "BIEAF" "PZDHJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [244] "XGHWM" "ACJDV" "VNNMW" "CZFYC" "EICML" "UAVEJ" "UGRTC" "YXBMB" "KSKPI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [253] "QDOET" "VAZYS" "RWLYV" "PMLRX" "GXCAE" "KDQIT" "WFUNF" "UWVXW" "UFBPN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [262] "OTTTW" "TFZZC" "XUOMU" "HHGEN" "VFRNS" "EUTPO" "IDPNA" "ILSEN" "MVVNJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [271] "ZHIML" "YOHQG" "DDQNJ" "ANBNX" "FGFPB" "IEYPG" "AQVRM" "AOBGI" "THVYC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [280] "IVALX" "SRVCI" "DVDJE" "SLXCN" "FGQTJ" "DHIUF" "RDPAV" "XNKTA" "BXRUB"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [289] "CWCYC" "MEISM" "OVTTR" "ULKLZ" "PWNNG" "KAUHQ" "TTWSH" "MWMOE" "WFITH"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [298] "DAXOY" "NIYQE" "CDQOJ"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu">venn</span><span class="op">(</span><span class="va">input</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="venn-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/attr.html" class="external-link">attr</a></span><span class="op">(</span><span class="va">tmp</span>, <span class="st">"intersections"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $A</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "RIOLM" "UCCWI" "GZQZM" "UEWSV" "WKUPX" "CPFTV" "JCIDI" "FHWLJ" "QIVKH"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "RXWMV" "NTSKM" "NRKXT" "OHKPP" "SSQMS" "YTLNJ" "LSGRC" "TQGJB" "RGKIA"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "HXKMK" "OYLFM" "HWLNL" "NNHTV" "CQIMT" "NSKHG" "ZUUYV" "GSSQG" "AVBXA"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "CAQVR" "LUYHW" "UPMLR" "NHOZP" "TKAEU" "VVNNS" "NQKHR" "TVYYJ" "ZVMPS"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "TFSET" "BOAWV" "HWFUN" "WBFWJ" "EEKPP" "KAPCQ" "IKZUW" "RKQRB" "EFGQT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [46] "YLKRA" "UURZW" "IDUGD" "CTTEQ" "BHZPH" "EWTBX" "YKRMH" "GGCEX" "LFYLT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [55] "LODJK" "XDIPD"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "FYPZR" "LCTQZ" "CCFPV" "ETJYK" "SGGOT" "NNKZX" "BLJXK" "JYTMW" "USUYW"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "LCKNR" "BSMWZ" "TQAHO" "QWPEN" "RCUYV" "HDRZK" "AIDFO" "GAGMG" "MGRWU"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "HNTUU" "LBGSS" "ALVSE" "GNDEE" "SIJKR" "IVKHR" "UXQYA" "BEEHY" "WEMIN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "HHJLG" "NKAYI" "WSVWS" "WEPEX" "FPNRL" "SFWTL" "GMIPA" "PADUV" "AWDBA"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "NADEK" "TTISX" "CEQTX" "KIZLS" "ZWJFW" "EPHMH" "EXENV" "PARLJ" "QRRAH"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [46] "QIMTU" "VJXUX" "PHBRO" "PAXQV" "TOTKE"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "AORUB" "PPYOH" "JIFKL" "HIAQL" "OFCZV" "CZQBG" "XMVVN" "TRJRB" "GWGPA"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "EUCTP" "MBZRN" "EKUYW" "QOHIZ" "QGNEQ" "UXDGX" "OKKFP" "ASQJQ" "AFHPT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "LGMZK" "EAHUB" "KFRHL" "OUAVE" "GVOQL" "NZADX" "PKNFK" "PSZIE" "LZNOY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "PAYBP" "DATCW" "CVHIX" "UPSEF" "GQOWT" "SZOUJ" "FCQYQ" "VNWVW" "ONATZ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "OCWEK" "RFYJH" "DRXHH" "ANXQH" "HOGTN" "PJCDV" "ECCFP" "SCPLR" "LNNKZ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "XCCXU" "VXXYJ" "ZBUCK" "JJNZB" "MANBN" "SPAIS" "BZQPN" "EUMIW" "YBYXE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "BADKD" "ZNPHZ" "MSIJK" "GGQQF" "VMYYC" "RQLER" "OKAUH" "SOFSM" "YJYTM"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "WTIWO" "WDKJP" "CENDF" "XPIMA" "SGAGM" "VQGRC" "IMGSX" "MANTZ" "OAOBG"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "YQMJC" "WGKSP" "JYGAI" "BJDFG" "NQLUG" "KGXCA" "WJCFD" "QZQKF" "QGYBK"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "AQRRA" "VWKZJ" "UZBWI" "BMNHB" "VQHER" "LOUTU" "MWPJJ" "NOGVM" "ZTOBO"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "XCXTQ" "LQODV" "ANMYA" "NMRUD" "QGVPU" "MKUQK" "KGMIP" "PCCRX" "EFNIB"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "HIXMT" "OQWRF" "YMGRW" "BEXON" "KQCNM" "HLWPY" "GAXSN" "ECBUW" "JZWJF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "BAZUG" "ZUIHY" "GCXHG" "AXYCM" "OQATO" "UXGHW" "LUIBK" "MIVAL" "PJYUF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [118] "WAZFP" "NWOKR" "BLVKE" "HISPZ" "YHLDV" "WYFRA" "YLIGE" "SOZOK" "CCGTT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [127] "RYSVI" "SNAKS" "OHSRN" "UCNJQ" "CFZHA" "MFGMD" "FPARL" "SKSDX" "UFFAA"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [136] "GSPOT" "EAIPH" "UIRPS" "YNNWY" "LCVOU" "QMALB" "GUBHT" "FUVPX" "NGMXH"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [145] "TACJD" "MLZPB" "JHKBA" "KNDMB" "KZEMN" "AEBKV" "TEBUJ" "VLQGX" "IEICM"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [154] "KPKPJ" "XCBJB" "IVJSO" "YQPFK" "IOILU" "NDUFF" "JIYDO" "VZQXC" "KIYIF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [163] "VMWNN" "EOVJH" "KIEEG" "HUMNR" "GDURJ" "SMXHI" "ZPSNG" "ASCTA" "DMCLQ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [172] "AMQCT" "DEXEN" "HUBNU" "JGLPO" "ZZOJE" "HGXHF" "ZDUNX" "QVIER" "APIJB"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [181] "IXWHA" "FVAJV" "JNQTO" "GMKRS" "ALAAW" "CFAOO" "ILMMA" "WCWCY" "TUMDX"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [190] "ESLXC" "UDDQN" "JFDES" "DNWAO" "OSIWO" "YVESI" "OYXBM" "FCZKS" "KQNCX"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [199] "XZYXY" "FGMSY" "RTAQC" "DPOFW" "RSBES" "ANDWR" "PKVNI" "EDAJP" "BMPAP"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [208] "XXEWB" "HKDQR" "KZXDT" "BWBHM" "PSENI" "EZWMZ" "ZCALK" "EVZVY" "DVYQK"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [217] "MHAST" "WFPZM" "IVSAF" "FBYWQ" "GMLSK" "GDOEG" "TZADP" "TWYWO" "TKPGE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [226] "KMLIB" "NFLQC" "YUFBP" "DRRFY" "OLPXP" "NHMPB" "RERWZ" "AHPXC" "JDLBE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "JCFDH" "SQMSC" "ZQHWO" "QKSZP" "TEPIB" "EFPVV" "NQKYE" "NGQVA" "VYYJK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "RBGUU" "FJIZQ" "UMECI" "MXKIV" "SNYHX" "SCCNC" "JNZBV" "GUOJD" "JCDVM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "TDCZA" "UVPXY" "LDPPW" "DOEKM" "CZAKZ" "JAAFP" "YLOBC" "KNMJH" "MRKND"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "FQSCX" "MCLQP" "KUYWU" "YSUZL" "QCQWC" "QGRCP" "YJCIT" "FYGES" "UPOHI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "UMNRN" "HDTUK" "BSCCD" "FXPWC" "LPUTF" "KZUWG" "LQGXX" "ODZHF" "SMJVX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "DUGDA" "GTDIS" "HFFAR" "ZADPX" "XADTF" "ITIHO" "LPYLB" "SBLFF" "GKIAM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "VIERG" "MGXLR" "PQIZC" "ZEFRT" "GKSPO" "FFAAI" "QGJBW" "PMWCG" "TUQZV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "SNSWR" "CNJQD" "VAOCE" "VOQLR" "VUQKR" "WTTHO" "LMMAI" "QATOH" "HANPK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "SOTIX" "DGRHQ" "XDPRL" "KCBKC" "ZGKMK" "VQLXH" "RIGYP" "RZUHW" "IGEMG"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "PBHML" "DVQMK" "AFSAD" "IYIFU" "EHPVD" "JDFGQ" "HMEWR" "TSKQZ" "WAOBN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "SZEWL" "OFAOB" "HMPBA" "VSWWY" "GDLCY" "UBHTS" "XWHAM" "PSNGQ" "NDVAV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "JMOIB" "AICAH" "MALBX" "LCKXJ" "URGVC" "MGSXG" "TAQCL" "NFRJY" "FGMDG"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "TLXTJ" "XLQPK" "NPXRZ" "EJHXX" "KAEUN" "UUYVV" "MLIBU" "LCPGL" "IOLMF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [118] "QLTJK" "NCSVL" "JWPGA" "NNWYK" "UCUPF" "YXELJ" "XPVRT" "STDQH" "CXTQF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [127] "ECSLQ" "ZGENX" "EOJAF" "CUQKH" "ERWZA" "LVANF" "VTHAD" "BRBUW" "YNOGJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [136] "HCYIH" "FMVDP" "XXYJL" "OEWQT" "KDQRU" "JGPDD" "VUKTT" "KVNIP" "TXQJL"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [145] "AYJIH" "IRPSD" "ONHIX" "QFKNJ" "JDUNF" "FLQCC" "FYUON" "VOSJQ" "QXCEQ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [154] "IBXSR" "XEPSF" "UOBXR" "DDWLC" "BFWJZ" "RZAVC" "WWLEA" "SADNZ" "RHKRN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [163] "KMWKD" "YSVIR" "BYXEG" "DAJPZ" "UBDAC" "URYKX" "LWPYZ" "NUXGC" "SIWBB"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [172] "WCVNO" "ZYCLF" "MTPQK" "FMUPL" "MKRSP" "DLBEP" "DXKSV" "RWGNJ" "UGIRJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [181] "OEOSN" "WCFTQ" "PIMAI" "XEAAT" "KIAJN" "DURJH" "IEMMN" "ZQZMR" "VAJVJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [190] "HKENK" "HYGOL" "HWLJL" "UUJGV" "DOQKC" "GEZWX" "PGNCQ" "WJBKF" "OFIOB"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [199] "ANPQA" "MBEOB" "PUDQS" "VNNSW" "OEPJD" "TPEBZ" "BCKTF" "BIHLZ" "SZIEU"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [208] "QIXIM" "CCRXT" "UFENB" "HNGIL" "GFLLX" "ETOXB" "JIEPL" "IEEGU" "EHJCJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [217] "QMJCG" "BTKOI" "BVKWW" "GYFUR" "XNJZB" "CLDKF" "VMPSW" "DRUXA" "ECDHF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [226] "ZBWIE" "MAEPN" "DLWNH" "OJBRR" "QZGPU" "ENDFA" "ETXAF" "ABDNX" "TLMYQ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [235] "EBKVK" "QLUGL"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "XANPQ" "XXLXR" "LVPBM" "VMNMC" "TOPBW" "EFYUO" "HCOKT" "EESZJ" "NDFRZ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "TKSPP" "WSADN" "DZQHW" "BCSJF" "OQWPE" "YGFLL" "MUASG" "METQI" "EVQLX"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "NHHGE" "RZRBQ" "WMSKJ" "DSNYH" "NKIZL" "GFHEG" "XZYCL" "ZUVZX" "EUUJG"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "CQDWL"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "YYDNY" "GPFNA" "VVJYQ" "ZXDTP" "XEWBQ" "MLGPC" "RPAEI" "ZQXCP" "UBNUZ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "LGIVR" "GJBWB" "MNHBM" "ASZEN" "FIJGJ" "TLNHM" "DIPDW" "SWWKQ" "MTXGG"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "WLNLY" "TTEQW" "TNPQO" "ZQBGD" "SWRGU" "HHGNP" "AJSXG" "RVEGT" "JYUFN"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "JXSLX" "GQANJ" "JSKLK" "ESOTI" "ETDVO" "WUQME" "HQDOE" "HDGRH" "NQFJX"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "FGLMK" "VYOJL" "IJWPG" "KSNSW" "WGCRR" "EOLQM" "SIRFE" "TDDWL" "KXNJZ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "PAIDF" "QMZNA" "WVJGI" "XVRYM" "FUBDA" "KXEAA" "WLDPP" "PNIYQ" "UDRJH"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "LFCDH" "CCSFB" "NBIHL" "VVZZO" "LNWZE" "YGNDE" "WZXBY" "IDEXK" "RNDVA"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "TFAFB" "RSBQZ" "MTNPQ" "AETJY" "BJLGH" "XRTGH"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "YCZGK" "DLQCH" "CNMAT" "CWEKF" "OHIZP" "YLFMU" "LAAWV" "KQRBN" "PAJRW"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "PFTVF" "OGTNM" "RTGHI" "GPJBM" "QLDMB" "BBOSV" "BUCBF" "JJQSL" "MRSSJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "SYZJT" "MSKJS" "BENVP" "ULJBV" "SWJHH" "VRZHF" "QFRDX" "TMMAL" "OVJHX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "RKXTP" "JZIDQ" "KKZAJ" "YXBMB" "GXCAE"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`A:B`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "YMIII" "TGRSB" "EDQGT" "JSWWK" "UYLOB" "RMAEP" "VBTNM" "VXQWD" "JQKSZ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "JJKNI" "QPMWC" "XTRKL" "EEGGG" "FSGGO" "QGTDI" "AXDMY" "JBXRU" "EDSRI"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "FSFWT" "VQLTJ" "HPMVK" "EXHLU" "PEQCJ" "ATLMY" "DKHEL" "SBIEA" "MMQSM"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "VYNOG" "YMCMZ" "RLPYL" "IKKZA" "OGBDE" "AHDRZ" "CMTPQ" "ZFSGS" "XEIML"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "FRWGN" "EDVLI" "DEJXH" "NUGIR" "CTQAH" "YGHYR" "NJTFO" "VKNMJ" "NJAAF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "OGJBW" "VEUTP" "BPYQN" "MYOHQ" "IMKMQ" "ILCPG" "OPZDH" "XEUKR" "QLIDJ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "SMXKI" "LPUDQ" "IITIH" "DZESC" "XRWLY" "LKPNQ" "GNADE" "WSWRG" "ZYNUB"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "PNFVW" "YZEGX" "VFMUP" "OBEEH" "GVSWW" "QBATS" "NQFKN" "ZULKL" "UGEQR"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "XLAZZ" "HVVJY" "EXADT" "YXLER" "NDLWN" "WVEAX" "KFQEN" "KWSVW" "PKSFY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "GJMOI" "AHKEN" "UUABD" "HBCKT" "MSBLF" "FPCEU" "PUFUS" "RUQLK" "SECSL"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "NTEPI" "AWAOB" "SIMFZ" "FHNTU" "PRTPE" "YBBNB" "IIXXE" "GCCNI" "TIHWF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "FBVKW" "XGTPM" "RFYGE" "BBMST" "QDPNF" "NQCQW" "KPZES" "WYGZV" "NFSGU"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "MUYCQ" "CYXUZ" "MELKZ" "TVUKT" "DVSVN" "OEFPV" "YAVVE" "JBVGX" "QHANP"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [118] "XQCFD" "TPUBB" "MJIEP" "CDHIU" "JMLIJ" "DIUCE" "ZCEQT" "CNIGR" "IQLDM"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [127] "CASZE" "BPQZG" "ZGZGI" "VOJBR" "ZWTTH" "PSIUX" "XUOUB" "XODZH" "BUSUE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [136] "LTWFM" "CNWHB" "NXDPR" "DBENV" "LIDPN" "PHGRU" "JDTNH" "TMRSS" "VFDLE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [145] "OINFR" "KYRJQ" "LBLJX" "UPYMG" "VEWNH" "SRVEG" "PURYK" "JFXKH" "BSOVT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [154] "XTDCZ" "XEFBQ" "ELCJJ" "MKQSV" "BUMEC" "ULCKN" "OOFAL" "JYTWP" "GFYZG"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [163] "XLHWL" "KJXHG" "MGPFN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "RYYNW" "ICDNI" "RKTFK" "CCNIC" "EQCJN" "AIPHY" "WGPAO" "YTZBK" "JXHGO"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "ILQMD" "PAISA" "KYIEG" "WCZPA" "ODJKD" "QNCXF" "APCQX" "SKHGB" "SVYNB"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "KIZKY" "ENUCP" "YZVRZ" "GMXHM" "FDESB" "WPJJR" "NRNID" "BMMSO" "EKANT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "QEYDK" "TTHIV" "KRMHD" "CSXLR" "JVZSV" "UYCQW" "HKBAR" "QNBTQ" "HLDVZ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "GTPMN" "XKMKF" "IBAWN" "XCSGM" "WIGJB" "LUNSE" "SPOTI" "TPUXN" "ZQQQO"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "MHVYX" "GRSBV" "PQZGH" "HGRUZ" "UHYRH" "UXDBW" "PSEFD" "BJUZZ" "IXXEP"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "DKJPQ" "GZGIV" "LSYTA" "FYLTV" "XLERO" "MIIIW" "BDNST" "DTNHE" "TZQNM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "ZADXP" "CQYMB" "KAKNH" "MFNZQ" "MQSMN" "PMVKK" "HTJYO" "MJTEV" "KZTOS"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "CSJFB" "IWCFG" "GLHUS" "DRJHE" "IWMJI" "SYEZR" "QSSVJ" "VRYAN" "FHPTM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "LGUIY" "CCXTC" "GVPUZ" "YFRAK" "WIDHR" "GNEQT" "ADKDT" "MGPYC" "GYBKN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "RPIWG" "IEKJY" "FOLWN" "ILHDZ" "JDAKN" "OUJHS" "QUYGL" "BBBVX" "DUFFT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "FYZGE" "FNIBS" "BWDDA" "GVUYK" "GCRRR" "GQQFE" "YTQEN" "VXFMC" "RTRSA"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "LYNPO" "GMZKD" "BBNBC" "QHLHQ" "EVMBA" "AVVEL" "RGVZT" "JMPDN" "XVQYA"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [118] "PDFML" "ZNBKB" "NEZMB" "VJGIB" "GTLYI" "BRWYJ" "EWNHT" "YKNLY" "LRETC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [127] "MYYCR" "LFGJM" "VXBPO" "KKFPG" "CCWIG" "LWSKR" "KKXUC" "QDWLI" "JZMQX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [136] "YTWPP" "NDWRW" "MADFN" "KMTYV" "HASTU" "CALKN" "DQGTZ" "JQILW" "UQLKN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [145] "GLPOF" "POFWT" "ORUBU" "KLKLZ" "YSSBA" "PYQNK" "OPBWK" "VRYMQ" "YGCYT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [154] "RQEBT" "BEMTM" "CMJLY" "YGAIF" "YRJQS" "PURTU" "SJVKR" "WAPAI" "KUQKV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [163] "FXKHY" "QWRFG" "PCXFH" "HJEAY" "IIDXX"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`A:C`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "DLXKU" "UHDMH" "WNCBJ" "XFRMN" "JGOFD" "AZZNR" "ZZNBK" "HUYMF" "NDIUI"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "PMRKN" "NDRUX" "LMZAH" "FQTJD" "SGPJB" "PHWGC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "IUCET" "KNFKX" "ZEMNF" "TSPIM" "ZRBQM" "NWHBA" "HZPHS" "KNADL" "SAUFC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "THERV" "MZAHZ" "EJXHM" "FAFBM" "OAWVQ" "NQTON" "DFRZV" "DOEGP" "JLGHJ"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`A:D`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "QQAJB" "QBCLV" "RILGB" "ADVQM" "ELGUI" "DEVMB" "MILSE" "BOEWQ" "CFUVR"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "ENYGM" "JETOX" "XIOEJ" "UGDLC" "QQIXI" "DUKGW" "WAICA" "NNQKY" "DPURT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "UKZTO" "IRBGU"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "HSRNI" "LCJJH" "UWVXW" "KSKPI" "VNNMW" "NMSTG" "WKZJD" "KSDXJ" "ISPZJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "OVTTR" "KSVUL" "ZXBYE" "NDMBM" "PZDHJ" "BMSTN" "HOZPO" "RTPEA" "HPXCR"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "UFBPN" "ILSEN" "QORJQ" "WFMBA" "UOUBO" "NIYQE" "DDQNJ" "EWSVE"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`B:C`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "RVVZD" "VLFGJ" "OIEYP" "XCNMA" "TNEZM" "EIEMM" "JZQCZ" "KJHEO" "QAGKJ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "FUGRT" "JJVZS" "CXUZH" "YZCRQ" "KRZUH" "SABYO" "ZHWZB" "JRDPA" "YXVYY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "HTDIJ" "PQXCE" "OHSIB" "MWIDH" "LLOEP" "NVZMU" "OOEXB" "JOEHG" "KRPAE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "YMTXG" "EHOZF" "QVOSJ" "ZKXTG" "QYSXT" "MUPOH" "SLPUT" "JJHYS" "OUSUY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "SFJFI" "NNUXG" "ITROK" "IJZMQ" "GFYPZ" "HNXOK" "CVNNM" "XTWSG" "VBDEY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [46] "EDOEK" "KUXDB" "MRTRS" "UIBXS" "KUEEF" "SIWMJ" "QANBM" "TDAXO" "LMADF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [55] "OLWSK" "RHYGO" "PPAJR" "XJFSQ" "XBTRL" "BNRNI" "JKXOQ" "KONHI" "QSVYN"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [64] "IMBEO" "FKKXU" "AVAOC" "ZUEHW" "GJGPD" "OMYAP" "QHZTH" "PIEKJ" "GVFRN"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [73] "NWAPA" "PSTDQ" "RIGEM" "NAAGM" "XFXPW" "RKVBZ" "UTTHI" "SSYEZ" "XCMJL"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [82] "MVAZY" "CPGNC" "LAGHX" "NICDN" "VRZAV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "RRPZR" "XKFQE" "AXSNX" "SRJRU" "MKMQK" "XMHXJ" "UWLAO" "LCGER" "XUZHM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "ABYOL" "ESZJK" "WTBXP" "VHIXZ" "EHVJA" "XVYYT" "ELKZF" "UABDS" "KUPXA"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "IQPHB" "QODVB" "QHERK" "LVKET" "QPMGZ" "VJSOE" "LIDJB" "GZJSU" "DCLIN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "SJDCO" "JHYSO" "JJREO" "BUCKI" "IMDFW" "CXHGQ" "HZTHW" "BPBKP" "DPNFE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "WBFRD" "ROWOT" "BYWQV" "HSIBQ" "YGZVO" "QTJDB" "TRKLN" "KQSVK" "GCQEP"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [46] "KVBZM" "UEZGH" "AZFPD" "DVLIU" "TROKP" "QANJB" "PODUA" "KWDQR" "IOEJP"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [55] "MXHIS" "OFALH" "SNVFO" "NXOKZ" "PIJBE" "QCXIL" "CUDDY" "XZDQR" "MCMZM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [64] "SKLKK" "TSKMO" "AYBPC" "CVOUP" "UQMEN" "PMVLN" "BCLVF" "EFBQX" "NPBFO"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [73] "UKGWG" "UMIWQ" "MLSKE" "NEIKT" "BHHAD" "ZCRQU" "BTRLP" "UYMFJ" "ESCCI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [82] "JIFGL" "MDQQX" "AAGMS" "FJFIF" "MNMCH" "LTBKX" "VESIK" "FZHAV"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`B:D`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "FXVQY" "SUHYR" "WFMVD" "JMLGP" "WOUJH" "RSAVL" "CYSVI" "NTTAV" "LYYBV"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "XZGEN" "ZBDZX" "FEOJA" "BRHKR" "DJLHU" "OBLUC" "TVXFM" "FIWCF" "YYGCY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "CILHD" "KTPUX" "QCDQO" "NNITQ" "EANKE" "XTSPI" "NYTZB" "PULJB" "DUCUP"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "WPODU" "HZHRE" "VPHBR" "HBRBU" "IHTJY" "MKLKL" "THMEW" "SMWSN" "RYSSB"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "UJYGF" "MDPSX" "VXBYG" "QHHJL" "PMJTE" "HSNVF" "LFENA" "ZTSKQ" "RJZID"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "KGLHU" "IROWO" "FQSSV" "KBSMW" "HTUQZ" "BUWVX" "GMEIS" "RVJXU" "FIIDX"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "LEXUS" "JZPQG" "QQHLH" "CDCLI" "ZVNSS" "IMMMW" "CGJJW" "RBWDD" "IXPVR"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "BXGZG" "AZGKM" "CGVUY" "CFOLW" "ICUDD" "QYVHD" "DNMCP" "HPQIZ" "JMHVY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "NNOFC" "FKAKN" "ANCSV" "GYTQE" "FEHPV" "NFIJG" "JWCVN" "PBJUZ" "ZWAXW"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "XGAIE" "ZTZQN" "XHHGN" "UUEZG" "SEPHM" "EZFPW" "NOTTT" "TCZFY" "PXWLG"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "QNFRJ" "HTMMA" "ILKLS" "BBPBK" "FXUOM" "BKIAJ" "HXLQP" "XVSXL" "BOEOS"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "ZKMWK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "UFUSQ" "GEQRV" "HIPQU" "VAZYS" "YBENF" "QAQJB" "VSAFD" "PZESG" "BXRUB"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "IMOTO" "LXCOP" "LHMSU" "FSGUK" "CPLRW" "GCEXA" "FOEHS" "UMDXF" "MLIJZ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "VPBMM" "ANBNX" "JHEOS" "BTNMK" "GMSYR" "KDQIT" "KOFYJ" "VEAXI" "IEYPG"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "XGHWM" "TFZZC" "WAXWQ" "ZQPNI" "CDQOJ" "AHUBX" "QWMDP" "LAZZN" "DHIUF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "YOJLL" "VNSSX" "ANBMV" "LIGEI" "NWZEC" "NWAOK" "ZHREN" "MEISM" "FSETK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "MWSNE" "ACJDV" "JKNIE" "KXTGB" "IVALX" "KAUHQ" "SCTAU" "RWLYV" "JFSQJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "AGKJE" "XWLGJ" "MVVNJ" "DAXOY" "HHGEN" "NIGRT" "CBUWG" "ZPQGO" "FAOOY"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "SRVCI" "EIMLY" "VTRSG" "CWCYC" "NFVWZ" "MWNNE" "FQENP" "GBDEY" "FPZMR"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "EKPPM" "TLNJY" "JLHUZ" "TDVOS" "INFRM" "HFVDD" "QAJBO" "FRHLD" "FDLET"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "NHTVS" "DVLCA" "TUNJY" "MWMOE" "ZQCZC" "YYBVK" "OZOKX" "ULKLZ" "QLERQ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "QCNMP" "HOZFJ" "NAKSF" "DIUIL" "SIUXU" "HDMHP" "JTFOX" "GXHFP" "UYHWQ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "BLUCE" "NOFCP" "VSVNM"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`C:D`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "RLGIV" "VEHVJ" "WFOEH" "DGXDI" "OMFNZ" "PTPEB" "XFISS" "FKSKP" "WNKAY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "LRYYN" "PMITG" "UENSU" "NWEMI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "MQCTT" "RFHNU" "BOOQY" "FSGSU" "IDPNA" "DUNXH" "ANKEL" "EICML" "EPUEG"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "MZNAI" "SJDCK" "BFXVS" "VUQND"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`A:B:C`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "PJDAK" "YERZG" "VTDFY" "XNMLQ" "CTXQJ" "ZFQSC" "NLCGE" "CAEPI" "THFVD"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "QCQYM" "MGYFU" "ZLSYT" "CQFRD" "DTUNJ" "DEJHX" "JTHVY" "BQPMG" "FLVAN"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "SLTBK" "QUIYZ" "RWQRC" "VRCUY" "LOXNJ" "LGEZW" "WMDQQ" "MTFZZ" "FTQQY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "IIMDF" "ZLXCO" "VSVKU" "DQAQJ" "HFGFP" "TQZGP" "RGUOJ" "YYBEN" "GLOQV"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "ABUCB" "ASMJV" "QZHIM" "UGTLY" "YZJRC" "PKMTY" "KNMST" "MTLXT" "NTTIS"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [46] "PEGKE" "GHFFA" "MRIGY" "IMGXL"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "TQQYP" "HHZVS" "LOEPS" "NWVWN" "KVWPB" "ILGBC" "GXDIU" "SOVTZ" "XWMVL"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "CHTFM" "CBJBE" "TWSGE" "PCEUT" "ZOJEY" "CQYQI" "GOFDF" "JNKZL" "RWLIH"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "MLCQQ" "TDFYL" "LOQZC" "TIWOK" "HWGCN" "XBYGF" "VZVYK" "OLQMQ" "UEHWC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "AZUGQ" "XDGXI" "NMCPN" "CZKSG" "OEHGZ" "GLMKO" "XLXRM" "ZNOYV" "XGZGE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "VZZOC" "FHEGS" "ZYXYA" "SBQZY" "IRFEM" "MITGL"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`A:B:D`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "FFNWH" "IJJRE" "FQPYR" "BLBGS" "NOVTT" "VTTWS" "EETXA" "VLYNP" "REHJC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "REPUE" "CAFSA" "FJIDR" "XBHHA" "RWCFT" "KJQIL" "TDKDI" "SWCZP" "BLQZQ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "GFJIZ" "VKIZK" "DWCPR" "LDVDJ" "XJMPD" "EBETB" "TUFEN" "CQCXI" "AKDQI"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "KLUNS" "ARPIW" "XKVWP" "ZFZFA" "QURGV" "XSCCN" "FSQSO" "PIBAW" "BUWLA"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "YSRVC" "AQWMD" "ACHTF" "FTIPT" "GWWLE" "VBSCC" "ABEMT" "TOFMJ" "NSRJR"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [46] "OKOFY" "SQZXR" "REGHA" "TSZEW" "HWFMB" "QGZJS" "NDVLC" "PESCC" "JUOBX"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [55] "KMQCB" "FWEPE" "CVRZH" "TCUQK" "PCSXL" "LKHAF" "QBOOQ" "VKYIE" "TCCXT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [64] "LZQQQ" "RBMMS" "RVXBP"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "HWZBE" "FCZVU" "NMYAF" "BIEAF" "AHZPA" "QPFKS" "EGHAH" "FENAM" "NITQE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "ZQKFA" "CZFYC" "BVGXU" "QOWTX" "SGRCN" "WCPRL" "YXUZP" "YVHDN" "XDMYV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "UIYZJ" "IYANA" "KHAFJ" "BETBW" "TTAVI" "NCBJK" "FCDHD" "EBUJV" "IYDOE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "OTTTW" "BZRNK" "WQRCG" "SOYNI" "TTWSH" "FUVRO" "WFITH" "VSAMY" "HKPPK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "FJZQT" "EGKEH" "UASGJ" "GZRCN" "OEXBI" "RRFYC" "YOHQG" "YSXTQ" "XNKTA"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [46] "RDPAV" "IAQLW" "DVDJE" "XYCMR" "ENSUZ" "WOKRV" "SAVLM" "VFRNS" "OFMJQ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [55] "XUOMU" "QDOET" "KXOQX" "XQWDG" "QKHRC" "TIPTD" "BDZXE" "ZEGXZ" "SSQGW"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [64] "LPXPC" "SIWOB" "WFUNF"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`A:C:D`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "GTHER" "ZZEFR" "XLRET" "SAJSX" "RGCQE" "OKSVU" "LSJDC" "RLCTQ" "RTOTK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "PMLRX" "RVNPX" "AQVRM" "FZFAS" "GAIES" "LOQVJ" "VZMUJ" "MOHXT" "OXNJK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "FGFPB" "MQCBT" "UGRTC" "YNUBI"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`B:C:D`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "BNPBF" "PXEPS" "UOFIO" "BXCSG" "AHJEA" "WJOEZ" "HMWMO" "SSJDC" "LRNQE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "NBFXV" "OQNBT" "OEDTK" "SJIFG" "VJNKZ" "MVTRS" "LIQPH" "CJJQS" "CENUC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "CWFIT" "DQBSD" "XIMOT" "LDXKS" "LPADU" "YCLDK" "KPDFM" "MXKFQ" "OWIGJ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "TBRWY" "URFHN" "NNPXR"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "MYAPX" "PWNNG" "ANTZZ" "GHYRY" "DSRIS" "AOBGI" "EDTKK" "DKDID" "FRZTF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "IMFZQ" "UEEFC" "TWFMI" "NATZV" "QPYRA" "OUTUQ" "COKTX" "TOBOI" "AGHXJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "PYOHR" "EXONG" "ZWMZY" "BZRNN" "SBESN" "SQSOZ" "VVZDG" "JYGFX" "THVYC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "UVZXP" "MMMWT" "EUTPO"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $`A:B:C:D`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "SHIPQ" "LAPDM" "VALVS" "TILQM" "GBZRN" "MSOYN" "TWLSW" "TRVNP" "KIUTG"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "NFRZT" "CHHZV" "DCKWJ" "CAWDQ" "TXMHX" "BDLQC" "AECDH" "RHCYI" "JPMVL"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "XMLCQ" "KWBFR"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "NPHZR" "SLXCN" "KHELV" "ILPHN" "IUTGE" "LKLSJ" "FISSE" "FGQTJ" "UAVEJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "JOEZX" "LQZQH" "QCFDY" "IFKLF" "OGVMA" "ZFPWV" "ZHIML" "CKWJW" "VSXLX"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">##</span></span></span>
@@ -519,119 +528,113 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>   [1]   4   5   6   8   9  13  17  20  22  23  28  30  33  35  36  39  40  43</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [19]  45  49  50  55  59  60  66  67  72  75  76  77  82  86  88  89  92  97</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [37]  98  99 100 101 104 109 110 115 117 118 120 122 124 125 126 130 131 133</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] 137 142 146 148 149 151 155 156 157 158 160 166 170 175 176 177 178 179</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] 185 186 188 189 193 194 196 198 199 200 204 205 206 207 208 212 214 216</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] 217 219 225 226 227 229 230 232 236 240 241 242 243 249 255 259 260 261</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [109] 263 267 273 274 275 278 279 280 281 282 287 289 293 296 305 308 312 314</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [127] 315 317 320 321 322 324 327 329 330 333 334 335 337 338 340 343 344 345</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [145] 351 353 356 362 366 370 371 373 374 377 379 381 382 384 386 389 392 396</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [163] 406 410 411 414 416 419 422 424 425 426 428 432 433 434 435 438 441 444</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [181] 446 447 448 449 451 457 460 462 464 466 467 468 470 471 472 473 475 476</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [199] 478 479 480 481 483 485 489 492 495 497 498 499 500 501 503 505 508 509</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [217] 514 521 524 527 536 537 540 542 543 545 546 548 550 556 558 561 565 569</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [235] 571 572 575 582 585 586 587 592 594 595 603 604 607 609 613 618 619 620</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [253] 621 622 623 624 627 631 634 637 638 642 643 644 651 653 656 657 661 666</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [271] 669 671 672 673 674 675 676 678 680 682 685 686 690 695 704 707 708 711</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [289] 712 714 715 717 718 719 721 723 726 727 730 734 735 737 738 740 741 744</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [307] 746 748 749 753 754 755 757 760 763 766 769 771 772 773 780 784 785 788</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [325] 790 791 798 803 808 809 812 814 817 818 826 827 829 830 832 834 835 837</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [343] 838 839 840 844 845 847 851 852 855 856 857 869 873 874 877 878 882 887</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [361] 888 892 894 895 896 899 900 904 907 909 910 911 920 930 933 936 944 945</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [379] 946 949 951 955 959 960 962 965 966 969 972 974 976 979 981 983 984 986</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [397] 991 992 994 999</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] 137 142 143 146 148 149 151 155 156 157 158 160 166 170 175 176 177 178</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] 179 185 186 188 189 193 194 196 198 200 204 205 207 208 212 214 216 217</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] 219 225 226 227 229 230 232 236 240 241 242 243 249 255 259 260 261 263</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [109] 267 273 274 275 278 279 280 281 282 287 289 293 296 305 308 312 314 315</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [127] 317 320 321 322 324 327 329 330 333 334 335 337 338 340 343 344 345 351</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [145] 353 356 362 366 370 371 373 377 379 381 382 384 386 389 392 396 406 410</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [163] 411 414 416 419 422 424 425 426 428 432 433 434 435 438 441 444 445 446</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [181] 447 448 449 451 457 460 462 464 466 467 468 470 471 472 473 476 478 479</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [199] 480 481 483 485 489 492 495 497 498 499 500 501 503 505 508 509 514 524</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [217] 527 536 537 540 542 543 545 546 548 550 556 558 561 565 569 571 572 575</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [235] 582 585 586 587 592 594 595 603 607 609 613 618 619 620 621 622 623 627</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [253] 629 631 633 634 637 638 642 643 644 651 653 656 657 661 666 669 671 672</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [271] 673 674 676 678 680 682 686 690 695 704 708 711 712 714 715 717 718 719</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [289] 723 724 726 728 730 731 733 734 735 737 738 741 746 747 749 750 752 753</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [307] 754 755 760 763 769 771 772 773 775 778 780 784 790 791 792 796 797 798</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [325] 799 803 804 808 812 813 814 816 817 818 827 829 833 834 835 837 839 840</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [343] 842 844 845 847 852 856 858 859 862 864 868 876 880 881 884 888 889 894</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [361] 895 899 902 903 906 907 909 914 916 917 918 923 924 925 927 928 937 940</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [379] 943 949 951 952 953 956 958 959 962 966 967 969 972 976 983 984 986 988</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [397] 990 991 993 999</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $B</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   [1]    2    3    4    6    7    8   10   11   12   13   14   15   16   17   18</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [16]   19   21   22   23   24   25   26   27   28   29   30   36   37   38   40</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [31]   41   42   43   44   45   46   47   48   49   50   51   52   53   57   59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [46]   60   61   62   63   64   65   66   69   70   72   73   75   76   77   80</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [61]   81   82   83   85   86   88   89   90   91   92   93   95   98   99  100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [76]  101  107  108  109  110  112  113  114  115  117  118  120  121  123  124</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91]  125  126  127  129  130  132  133  134  135  136  139  141  142  143  144</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [106]  145  146  147  149  151  153  154  155  156  157  159  160  161  165  166</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [121]  168  169  170  171  172  173  174  175  176  178  179  181  186  187  188</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [136]  190  191  192  193  195  198  199  200  202  203  204  205  206  208  210</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [151]  212  213  214  215  217  218  219  220  221  222  224  226  227  230  231</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [166]  232  233  234  235  236  237  239  242  243  244  245  247  251  253  254</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [181]  255  256  257  258  259  260  261  262  263  264  265  267  268  270  271</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [196]  272  273  276  277  278  279  280  281  283  284  285  288  290  292  293</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [211]  296  297  298  299  300  301  302  303  304  307  308  309  310  312  313</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [226]  314  317  318  319  320  321  322  323  324  325  328  330  331  332  333</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [241]  334  335  336  337  339  341  343  344  345  346  348  349  351  353  355</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [256]  356  357  358  359  360  361  364  365  366  367  368  369  370  371  372</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [271]  373  374  377  379  380  383  384  385  386  387  388  389  390  392  393</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [286]  394  395  396  399  400  401  402  403  404  405  406  407  408  409  410</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [301]  411  413  414  416  417  418  419  421  422  425  426  427  428  429  431</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [316]  434  435  436  437  438  439  440  441  443  444  445  447  450  455  456</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [331]  459  460  461  462  463  465  466  467  468  470  471  472  473  475  476</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [346]  477  478  479  481  483  484  485  486  487  489  490  491  492  494  495</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [361]  496  497  498  502  503  504  506  507  510  511  513  514  515  517  518</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [376]  519  520  521  522  523  524  527  528  529  530  531  532  534  535  536</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [391]  538  539  540  541  542  543  544  545  546  547  548  549  550  551  552</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [406]  553  554  555  556  557  558  560  563  564  565  566  567  568  569  570</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [421]  572  573  574  575  576  578  579  580  582  583  587  588  589  590  591</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [436]  592  593  594  595  596  599  600  601  602  603  604  605  607  609  611</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [451]  612  613  614  615  617  619  620  621  622  624  625  627  628  630  632</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [466]  633  635  636  638  639  640  641  642  643  644  645  647  648  649  650</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [481]  651  652  654  655  656  657  660  662  663  664  666  667  668  669  670</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [496]  671  672  674  675  676  677  678  684  685  686  688  689  690  691  692</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [511]  693  694  695  696  697  698  699  700  701  702  704  705  706  707  708</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [526]  711  712  713  715  716  717  719  720  721  723  724  725  726  727  728</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [541]  729  730  731  734  735  736  739  742  743  744  745  746  747  748  749</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [556]  750  751  753  754  756  757  758  760  761  762  765  767  768  769  770</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [571]  772  773  774  775  776  777  778  780  781  782  783  784  785  786  788</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [586]  790  791  792  793  795  796  797  798  799  800  801  803  804  805  806</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [601]  808  809  810  811  812  813  814  815  816  818  820  821  822  823  826</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [616]  827  828  829  830  831  832  833  834  836  837  838  840  841  842  843</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [631]  844  846  847  848  849  850  851  852  853  854  855  857  858  859  860</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [646]  861  862  863  864  865  867  868  869  870  871  872  874  875  876  879</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [661]  880  881  882  883  886  888  889  892  893  894  895  897  898  899  900</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [676]  901  902  903  904  905  906  907  909  910  911  914  915  916  917  919</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [691]  920  921  922  923  924  926  927  929  930  931  932  934  935  939  940</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [706]  941  942  943  944  945  946  947  948  949  951  952  953  954  958  961</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [721]  962  964  965  966  967  968  969  971  974  975  977  978  979  980  983</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [736]  984  986  987  988  989  990  991  992  994  995  996  997  998  999 1000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [31]   41   42   43   44   45   46   47   48   49   50   51   52   53   57   60</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [46]   61   62   63   64   65   66   69   70   72   73   75   76   77   80   81</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [61]   82   83   85   86   88   89   90   91   92   93   95   98   99  100  101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [76]  107  108  109  110  112  113  114  115  117  118  120  121  123  124  125</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91]  126  127  129  130  132  133  134  135  136  139  141  142  143  144  145</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [106]  146  147  149  151  153  154  155  156  157  159  160  161  165  166  168</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [121]  169  170  171  172  173  174  175  176  178  179  181  186  187  188  190</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [136]  191  192  193  195  198  199  200  202  203  204  205  206  208  210  212</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [151]  213  214  215  217  218  219  220  221  222  224  226  227  230  231  232</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [166]  233  234  235  236  237  239  242  243  244  245  247  251  253  254  255</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [181]  256  257  258  259  260  261  262  263  264  265  267  268  270  271  272</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [196]  273  276  277  278  279  280  281  282  283  284  285  288  291  292  293</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [211]  296  297  298  299  300  301  302  303  304  307  308  309  310  311  312</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [226]  313  316  318  319  320  322  323  324  325  328  330  331  332  333  334</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [241]  335  336  337  338  339  341  343  344  345  346  349  350  353  355  356</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [256]  357  359  360  361  363  364  365  366  367  368  370  371  372  373  374</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [271]  377  378  379  380  383  384  387  388  389  390  393  394  395  396  397</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [286]  399  401  402  403  404  406  407  408  409  410  411  412  413  414  416</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [301]  417  418  419  421  422  425  426  427  428  429  431  434  435  436  437</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [316]  438  439  440  441  443  444  445  447  448  450  451  452  455  456  459</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [331]  460  461  462  463  465  467  468  470  471  472  473  475  476  477  478</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [346]  481  482  483  484  485  486  487  488  489  490  491  494  496  497  498</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [361]  499  502  503  504  505  506  507  509  510  511  513  514  515  516  517</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [376]  518  519  520  522  523  524  525  526  527  528  529  530  532  533  534</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [391]  535  536  538  539  540  541  544  546  547  548  549  550  551  552  553</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [406]  554  555  557  558  559  560  563  564  565  566  567  568  569  570  573</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [421]  574  575  576  577  578  579  580  581  582  583  584  586  587  590  591</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [436]  592  593  595  596  597  599  600  601  602  603  605  606  607  608  609</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [451]  611  612  613  614  615  616  617  619  620  621  622  623  624  625  626</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [466]  628  631  632  634  635  637  638  639  640  641  644  646  647  649  650</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [481]  651  652  653  654  655  656  658  659  660  662  664  666  667  668  669</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [496]  670  671  672  673  674  675  676  678  680  681  684  685  688  689  691</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [511]  692  693  694  695  696  697  698  699  700  701  702  703  704  705  706</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [526]  708  709  711  712  713  714  715  716  717  719  721  723  724  725  726</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [541]  727  728  729  730  731  732  733  734  735  736  738  740  741  742  746</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [556]  747  748  749  750  751  752  753  754  755  758  760  761  762  763  764</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [571]  765  766  767  768  769  771  772  773  774  775  776  777  778  780  781</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [586]  782  784  785  786  787  789  790  791  792  794  795  796  797  799  800</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [601]  801  802  803  804  805  806  807  808  809  812  813  814  815  816  818</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [616]  819  820  822  824  825  826  827  830  831  832  833  835  836  837  838</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [631]  840  841  842  844  845  846  847  848  849  850  851  852  853  854  855</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [646]  856  857  858  859  860  861  863  864  865  866  867  868  869  870  871</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [661]  872  873  874  875  876  878  879  880  882  883  884  885  886  888  889</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [676]  892  893  894  896  897  898  899  901  903  904  906  908  909  910  913</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [691]  914  916  918  919  920  921  922  923  925  926  927  928  929  931  932</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [706]  933  934  935  936  937  943  944  946  947  948  950  952  953  955  956</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [721]  957  958  960  962  963  965  966  968  969  970  971  973  974  975  976</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [736]  980  982  983  984  985  987  989  990  992  994  995  996  997  998 1000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1]    1    2   11   26   30   31   34   35   36   37   41   51   52   54   57</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [16]   59   60   66   67   68   71   73   74   76   79   83   93   94   99  104</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [31]  105  112  113  114  118  122  134  136  141  142  145  146  149  150  152</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [46]  158  160  185  187  191  195  196  199  207  208  209  211  213  217  225</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [61]  230  237  238  256  257  258  262  264  270  274  277  286  296  302  304</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [76]  305  308  314  317  318  320  333  334  335  343  347  349  360  363  365</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91]  368  379  386  390  392  393  394  395  397  398  400  404  405  409  413</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [106]  416  420  422  423  424  427  433  436  437  439  455  458  459  463  465</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [121]  469  472  474  480  481  491  492  495  500  504  506  507  508  511  512</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [136]  513  514  527  528  529  533  535  536  538  540  541  546  547  549  552</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [151]  553  560  562  564  566  575  577  578  579  580  593  594  600  609  610</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [166]  611  617  621  622  625  632  634  638  640  641  645  646  654  655  663</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [181]  665  667  672  673  678  687  697  700  705  706  717  720  723  727  729</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [196]  737  738  739  743  748  760  778  780  784  785  788  790  791  792  805</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [211]  806  811  825  826  834  835  841  842  851  852  855  857  861  862  866</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [226]  868  870  872  878  880  884  889  905  911  923  929  930  948  955  956</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [241]  961  969  970  976  982  984  985  986  993 1000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1]   1   2  11  26  30  31  34  35  36  37  41  51  52  54  57  59  60  66</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [19]  67  68  71  73  74  76  79  83  93  94  99 104 105 112 113 114 118 122</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] 134 136 141 142 145 146 149 150 152 158 160 183 185 187 191 195 196 199</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] 207 208 209 211 213 217 225 230 237 238 256 257 258 262 264 270 274 277</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] 286 296 302 304 305 308 314 317 318 320 333 334 335 343 347 349 360 363</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] 365 368 379 386 390 392 393 394 395 397 398 400 404 405 409 413 416 420</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [109] 422 423 424 427 433 436 437 439 455 458 459 463 465 469 472 474 480 481</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [127] 491 492 495 500 504 506 507 508 511 512 513 514 527 528 529 533 535 536</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [145] 538 540 541 546 547 549 552 553 560 562 564 566 575 577 578 579 580 593</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [163] 594 600 609 610 611 617 621 622 625 632 634 638 640 641 645 646 654 655</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [181] 663 665 667 672 673 678 687 697 700 705 706 717 720 723 727 729 737 738</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [199] 739 743 748 760 778 780 784 786 789 790 791 792 805 806 811 825 826 834</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [217] 835 842 851 852 856 857 862 867 868 869 870 873 879 881 884 885 889 890</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [235] 905 912 924 947 949 956 957 962 970 971 973 983 985 986 987 994</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1]    4    5    7   16   18   19   20   23   35   42   43   47   48   52   58</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [16]   59   64   65   71   81   90   94   96   99  101  106  108  112  113  115</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [31]  116  119  120  121  125  128  132  133  138  140  142  144  146  148  155</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [46]  156  157  164  165  169  172  173  178  183  188  190  192  196  200  207</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [61]  208  209  210  213  217  228  233  234  236  237  240  241  242  243  246</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [76]  250  257  259  260  261  266  269  270  272  276  277  279  281  289  291</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91]  294  300  307  313  314  317  321  325  329  330  334  339  343  348  350</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [106]  351  363  364  375  381  384  387  392  396  397  400  413  414  417  423</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [121]  424  425  426  433  440  441  445  449  451  453  458  459  469  470  473</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [136]  479  480  484  489  490  500  505  510  516  522  529  537  544  547  551</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [151]  561  562  564  566  576  579  581  583  584  587  591  593  601  604  607</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [166]  608  610  611  612  618  620  621  622  625  627  632  634  635  637  638</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [181]  639  643  646  651  652  657  658  659  667  671  675  677  679  681  688</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [196]  689  694  696  699  700  707  720  723  725  726  728  730  733  736  750</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [211]  754  755  757  758  759  764  767  768  770  772  774  776  779  785  788</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [226]  790  791  792  793  794  796  798  801  804  808  811  812  814  815  817</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [241]  820  824  826  827  829  831  833  835  841  843  844  846  848  849  859</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [256]  860  862  864  868  869  873  874  877  881  882  884  885  887  890  891</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [271]  893  895  897  903  906  908  909  910  917  919  925  931  932  935  937</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [286]  940  945  949  950  952  958  961  967  973  975  980  985  987  995 1000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1]   4   5   7  16  18  19  20  23  35  42  43  47  48  52  58  59  64  65</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [19]  71  81  90  94  96  99 101 106 108 112 113 115 116 119 120 121 125 128</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] 132 133 138 140 142 144 146 148 155 156 157 164 165 169 172 173 178 183</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] 188 190 192 196 200 207 208 209 210 213 217 228 233 234 236 237 240 241</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] 242 243 246 250 257 259 260 261 266 269 270 271 272 276 277 279 281 289</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] 291 294 300 307 313 314 317 321 325 329 330 334 339 343 348 350 351 363</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [109] 364 375 381 384 387 392 396 397 400 413 414 417 423 424 425 426 433 440</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [127] 441 445 449 451 453 458 459 469 470 473 479 480 484 489 490 500 505 510</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [145] 516 522 529 537 544 547 551 561 562 564 566 576 579 581 583 584 587 591</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [163] 593 601 604 607 608 610 611 612 618 620 621 622 625 627 632 634 635 637</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [181] 638 639 643 646 651 652 657 658 659 667 671 675 677 679 681 688 689 694</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [199] 696 699 700 707 720 723 725 726 728 730 733 736 750 755 757 758 759 764</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [217] 767 768 770 773 774 776 780 785 788 790 791 792 793 795 797 798 802 805</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [235] 808 811 812 814 815 818 820 825 826 827 829 831 833 836 841 844 845 849</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [253] 850 859 861 863 864 868 870 873 874 877 878 881 882 883 885 888 890 891</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [271] 895 896 898 901 904 906 907 909 910 916 918 926 930 932 933 935 938 940</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [289] 946 950 951 953 958 962 967 968 974 981 986 988</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">venn</span><span class="op">(</span><span class="va">input.i</span><span class="op">)</span></span></span>
@@ -668,163 +671,160 @@
 <span class="r-in"><span><span class="va">tmp</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>      num A B C D</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0000   0 0 0 0 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 0001  42 0 0 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 0010  28 0 0 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 0001  32 0 0 0 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 0010  27 0 0 1 0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0011  13 0 0 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 0100 234 0 1 0 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 0101 100 0 1 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 0110  86 0 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 0100 236 0 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 0101 102 0 1 0 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 0110  89 0 1 1 0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 0111  30 0 1 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1000  56 1 0 0 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1001  20 1 0 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1010  15 1 0 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1011   9 1 0 1 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1100 165 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1000  50 1 0 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1001  26 1 0 0 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1010  18 1 0 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1011  13 1 0 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1100 167 1 1 0 0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1101  66 1 1 0 1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1110  49 1 1 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1111  20 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1110  42 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1111  18 1 1 1 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$A</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "RIOLM" "UCCWI" "GZQZM" "UEWSV" "WKUPX" "CPFTV" "JCIDI" "FHWLJ" "QIVKH"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "RXWMV" "NTSKM" "NRKXT" "OHKPP" "SSQMS" "YTLNJ" "LSGRC" "TQGJB" "RGKIA"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "HXKMK" "OYLFM" "HWLNL" "NNHTV" "CQIMT" "NSKHG" "ZUUYV" "GSSQG" "AVBXA"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "CAQVR" "LUYHW" "UPMLR" "NHOZP" "TKAEU" "VVNNS" "NQKHR" "TVYYJ" "ZVMPS"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "TFSET" "BOAWV" "HWFUN" "WBFWJ" "EEKPP" "KAPCQ" "IKZUW" "RKQRB" "EFGQT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [46] "YLKRA" "UURZW" "IDUGD" "CTTEQ" "BHZPH" "EWTBX" "YKRMH" "GGCEX" "LFYLT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [55] "LODJK" "XDIPD"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "FYPZR" "LCTQZ" "CCFPV" "ETJYK" "SGGOT" "NNKZX" "BLJXK" "JYTMW" "USUYW"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "LCKNR" "BSMWZ" "TQAHO" "QWPEN" "RCUYV" "HDRZK" "AIDFO" "GAGMG" "MGRWU"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "HNTUU" "LBGSS" "ALVSE" "GNDEE" "SIJKR" "IVKHR" "UXQYA" "BEEHY" "WEMIN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "HHJLG" "NKAYI" "WSVWS" "WEPEX" "FPNRL" "SFWTL" "GMIPA" "PADUV" "AWDBA"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "NADEK" "TTISX" "CEQTX" "KIZLS" "ZWJFW" "EPHMH" "EXENV" "PARLJ" "QRRAH"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [46] "QIMTU" "VJXUX" "PHBRO" "PAXQV" "TOTKE"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "AORUB" "PPYOH" "JIFKL" "HIAQL" "OFCZV" "CZQBG" "XMVVN" "TRJRB" "GWGPA"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "EUCTP" "MBZRN" "EKUYW" "QOHIZ" "QGNEQ" "UXDGX" "OKKFP" "ASQJQ" "AFHPT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "LGMZK" "EAHUB" "KFRHL" "OUAVE" "GVOQL" "NZADX" "PKNFK" "PSZIE" "LZNOY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "PAYBP" "DATCW" "CVHIX" "UPSEF" "GQOWT" "SZOUJ" "FCQYQ" "VNWVW" "ONATZ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "OCWEK" "RFYJH" "DRXHH" "ANXQH" "HOGTN" "PJCDV" "ECCFP" "SCPLR" "LNNKZ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "XCCXU" "VXXYJ" "ZBUCK" "JJNZB" "MANBN" "SPAIS" "BZQPN" "EUMIW" "YBYXE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "BADKD" "ZNPHZ" "MSIJK" "GGQQF" "VMYYC" "RQLER" "OKAUH" "SOFSM" "YJYTM"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "WTIWO" "WDKJP" "CENDF" "XPIMA" "SGAGM" "VQGRC" "IMGSX" "MANTZ" "OAOBG"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "YQMJC" "WGKSP" "JYGAI" "BJDFG" "NQLUG" "KGXCA" "WJCFD" "QZQKF" "QGYBK"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "AQRRA" "VWKZJ" "UZBWI" "BMNHB" "VQHER" "LOUTU" "MWPJJ" "NOGVM" "ZTOBO"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "XCXTQ" "LQODV" "ANMYA" "NMRUD" "QGVPU" "MKUQK" "KGMIP" "PCCRX" "EFNIB"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "HIXMT" "OQWRF" "YMGRW" "BEXON" "KQCNM" "HLWPY" "GAXSN" "ECBUW" "JZWJF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "BAZUG" "ZUIHY" "GCXHG" "AXYCM" "OQATO" "UXGHW" "LUIBK" "MIVAL" "PJYUF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [118] "WAZFP" "NWOKR" "BLVKE" "HISPZ" "YHLDV" "WYFRA" "YLIGE" "SOZOK" "CCGTT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [127] "RYSVI" "SNAKS" "OHSRN" "UCNJQ" "CFZHA" "MFGMD" "FPARL" "SKSDX" "UFFAA"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [136] "GSPOT" "EAIPH" "UIRPS" "YNNWY" "LCVOU" "QMALB" "GUBHT" "FUVPX" "NGMXH"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [145] "TACJD" "MLZPB" "JHKBA" "KNDMB" "KZEMN" "AEBKV" "TEBUJ" "VLQGX" "IEICM"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [154] "KPKPJ" "XCBJB" "IVJSO" "YQPFK" "IOILU" "NDUFF" "JIYDO" "VZQXC" "KIYIF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [163] "VMWNN" "EOVJH" "KIEEG" "HUMNR" "GDURJ" "SMXHI" "ZPSNG" "ASCTA" "DMCLQ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [172] "AMQCT" "DEXEN" "HUBNU" "JGLPO" "ZZOJE" "HGXHF" "ZDUNX" "QVIER" "APIJB"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [181] "IXWHA" "FVAJV" "JNQTO" "GMKRS" "ALAAW" "CFAOO" "ILMMA" "WCWCY" "TUMDX"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [190] "ESLXC" "UDDQN" "JFDES" "DNWAO" "OSIWO" "YVESI" "OYXBM" "FCZKS" "KQNCX"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [199] "XZYXY" "FGMSY" "RTAQC" "DPOFW" "RSBES" "ANDWR" "PKVNI" "EDAJP" "BMPAP"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [208] "XXEWB" "HKDQR" "KZXDT" "BWBHM" "PSENI" "EZWMZ" "ZCALK" "EVZVY" "DVYQK"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [217] "MHAST" "WFPZM" "IVSAF" "FBYWQ" "GMLSK" "GDOEG" "TZADP" "TWYWO" "TKPGE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [226] "KMLIB" "NFLQC" "YUFBP" "DRRFY" "OLPXP" "NHMPB" "RERWZ" "AHPXC" "JDLBE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "JCFDH" "SQMSC" "ZQHWO" "QKSZP" "TEPIB" "EFPVV" "NQKYE" "NGQVA" "VYYJK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "RBGUU" "FJIZQ" "UMECI" "MXKIV" "SNYHX" "SCCNC" "JNZBV" "GUOJD" "JCDVM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "TDCZA" "UVPXY" "LDPPW" "DOEKM" "CZAKZ" "JAAFP" "YLOBC" "KNMJH" "MRKND"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "FQSCX" "MCLQP" "KUYWU" "YSUZL" "QCQWC" "QGRCP" "YJCIT" "FYGES" "UPOHI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "UMNRN" "HDTUK" "BSCCD" "FXPWC" "LPUTF" "KZUWG" "LQGXX" "ODZHF" "SMJVX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "DUGDA" "GTDIS" "HFFAR" "ZADPX" "XADTF" "ITIHO" "LPYLB" "SBLFF" "GKIAM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "VIERG" "MGXLR" "PQIZC" "ZEFRT" "GKSPO" "FFAAI" "QGJBW" "PMWCG" "TUQZV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "SNSWR" "CNJQD" "VAOCE" "VOQLR" "VUQKR" "WTTHO" "LMMAI" "QATOH" "HANPK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "SOTIX" "DGRHQ" "XDPRL" "KCBKC" "ZGKMK" "VQLXH" "RIGYP" "RZUHW" "IGEMG"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "PBHML" "DVQMK" "AFSAD" "IYIFU" "EHPVD" "JDFGQ" "HMEWR" "TSKQZ" "WAOBN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "SZEWL" "OFAOB" "HMPBA" "VSWWY" "GDLCY" "UBHTS" "XWHAM" "PSNGQ" "NDVAV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "JMOIB" "AICAH" "MALBX" "LCKXJ" "URGVC" "MGSXG" "TAQCL" "NFRJY" "FGMDG"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "TLXTJ" "XLQPK" "NPXRZ" "EJHXX" "KAEUN" "UUYVV" "MLIBU" "LCPGL" "IOLMF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [118] "QLTJK" "NCSVL" "JWPGA" "NNWYK" "UCUPF" "YXELJ" "XPVRT" "STDQH" "CXTQF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [127] "ECSLQ" "ZGENX" "EOJAF" "CUQKH" "ERWZA" "LVANF" "VTHAD" "BRBUW" "YNOGJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [136] "HCYIH" "FMVDP" "XXYJL" "OEWQT" "KDQRU" "JGPDD" "VUKTT" "KVNIP" "TXQJL"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [145] "AYJIH" "IRPSD" "ONHIX" "QFKNJ" "JDUNF" "FLQCC" "FYUON" "VOSJQ" "QXCEQ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [154] "IBXSR" "XEPSF" "UOBXR" "DDWLC" "BFWJZ" "RZAVC" "WWLEA" "SADNZ" "RHKRN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [163] "KMWKD" "YSVIR" "BYXEG" "DAJPZ" "UBDAC" "URYKX" "LWPYZ" "NUXGC" "SIWBB"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [172] "WCVNO" "ZYCLF" "MTPQK" "FMUPL" "MKRSP" "DLBEP" "DXKSV" "RWGNJ" "UGIRJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [181] "OEOSN" "WCFTQ" "PIMAI" "XEAAT" "KIAJN" "DURJH" "IEMMN" "ZQZMR" "VAJVJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [190] "HKENK" "HYGOL" "HWLJL" "UUJGV" "DOQKC" "GEZWX" "PGNCQ" "WJBKF" "OFIOB"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [199] "ANPQA" "MBEOB" "PUDQS" "VNNSW" "OEPJD" "TPEBZ" "BCKTF" "BIHLZ" "SZIEU"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [208] "QIXIM" "CCRXT" "UFENB" "HNGIL" "GFLLX" "ETOXB" "JIEPL" "IEEGU" "EHJCJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [217] "QMJCG" "BTKOI" "BVKWW" "GYFUR" "XNJZB" "CLDKF" "VMPSW" "DRUXA" "ECDHF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [226] "ZBWIE" "MAEPN" "DLWNH" "OJBRR" "QZGPU" "ENDFA" "ETXAF" "ABDNX" "TLMYQ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [235] "EBKVK" "QLUGL"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "XANPQ" "XXLXR" "LVPBM" "VMNMC" "TOPBW" "EFYUO" "HCOKT" "EESZJ" "NDFRZ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "TKSPP" "WSADN" "DZQHW" "BCSJF" "OQWPE" "YGFLL" "MUASG" "METQI" "EVQLX"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "NHHGE" "RZRBQ" "WMSKJ" "DSNYH" "NKIZL" "GFHEG" "XZYCL" "ZUVZX" "EUUJG"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "CQDWL"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "YYDNY" "GPFNA" "VVJYQ" "ZXDTP" "XEWBQ" "MLGPC" "RPAEI" "ZQXCP" "UBNUZ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "LGIVR" "GJBWB" "MNHBM" "ASZEN" "FIJGJ" "TLNHM" "DIPDW" "SWWKQ" "MTXGG"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "WLNLY" "TTEQW" "TNPQO" "ZQBGD" "SWRGU" "HHGNP" "AJSXG" "RVEGT" "JYUFN"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "JXSLX" "GQANJ" "JSKLK" "ESOTI" "ETDVO" "WUQME" "HQDOE" "HDGRH" "NQFJX"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "FGLMK" "VYOJL" "IJWPG" "KSNSW" "WGCRR" "EOLQM" "SIRFE" "TDDWL" "KXNJZ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "PAIDF" "QMZNA" "WVJGI" "XVRYM" "FUBDA" "KXEAA" "WLDPP" "PNIYQ" "UDRJH"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "LFCDH" "CCSFB" "NBIHL" "VVZZO" "LNWZE" "YGNDE" "WZXBY" "IDEXK" "RNDVA"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "TFAFB" "RSBQZ" "MTNPQ" "AETJY" "BJLGH" "XRTGH"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "YCZGK" "DLQCH" "CNMAT" "CWEKF" "OHIZP" "YLFMU" "LAAWV" "KQRBN" "PAJRW"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "PFTVF" "OGTNM" "RTGHI" "GPJBM" "QLDMB" "BBOSV" "BUCBF" "JJQSL" "MRSSJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "SYZJT" "MSKJS" "BENVP" "ULJBV" "SWJHH" "VRZHF" "QFRDX" "TMMAL" "OVJHX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "RKXTP" "JZIDQ" "KKZAJ" "YXBMB" "GXCAE"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`A:B`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "YMIII" "TGRSB" "EDQGT" "JSWWK" "UYLOB" "RMAEP" "VBTNM" "VXQWD" "JQKSZ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "JJKNI" "QPMWC" "XTRKL" "EEGGG" "FSGGO" "QGTDI" "AXDMY" "JBXRU" "EDSRI"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "FSFWT" "VQLTJ" "HPMVK" "EXHLU" "PEQCJ" "ATLMY" "DKHEL" "SBIEA" "MMQSM"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "VYNOG" "YMCMZ" "RLPYL" "IKKZA" "OGBDE" "AHDRZ" "CMTPQ" "ZFSGS" "XEIML"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "FRWGN" "EDVLI" "DEJXH" "NUGIR" "CTQAH" "YGHYR" "NJTFO" "VKNMJ" "NJAAF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "OGJBW" "VEUTP" "BPYQN" "MYOHQ" "IMKMQ" "ILCPG" "OPZDH" "XEUKR" "QLIDJ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "SMXKI" "LPUDQ" "IITIH" "DZESC" "XRWLY" "LKPNQ" "GNADE" "WSWRG" "ZYNUB"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "PNFVW" "YZEGX" "VFMUP" "OBEEH" "GVSWW" "QBATS" "NQFKN" "ZULKL" "UGEQR"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "XLAZZ" "HVVJY" "EXADT" "YXLER" "NDLWN" "WVEAX" "KFQEN" "KWSVW" "PKSFY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "GJMOI" "AHKEN" "UUABD" "HBCKT" "MSBLF" "FPCEU" "PUFUS" "RUQLK" "SECSL"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "NTEPI" "AWAOB" "SIMFZ" "FHNTU" "PRTPE" "YBBNB" "IIXXE" "GCCNI" "TIHWF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "FBVKW" "XGTPM" "RFYGE" "BBMST" "QDPNF" "NQCQW" "KPZES" "WYGZV" "NFSGU"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "MUYCQ" "CYXUZ" "MELKZ" "TVUKT" "DVSVN" "OEFPV" "YAVVE" "JBVGX" "QHANP"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [118] "XQCFD" "TPUBB" "MJIEP" "CDHIU" "JMLIJ" "DIUCE" "ZCEQT" "CNIGR" "IQLDM"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [127] "CASZE" "BPQZG" "ZGZGI" "VOJBR" "ZWTTH" "PSIUX" "XUOUB" "XODZH" "BUSUE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [136] "LTWFM" "CNWHB" "NXDPR" "DBENV" "LIDPN" "PHGRU" "JDTNH" "TMRSS" "VFDLE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [145] "OINFR" "KYRJQ" "LBLJX" "UPYMG" "VEWNH" "SRVEG" "PURYK" "JFXKH" "BSOVT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [154] "XTDCZ" "XEFBQ" "ELCJJ" "MKQSV" "BUMEC" "ULCKN" "OOFAL" "JYTWP" "GFYZG"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [163] "XLHWL" "KJXHG" "MGPFN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "RYYNW" "ICDNI" "RKTFK" "CCNIC" "EQCJN" "AIPHY" "WGPAO" "YTZBK" "JXHGO"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "ILQMD" "PAISA" "KYIEG" "WCZPA" "ODJKD" "QNCXF" "APCQX" "SKHGB" "SVYNB"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "KIZKY" "ENUCP" "YZVRZ" "GMXHM" "FDESB" "WPJJR" "NRNID" "BMMSO" "EKANT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "QEYDK" "TTHIV" "KRMHD" "CSXLR" "JVZSV" "UYCQW" "HKBAR" "QNBTQ" "HLDVZ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "GTPMN" "XKMKF" "IBAWN" "XCSGM" "WIGJB" "LUNSE" "SPOTI" "TPUXN" "ZQQQO"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "MHVYX" "GRSBV" "PQZGH" "HGRUZ" "UHYRH" "UXDBW" "PSEFD" "BJUZZ" "IXXEP"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "DKJPQ" "GZGIV" "LSYTA" "FYLTV" "XLERO" "MIIIW" "BDNST" "DTNHE" "TZQNM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "ZADXP" "CQYMB" "KAKNH" "MFNZQ" "MQSMN" "PMVKK" "HTJYO" "MJTEV" "KZTOS"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "CSJFB" "IWCFG" "GLHUS" "DRJHE" "IWMJI" "SYEZR" "QSSVJ" "VRYAN" "FHPTM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "LGUIY" "CCXTC" "GVPUZ" "YFRAK" "WIDHR" "GNEQT" "ADKDT" "MGPYC" "GYBKN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "RPIWG" "IEKJY" "FOLWN" "ILHDZ" "JDAKN" "OUJHS" "QUYGL" "BBBVX" "DUFFT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "FYZGE" "FNIBS" "BWDDA" "GVUYK" "GCRRR" "GQQFE" "YTQEN" "VXFMC" "RTRSA"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [109] "LYNPO" "GMZKD" "BBNBC" "QHLHQ" "EVMBA" "AVVEL" "RGVZT" "JMPDN" "XVQYA"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [118] "PDFML" "ZNBKB" "NEZMB" "VJGIB" "GTLYI" "BRWYJ" "EWNHT" "YKNLY" "LRETC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [127] "MYYCR" "LFGJM" "VXBPO" "KKFPG" "CCWIG" "LWSKR" "KKXUC" "QDWLI" "JZMQX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [136] "YTWPP" "NDWRW" "MADFN" "KMTYV" "HASTU" "CALKN" "DQGTZ" "JQILW" "UQLKN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [145] "GLPOF" "POFWT" "ORUBU" "KLKLZ" "YSSBA" "PYQNK" "OPBWK" "VRYMQ" "YGCYT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [154] "RQEBT" "BEMTM" "CMJLY" "YGAIF" "YRJQS" "PURTU" "SJVKR" "WAPAI" "KUQKV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [163] "FXKHY" "QWRFG" "PCXFH" "HJEAY" "IIDXX"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`A:C`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "DLXKU" "UHDMH" "WNCBJ" "XFRMN" "JGOFD" "AZZNR" "ZZNBK" "HUYMF" "NDIUI"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "PMRKN" "NDRUX" "LMZAH" "FQTJD" "SGPJB" "PHWGC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "IUCET" "KNFKX" "ZEMNF" "TSPIM" "ZRBQM" "NWHBA" "HZPHS" "KNADL" "SAUFC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "THERV" "MZAHZ" "EJXHM" "FAFBM" "OAWVQ" "NQTON" "DFRZV" "DOEGP" "JLGHJ"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`A:D`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "QQAJB" "QBCLV" "RILGB" "ADVQM" "ELGUI" "DEVMB" "MILSE" "BOEWQ" "CFUVR"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "ENYGM" "JETOX" "XIOEJ" "UGDLC" "QQIXI" "DUKGW" "WAICA" "NNQKY" "DPURT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "UKZTO" "IRBGU"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "HSRNI" "LCJJH" "UWVXW" "KSKPI" "VNNMW" "NMSTG" "WKZJD" "KSDXJ" "ISPZJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "OVTTR" "KSVUL" "ZXBYE" "NDMBM" "PZDHJ" "BMSTN" "HOZPO" "RTPEA" "HPXCR"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "UFBPN" "ILSEN" "QORJQ" "WFMBA" "UOUBO" "NIYQE" "DDQNJ" "EWSVE"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`B:C`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "RVVZD" "VLFGJ" "OIEYP" "XCNMA" "TNEZM" "EIEMM" "JZQCZ" "KJHEO" "QAGKJ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "FUGRT" "JJVZS" "CXUZH" "YZCRQ" "KRZUH" "SABYO" "ZHWZB" "JRDPA" "YXVYY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "HTDIJ" "PQXCE" "OHSIB" "MWIDH" "LLOEP" "NVZMU" "OOEXB" "JOEHG" "KRPAE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "YMTXG" "EHOZF" "QVOSJ" "ZKXTG" "QYSXT" "MUPOH" "SLPUT" "JJHYS" "OUSUY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "SFJFI" "NNUXG" "ITROK" "IJZMQ" "GFYPZ" "HNXOK" "CVNNM" "XTWSG" "VBDEY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [46] "EDOEK" "KUXDB" "MRTRS" "UIBXS" "KUEEF" "SIWMJ" "QANBM" "TDAXO" "LMADF"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [55] "OLWSK" "RHYGO" "PPAJR" "XJFSQ" "XBTRL" "BNRNI" "JKXOQ" "KONHI" "QSVYN"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [64] "IMBEO" "FKKXU" "AVAOC" "ZUEHW" "GJGPD" "OMYAP" "QHZTH" "PIEKJ" "GVFRN"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [73] "NWAPA" "PSTDQ" "RIGEM" "NAAGM" "XFXPW" "RKVBZ" "UTTHI" "SSYEZ" "XCMJL"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [82] "MVAZY" "CPGNC" "LAGHX" "NICDN" "VRZAV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "RRPZR" "XKFQE" "AXSNX" "SRJRU" "MKMQK" "XMHXJ" "UWLAO" "LCGER" "XUZHM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "ABYOL" "ESZJK" "WTBXP" "VHIXZ" "EHVJA" "XVYYT" "ELKZF" "UABDS" "KUPXA"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "IQPHB" "QODVB" "QHERK" "LVKET" "QPMGZ" "VJSOE" "LIDJB" "GZJSU" "DCLIN"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "SJDCO" "JHYSO" "JJREO" "BUCKI" "IMDFW" "CXHGQ" "HZTHW" "BPBKP" "DPNFE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "WBFRD" "ROWOT" "BYWQV" "HSIBQ" "YGZVO" "QTJDB" "TRKLN" "KQSVK" "GCQEP"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [46] "KVBZM" "UEZGH" "AZFPD" "DVLIU" "TROKP" "QANJB" "PODUA" "KWDQR" "IOEJP"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [55] "MXHIS" "OFALH" "SNVFO" "NXOKZ" "PIJBE" "QCXIL" "CUDDY" "XZDQR" "MCMZM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [64] "SKLKK" "TSKMO" "AYBPC" "CVOUP" "UQMEN" "PMVLN" "BCLVF" "EFBQX" "NPBFO"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [73] "UKGWG" "UMIWQ" "MLSKE" "NEIKT" "BHHAD" "ZCRQU" "BTRLP" "UYMFJ" "ESCCI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [82] "JIFGL" "MDQQX" "AAGMS" "FJFIF" "MNMCH" "LTBKX" "VESIK" "FZHAV"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`B:D`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "FXVQY" "SUHYR" "WFMVD" "JMLGP" "WOUJH" "RSAVL" "CYSVI" "NTTAV" "LYYBV"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "XZGEN" "ZBDZX" "FEOJA" "BRHKR" "DJLHU" "OBLUC" "TVXFM" "FIWCF" "YYGCY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "CILHD" "KTPUX" "QCDQO" "NNITQ" "EANKE" "XTSPI" "NYTZB" "PULJB" "DUCUP"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "WPODU" "HZHRE" "VPHBR" "HBRBU" "IHTJY" "MKLKL" "THMEW" "SMWSN" "RYSSB"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "UJYGF" "MDPSX" "VXBYG" "QHHJL" "PMJTE" "HSNVF" "LFENA" "ZTSKQ" "RJZID"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "KGLHU" "IROWO" "FQSSV" "KBSMW" "HTUQZ" "BUWVX" "GMEIS" "RVJXU" "FIIDX"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "LEXUS" "JZPQG" "QQHLH" "CDCLI" "ZVNSS" "IMMMW" "CGJJW" "RBWDD" "IXPVR"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "BXGZG" "AZGKM" "CGVUY" "CFOLW" "ICUDD" "QYVHD" "DNMCP" "HPQIZ" "JMHVY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "NNOFC" "FKAKN" "ANCSV" "GYTQE" "FEHPV" "NFIJG" "JWCVN" "PBJUZ" "ZWAXW"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "XGAIE" "ZTZQN" "XHHGN" "UUEZG" "SEPHM" "EZFPW" "NOTTT" "TCZFY" "PXWLG"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "QNFRJ" "HTMMA" "ILKLS" "BBPBK" "FXUOM" "BKIAJ" "HXLQP" "XVSXL" "BOEOS"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "ZKMWK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] "UFUSQ" "GEQRV" "HIPQU" "VAZYS" "YBENF" "QAQJB" "VSAFD" "PZESG" "BXRUB"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [10] "IMOTO" "LXCOP" "LHMSU" "FSGUK" "CPLRW" "GCEXA" "FOEHS" "UMDXF" "MLIJZ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [19] "VPBMM" "ANBNX" "JHEOS" "BTNMK" "GMSYR" "KDQIT" "KOFYJ" "VEAXI" "IEYPG"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [28] "XGHWM" "TFZZC" "WAXWQ" "ZQPNI" "CDQOJ" "AHUBX" "QWMDP" "LAZZN" "DHIUF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [37] "YOJLL" "VNSSX" "ANBMV" "LIGEI" "NWZEC" "NWAOK" "ZHREN" "MEISM" "FSETK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [46] "MWSNE" "ACJDV" "JKNIE" "KXTGB" "IVALX" "KAUHQ" "SCTAU" "RWLYV" "JFSQJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [55] "AGKJE" "XWLGJ" "MVVNJ" "DAXOY" "HHGEN" "NIGRT" "CBUWG" "ZPQGO" "FAOOY"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [64] "SRVCI" "EIMLY" "VTRSG" "CWCYC" "NFVWZ" "MWNNE" "FQENP" "GBDEY" "FPZMR"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [73] "EKPPM" "TLNJY" "JLHUZ" "TDVOS" "INFRM" "HFVDD" "QAJBO" "FRHLD" "FDLET"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [82] "NHTVS" "DVLCA" "TUNJY" "MWMOE" "ZQCZC" "YYBVK" "OZOKX" "ULKLZ" "QLERQ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [91] "QCNMP" "HOZFJ" "NAKSF" "DIUIL" "SIUXU" "HDMHP" "JTFOX" "GXHFP" "UYHWQ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [100] "BLUCE" "NOFCP" "VSVNM"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`C:D`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "RLGIV" "VEHVJ" "WFOEH" "DGXDI" "OMFNZ" "PTPEB" "XFISS" "FKSKP" "WNKAY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "LRYYN" "PMITG" "UENSU" "NWEMI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "MQCTT" "RFHNU" "BOOQY" "FSGSU" "IDPNA" "DUNXH" "ANKEL" "EICML" "EPUEG"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "MZNAI" "SJDCK" "BFXVS" "VUQND"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`A:B:C`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "PJDAK" "YERZG" "VTDFY" "XNMLQ" "CTXQJ" "ZFQSC" "NLCGE" "CAEPI" "THFVD"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "QCQYM" "MGYFU" "ZLSYT" "CQFRD" "DTUNJ" "DEJHX" "JTHVY" "BQPMG" "FLVAN"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "SLTBK" "QUIYZ" "RWQRC" "VRCUY" "LOXNJ" "LGEZW" "WMDQQ" "MTFZZ" "FTQQY"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "IIMDF" "ZLXCO" "VSVKU" "DQAQJ" "HFGFP" "TQZGP" "RGUOJ" "YYBEN" "GLOQV"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "ABUCB" "ASMJV" "QZHIM" "UGTLY" "YZJRC" "PKMTY" "KNMST" "MTLXT" "NTTIS"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [46] "PEGKE" "GHFFA" "MRIGY" "IMGXL"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "TQQYP" "HHZVS" "LOEPS" "NWVWN" "KVWPB" "ILGBC" "GXDIU" "SOVTZ" "XWMVL"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "CHTFM" "CBJBE" "TWSGE" "PCEUT" "ZOJEY" "CQYQI" "GOFDF" "JNKZL" "RWLIH"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "MLCQQ" "TDFYL" "LOQZC" "TIWOK" "HWGCN" "XBYGF" "VZVYK" "OLQMQ" "UEHWC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "AZUGQ" "XDGXI" "NMCPN" "CZKSG" "OEHGZ" "GLMKO" "XLXRM" "ZNOYV" "XGZGE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "VZZOC" "FHEGS" "ZYXYA" "SBQZY" "IRFEM" "MITGL"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`A:B:D`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "FFNWH" "IJJRE" "FQPYR" "BLBGS" "NOVTT" "VTTWS" "EETXA" "VLYNP" "REHJC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "REPUE" "CAFSA" "FJIDR" "XBHHA" "RWCFT" "KJQIL" "TDKDI" "SWCZP" "BLQZQ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "GFJIZ" "VKIZK" "DWCPR" "LDVDJ" "XJMPD" "EBETB" "TUFEN" "CQCXI" "AKDQI"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "KLUNS" "ARPIW" "XKVWP" "ZFZFA" "QURGV" "XSCCN" "FSQSO" "PIBAW" "BUWLA"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "YSRVC" "AQWMD" "ACHTF" "FTIPT" "GWWLE" "VBSCC" "ABEMT" "TOFMJ" "NSRJR"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [46] "OKOFY" "SQZXR" "REGHA" "TSZEW" "HWFMB" "QGZJS" "NDVLC" "PESCC" "JUOBX"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [55] "KMQCB" "FWEPE" "CVRZH" "TCUQK" "PCSXL" "LKHAF" "QBOOQ" "VKYIE" "TCCXT"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [64] "LZQQQ" "RBMMS" "RVXBP"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "HWZBE" "FCZVU" "NMYAF" "BIEAF" "AHZPA" "QPFKS" "EGHAH" "FENAM" "NITQE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "ZQKFA" "CZFYC" "BVGXU" "QOWTX" "SGRCN" "WCPRL" "YXUZP" "YVHDN" "XDMYV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "UIYZJ" "IYANA" "KHAFJ" "BETBW" "TTAVI" "NCBJK" "FCDHD" "EBUJV" "IYDOE"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "OTTTW" "BZRNK" "WQRCG" "SOYNI" "TTWSH" "FUVRO" "WFITH" "VSAMY" "HKPPK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [37] "FJZQT" "EGKEH" "UASGJ" "GZRCN" "OEXBI" "RRFYC" "YOHQG" "YSXTQ" "XNKTA"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [46] "RDPAV" "IAQLW" "DVDJE" "XYCMR" "ENSUZ" "WOKRV" "SAVLM" "VFRNS" "OFMJQ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [55] "XUOMU" "QDOET" "KXOQX" "XQWDG" "QKHRC" "TIPTD" "BDZXE" "ZEGXZ" "SSQGW"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [64] "LPXPC" "SIWOB" "WFUNF"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`A:C:D`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "GTHER" "ZZEFR" "XLRET" "SAJSX" "RGCQE" "OKSVU" "LSJDC" "RLCTQ" "RTOTK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "PMLRX" "RVNPX" "AQVRM" "FZFAS" "GAIES" "LOQVJ" "VZMUJ" "MOHXT" "OXNJK"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "FGFPB" "MQCBT" "UGRTC" "YNUBI"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`B:C:D`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "BNPBF" "PXEPS" "UOFIO" "BXCSG" "AHJEA" "WJOEZ" "HMWMO" "SSJDC" "LRNQE"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "NBFXV" "OQNBT" "OEDTK" "SJIFG" "VJNKZ" "MVTRS" "LIQPH" "CJJQS" "CENUC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "CWFIT" "DQBSD" "XIMOT" "LDXKS" "LPADU" "YCLDK" "KPDFM" "MXKFQ" "OWIGJ"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "TBRWY" "URFHN" "NNPXR"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "MYAPX" "PWNNG" "ANTZZ" "GHYRY" "DSRIS" "AOBGI" "EDTKK" "DKDID" "FRZTF"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "IMFZQ" "UEEFC" "TWFMI" "NATZV" "QPYRA" "OUTUQ" "COKTX" "TOBOI" "AGHXJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "PYOHR" "EXONG" "ZWMZY" "BZRNN" "SBESN" "SQSOZ" "VVZDG" "JYGFX" "THVYC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [28] "UVZXP" "MMMWT" "EUTPO"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`A:B:C:D`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "SHIPQ" "LAPDM" "VALVS" "TILQM" "GBZRN" "MSOYN" "TWLSW" "TRVNP" "KIUTG"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "NFRZT" "CHHZV" "DCKWJ" "CAWDQ" "TXMHX" "BDLQC" "AECDH" "RHCYI" "JPMVL"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "XMLCQ" "KWBFR"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "NPHZR" "SLXCN" "KHELV" "ILPHN" "IUTGE" "LKLSJ" "FISSE" "FGQTJ" "UAVEJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "JOEZX" "LQZQH" "QCFDY" "IFKLF" "OGVMA" "ZFPWV" "ZHIML" "CKWJW" "VSXLX"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "venn"</span>
@@ -849,65 +849,65 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1000   5 1 0 0 0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1001   2 1 0 0 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1010   1 1 0 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1011   1 1 0 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1011   2 1 0 1 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1100  20 1 1 0 0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1101   3 1 1 0 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1110   5 1 1 1 0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1111   2 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1111   1 1 1 1 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")[[1]]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "MYYDN" "WPAXQ" "ZRQEB" "AKWDQ" "SBBBV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "LKRAN" "BDEYG" "KSPPH" "FYJHR" "LHWLJ"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$A</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "YKRMH" "YLKRA" "IKZUW" "XDIPD" "CPFTV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "EXENV" "KIZLS" "NADEK" "PAXQV" "SGGOT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$B</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "GCXHG" "DEXEN" "CFZHA" "KQNCX" "FVAJV" "OHSRN" "OLPXP" "CENDF" "EUMIW"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "SPAIS" "ZBUCK" "TEBUJ" "JFDES" "EZWMZ" "BAZUG" "QMALB" "XCXTQ" "VZQXC"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "PKVNI" "HUBNU" "RFYJH" "TUMDX" "AMQCT"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "URGVC" "RZAVC" "QLTJK" "VAJVJ" "WCVNO" "LCPGL" "ENDFA" "VAOCE" "GTDIS"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "SMJVX" "KZUWG" "YNOGJ" "OEOSN" "GFLLX" "MALBX" "CXTQF" "EHPVD" "KVNIP"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "TPEBZ" "KMWKD" "FYGES" "RWGNJ" "DDWLC"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$C</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "METQI" "XXLXR" "NKIZL" "YGFLL" "NDFRZ" "VMNMC" "TKSPP"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "MTXGG" "YYDNY" "AJSXG" "DIPDW" "ZQXCP" "VVJYQ" "UBNUZ"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "GQANJ" "TDDWL"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "DLQCH" "PFTVF"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`A:B`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "OPZDH" "XEIML" "VQLTJ" "OINFR" "ILCPG" "QGTDI" "GNADE" "VYNOG" "PNFVW"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "ZGZGI" "ZFSGS" "HVVJY" "BSOVT" "DVSVN" "RFYGE" "XLHWL" "JFXKH" "FRWGN"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "FSGGO" "DKHEL"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "MHVYX" "KRMHD" "QNCXF" "KLKLZ" "ZQQQO" "PAISA" "UXDBW" "FDESB" "GZGIV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "LFGJM" "TTHIV" "CQYMB" "RQEBT" "RTRSA" "BBBVX" "FXKHY" "YGCYT" "JVZSV"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [19] "ILQMD" "KIZKY"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`A:C`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "PHWGC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "DFRZV"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`A:D`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "CFUVR" "QQAJB"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "PZDHJ" "HSRNI"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`B:C`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "YMTXG" "VRZAV" "AVAOC" "JOEHG" "KUXDB" "VLFGJ" "VBDEY" "UTTHI" "MRTRS"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "JJVZS"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "CXHGQ" "FZHAV" "UMIWQ" "BUCKI" "PODUA" "XKFQE" "QANJB" "MNMCH" "KWDQR"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "EHVJA"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`B:D`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "JMHVY" "JWCVN" "MKLKL" "ZWAXW" "WPODU" "BOEOS" "NNOFC" "FEHPV" "DJLHU"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "ZKMWK" "YYGCY"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] "EIMLY" "INFRM" "WAXWQ" "QAJBO" "KDQIT" "NOFCP" "NFVWZ" "JLHUZ" "LXCOP"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [10] "VSVNM" "UMDXF"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`C:D`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "PTPEB" "VEHVJ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "FSGSU" "MQCTT"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`A:B:C`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ASMJV" "GLOQV" "HFGFP" "ZLXCO" "QCQYM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "XLXRM" "OEHGZ" "AZUGQ" "HWGCN" "SOVTZ"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`A:B:D`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "QURGV" "LZQQQ" "AKDQI"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "FUVRO" "LPXPC" "EBUJV"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`A:C:D`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "SAJSX"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "LOQVJ" "FGFPB"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`B:C:D`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "MXKFQ"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "ZWMZY"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"intersections")$`A:B:C:D`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "BDLQC" "TILQM"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "KHELV"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "venn"</span>
@@ -923,28 +923,28 @@
 <span class="r-in"><span><span class="co"># Look at all of the subsets</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">isect</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> List of 15</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ A      : chr [1:56] "RIOLM" "UCCWI" "GZQZM" "UEWSV" ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ B      : chr [1:234] "AORUB" "PPYOH" "JIFKL" "HIAQL" ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ C      : chr [1:28] "XANPQ" "XXLXR" "LVPBM" "VMNMC" ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ D      : chr [1:42] "JXSLX" "GQANJ" "JSKLK" "ESOTI" ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ A:B    : chr [1:165] "YMIII" "TGRSB" "EDQGT" "JSWWK" ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ A:C    : chr [1:15] "DLXKU" "UHDMH" "WNCBJ" "XFRMN" ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ A:D    : chr [1:20] "QQAJB" "QBCLV" "RILGB" "ADVQM" ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ B:C    : chr [1:86] "RVVZD" "VLFGJ" "OIEYP" "XCNMA" ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ B:D    : chr [1:100] "FXVQY" "SUHYR" "WFMVD" "JMLGP" ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ C:D    : chr [1:13] "RLGIV" "VEHVJ" "WFOEH" "DGXDI" ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ A:B:C  : chr [1:49] "PJDAK" "YERZG" "VTDFY" "XNMLQ" ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ A:B:D  : chr [1:66] "FFNWH" "IJJRE" "FQPYR" "BLBGS" ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ A:C:D  : chr [1:9] "GTHER" "ZZEFR" "XLRET" "SAJSX" ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ B:C:D  : chr [1:30] "BNPBF" "PXEPS" "UOFIO" "BXCSG" ...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  $ A:B:C:D: chr [1:20] "SHIPQ" "LAPDM" "VALVS" "TILQM" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ A      : chr [1:50] "FYPZR" "LCTQZ" "CCFPV" "ETJYK" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ B      : chr [1:236] "JCFDH" "SQMSC" "ZQHWO" "QKSZP" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ C      : chr [1:27] "YYDNY" "GPFNA" "VVJYQ" "ZXDTP" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ D      : chr [1:32] "YCZGK" "DLQCH" "CNMAT" "CWEKF" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ A:B    : chr [1:167] "RYYNW" "ICDNI" "RKTFK" "CCNIC" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ A:C    : chr [1:18] "IUCET" "KNFKX" "ZEMNF" "TSPIM" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ A:D    : chr [1:26] "HSRNI" "LCJJH" "UWVXW" "KSKPI" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ B:C    : chr [1:89] "RRPZR" "XKFQE" "AXSNX" "SRJRU" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ B:D    : chr [1:102] "UFUSQ" "GEQRV" "HIPQU" "VAZYS" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ C:D    : chr [1:13] "MQCTT" "RFHNU" "BOOQY" "FSGSU" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ A:B:C  : chr [1:42] "TQQYP" "HHZVS" "LOEPS" "NWVWN" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ A:B:D  : chr [1:66] "HWZBE" "FCZVU" "NMYAF" "BIEAF" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ A:C:D  : chr [1:13] "PMLRX" "RVNPX" "AQVRM" "FZFAS" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ B:C:D  : chr [1:30] "MYAPX" "PWNNG" "ANTZZ" "GHYRY" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  $ A:B:C:D: chr [1:18] "NPHZR" "SLXCN" "KHELV" "ILPHN" ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Extract and combine the subsets of interest..</span></span></span>
 <span class="r-in"><span><span class="va">AandB</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">isect</span><span class="op">$</span><span class="va">A</span>, <span class="va">isect</span><span class="op">$</span><span class="va">B</span>, <span class="va">isect</span><span class="op">$</span><span class="st">'A:B'</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># and look at the results</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">AandB</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  chr [1:455] "RIOLM" "UCCWI" "GZQZM" "UEWSV" "WKUPX" "CPFTV" "JCIDI" ...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  chr [1:453] "FYPZR" "LCTQZ" "CCFPV" "ETJYK" "SGGOT" "NNKZX" "BLJXK" ...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">##</span></span></span>
 <span class="r-in"><span><span class="co">## The full set of elements of each intersection is provided in the</span></span></span>
@@ -970,6 +970,7 @@
 <span class="r-in"><span><span class="co">#</span></span></span>
 <span class="r-in"><span><span class="co"># $`A:B`</span></span></span>
 <span class="r-in"><span><span class="co"># [1] "3" "4" "5"</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -984,7 +985,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
       </footer></div>

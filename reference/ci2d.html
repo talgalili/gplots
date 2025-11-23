@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.3.0</span>
       </span>
     </div>
 
@@ -54,7 +54,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Create 2-dimensional empirical confidence regions</h1>
-
+    <small class="dont-index">Source: <a href="https://github.com/talgalili/gplots/blob/master/R/ci2d.R" class="external-link"><code>R/ci2d.R</code></a></small>
     <div class="hidden name"><code>ci2d.Rd</code></div>
     </div>
 
@@ -63,140 +63,157 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ci2d</span><span class="op">(</span><span class="va">x</span>, y <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>     nbins<span class="op">=</span><span class="fl">51</span>, method<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"bkde2D"</span>,<span class="st">"hist2d"</span><span class="op">)</span>,</span>
-<span>     <span class="va">bandwidth</span>, factor<span class="op">=</span><span class="fl">1.0</span>,</span>
-<span>     ci.levels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.50</span>,<span class="fl">0.75</span>,<span class="fl">0.90</span>,<span class="fl">0.95</span>,<span class="fl">0.975</span><span class="op">)</span>,</span>
-<span>     show<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"filled.contour"</span>,<span class="st">"contour"</span>,<span class="st">"image"</span>,<span class="st">"none"</span><span class="op">)</span>,</span>
-<span>     col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">topo.colors</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">breaks</span><span class="op">)</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span>,</span>
-<span>     show.points<span class="op">=</span><span class="cn">FALSE</span>,</span>
-<span>     pch<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"pch"</span><span class="op">)</span>,</span>
-<span>     points.col<span class="op">=</span><span class="st">"red"</span>,</span>
-<span>     <span class="va">xlab</span>, <span class="va">ylab</span>, </span>
-<span>     <span class="va">...</span><span class="op">)</span></span>
-<span><span class="co"># S3 method for class 'ci2d'</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ci2d</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  y <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  nbins <span class="op">=</span> <span class="fl">51</span>,</span>
+<span>  method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"bkde2D"</span>, <span class="st">"hist2d"</span><span class="op">)</span>,</span>
+<span>  <span class="va">bandwidth</span>,</span>
+<span>  factor <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  ci.levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="fl">0.9</span>, <span class="fl">0.95</span>, <span class="fl">0.975</span><span class="op">)</span>,</span>
+<span>  show <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"filled.contour"</span>, <span class="st">"contour"</span>, <span class="st">"image"</span>, <span class="st">"none"</span><span class="op">)</span>,</span>
+<span>  col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">topo.colors</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">breaks</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>  show.points <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  pch <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"pch"</span><span class="op">)</span>,</span>
+<span>  points.col <span class="op">=</span> <span class="st">"red"</span>,</span>
+<span>  <span class="va">xlab</span>,</span>
+<span>  <span class="va">ylab</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <p></p>
+
+
 <dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
-<dd><p>either a vector containing the x coordinates
-    or a matrix with 2 columns.</p></dd>
+<dd><p>either a vector containing the x coordinates or a matrix with 2
+columns.</p></dd>
 
-  <dt id="arg-y">y<a class="anchor" aria-label="anchor" href="#arg-y"></a></dt>
-<dd><p>a vector contianing the y coordinates, not required if `x'
-    is matrix</p></dd>
 
-  <dt id="arg-nbins">nbins<a class="anchor" aria-label="anchor" href="#arg-nbins"></a></dt>
-<dd><p>number of bins in each dimension. May be a scalar or a
-    2 element vector.  Defaults to 51.</p></dd>
+<dt id="arg-y">y<a class="anchor" aria-label="anchor" href="#arg-y"></a></dt>
+<dd><p>a vector contianing the y coordinates, not required if `x' is
+matrix</p></dd>
 
-  <dt id="arg-method">method<a class="anchor" aria-label="anchor" href="#arg-method"></a></dt>
-<dd><p>One of "bkde2D" (for KernSmooth::bdke2d) or "hist2d"
-    (for gplots::hist2d) specifyting the name of the method to create
-    the 2-d density summarizing the data.  Defaults to "bkde2D".</p></dd>
 
-  <dt id="arg-bandwidth">bandwidth<a class="anchor" aria-label="anchor" href="#arg-bandwidth"></a></dt>
-<dd><p>Bandwidth to use for <code><a href="https://rdrr.io/pkg/KernSmooth/man/bkde2D.html" class="external-link">KernSmooth::bkde2D</a></code>.
-    See below for default value.</p></dd>
+<dt id="arg-nbins">nbins<a class="anchor" aria-label="anchor" href="#arg-nbins"></a></dt>
+<dd><p>number of bins in each dimension. May be a scalar or a 2
+element vector.  Defaults to 51.</p></dd>
 
-  <dt id="arg-factor">factor<a class="anchor" aria-label="anchor" href="#arg-factor"></a></dt>
-<dd><p>Numeric scaling factor for bandwidth.  Useful for
-    exploring effect of changing the bandwidth.  Defaults to 1.0.</p></dd>
 
-  <dt id="arg-ci-levels">ci.levels<a class="anchor" aria-label="anchor" href="#arg-ci-levels"></a></dt>
-<dd><p>Confidence level(s) to use for plotting
-    data. Defaults to <code>c(0.5, 0.75, 0.9, 0.95, 0.975)</code></p></dd>
+<dt id="arg-method">method<a class="anchor" aria-label="anchor" href="#arg-method"></a></dt>
+<dd><p>One of "bkde2D" (for KernSmooth::bdke2d) or "hist2d" (for
+gplots::hist2d) specifyting the name of the method to create the 2-d
+density summarizing the data.  Defaults to "bkde2D".</p></dd>
 
-  <dt id="arg-show">show<a class="anchor" aria-label="anchor" href="#arg-show"></a></dt>
-<dd><p>Plot type to be displaed.  One of "filled.contour",
-    "contour", "image", or "none".  Defaults to "filled.contour".</p></dd>
 
-  <dt id="arg-show-points">show.points<a class="anchor" aria-label="anchor" href="#arg-show-points"></a></dt>
-<dd><p>Boolean indicating whether original data values
-    should be plotted.  Defaults to <code>TRUE</code>.</p></dd>
+<dt id="arg-bandwidth">bandwidth<a class="anchor" aria-label="anchor" href="#arg-bandwidth"></a></dt>
+<dd><p>Bandwidth to use for <code><a href="https://rdrr.io/pkg/KernSmooth/man/bkde2D.html" class="external-link">KernSmooth::bkde2D</a></code>.  See below
+for default value.</p></dd>
 
-  <dt id="arg-pch">pch<a class="anchor" aria-label="anchor" href="#arg-pch"></a></dt>
-<dd><p>Point type for plots.  See <code>points</code> for details.</p></dd>
 
-  <dt id="arg-points-col">points.col<a class="anchor" aria-label="anchor" href="#arg-points-col"></a></dt>
-<dd><p>Point color for plotting original data. Defaiults to
-  "red".</p></dd>
+<dt id="arg-factor">factor<a class="anchor" aria-label="anchor" href="#arg-factor"></a></dt>
+<dd><p>Numeric scaling factor for bandwidth.  Useful for exploring
+effect of changing the bandwidth.  Defaults to 1.0.</p></dd>
 
-  <dt id="arg-col">col<a class="anchor" aria-label="anchor" href="#arg-col"></a></dt>
+
+<dt id="arg-ci-levels">ci.levels<a class="anchor" aria-label="anchor" href="#arg-ci-levels"></a></dt>
+<dd><p>Confidence level(s) to use for plotting data. Defaults to
+<code>c(0.5, 0.75, 0.9, 0.95, 0.975)</code></p></dd>
+
+
+<dt id="arg-show">show<a class="anchor" aria-label="anchor" href="#arg-show"></a></dt>
+<dd><p>Plot type to be displaed.  One of "filled.contour", "contour",
+"image", or "none".  Defaults to "filled.contour".</p></dd>
+
+
+<dt id="arg-col">col<a class="anchor" aria-label="anchor" href="#arg-col"></a></dt>
 <dd><p>Colors to use for plots.</p></dd>
 
-  <dt id="arg-xlab-ylab">xlab, ylab<a class="anchor" aria-label="anchor" href="#arg-xlab-ylab"></a></dt>
+
+<dt id="arg-show-points">show.points<a class="anchor" aria-label="anchor" href="#arg-show-points"></a></dt>
+<dd><p>Boolean indicating whether original data values should
+be plotted.  Defaults to <code>TRUE</code>.</p></dd>
+
+
+<dt id="arg-pch">pch<a class="anchor" aria-label="anchor" href="#arg-pch"></a></dt>
+<dd><p>Point type for plots.  See <code>points</code> for details.</p></dd>
+
+
+<dt id="arg-points-col">points.col<a class="anchor" aria-label="anchor" href="#arg-points-col"></a></dt>
+<dd><p>Point color for plotting original data. Defaiults to
+"red".</p></dd>
+
+
+<dt id="arg-xlab-ylab">xlab, ylab<a class="anchor" aria-label="anchor" href="#arg-xlab-ylab"></a></dt>
 <dd><p>Axis labels</p></dd>
 
-  <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Additional arguments passed to <code><a href="https://rdrr.io/pkg/KernSmooth/man/bkde2D.html" class="external-link">KernSmooth::bkde2D</a></code>
-    or <code><a href="hist2d.html">gplots::hist2d</a></code>.</p></dd>
+
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
+<dd><p>Additional arguments passed to <code><a href="https://rdrr.io/pkg/KernSmooth/man/bkde2D.html" class="external-link">KernSmooth::bkde2D</a></code> or
+<code><a href="hist2d.html">gplots::hist2d</a></code>.</p></dd>
+
+</dl></div>
+    <div id="value">
+    <h2>Value</h2>
+    <p>A <code>ci2d</code> object consisting of a list containing (at least) the
+following elements:</p>
+<dl><dt>nobs</dt>
+<dd><p>number of original data points</p></dd>
+ <dt>x</dt>
+<dd><p>x
+position of each density estimate bin</p></dd>
+ <dt>y</dt>
+<dd><p>y position of each density
+estimate bin</p></dd>
+ <dt>density</dt>
+<dd><p>Matrix containing the probability density of
+each bin (count in bin/total count)</p></dd>
+ <dt>cumDensity</dt>
+<dd><p>Matrix where each
+element contains the cumulative probability density of all elements with
+the same density (used to create the confidence region plots)</p></dd>
+
+<dt>contours</dt>
+<dd><p>List of contours of each confidence region.</p></dd>
+
+<dt>call</dt>
+<dd><p>Call used to create this object</p></dd>
 
 </dl></div>
     <div id="details">
     <h2>Details</h2>
     <p>This function utilizes either <code><a href="https://rdrr.io/pkg/KernSmooth/man/bkde2D.html" class="external-link">KernSmooth::bkde2D</a></code> or
-  <code><a href="hist2d.html">gplots::hist2d</a></code> to estmate a 2-dimensional density of the data
-  passed as an argument.  This density is then used to create and
-  (optionally) display confidence regions.</p>
+<code><a href="hist2d.html">gplots::hist2d</a></code> to estmate a 2-dimensional density of the data passed
+as an argument.  This density is then used to create and (optionally)
+display confidence regions.</p>
 <p>When <code>bandwidth</code> is ommited and <code>method="bkde2d"</code>,
-  <code><a href="https://rdrr.io/pkg/KernSmooth/man/dpik.html" class="external-link">KernSmooth::dpik</a></code> is appled in x and y dimensions to select the
-  bandwidth.</p>
+<code><a href="https://rdrr.io/pkg/KernSmooth/man/dpik.html" class="external-link">KernSmooth::dpik</a></code> is appled in x and y dimensions to select the
+bandwidth.</p>
     </div>
     <div id="note">
     <h2>Note</h2>
     <p>Confidence intervals generated by ci2d are <em>approximate</em>, and
-  are subject to biases and/or artifacts induced by the binning or
-  kernel smoothing method, bin locations, bin sizes, and kernel bandwidth.</p>
-<p>The <code><a href="https://rdrr.io/pkg/r2d2/man/conf2d.html" class="external-link">conf2d</a></code> function in the <span class="pkg">r2d2</span> package may create a more
-  accurate confidence region, and reports the actual proportion of
-  points inside the region.</p>
-    </div>
-    <div id="value">
-    <h2>Value</h2>
-    <p>A <code>ci2d</code> object consisting of a list containing (at least) the
-  following elements:</p>
-<dl><dt>nobs</dt>
-<dd><p>number of original data points</p></dd>
-
-  <dt>x</dt>
-<dd><p>x position of each density estimate bin</p></dd>
-
-  <dt>y</dt>
-<dd><p>y position of each density estimate bin</p></dd>
-
-  <dt>density</dt>
-<dd><p>Matrix containing the probability density of each bin
-    (count in bin/total count)</p></dd>
-
-  <dt>cumDensity</dt>
-<dd><p>Matrix where each element contains the cumulative
-    probability density of all elements with the same density (used to
-    create the confidence region plots)</p></dd>
-
-  <dt>contours</dt>
-<dd><p>List of contours of each confidence region.</p></dd>
-
-  <dt>call</dt>
-<dd><p>Call used to create this object</p></dd>
-
-</dl></div>
-    <div id="author">
-    <h2>Author</h2>
-    <p>Gregory R. Warnes <a href="mailto:greg@warnes.net">greg@warnes.net</a></p>
+are subject to biases and/or artifacts induced by the binning or kernel
+smoothing method, bin locations, bin sizes, and kernel bandwidth.</p>
+<p>The <code><a href="https://rdrr.io/pkg/r2d2/man/conf2d.html" class="external-link">conf2d</a></code> function in the <span class="pkg">r2d2</span> package may
+create a more accurate confidence region, and reports the actual proportion
+of points inside the region.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
     <div class="dont-index"><p><code><a href="https://rdrr.io/pkg/KernSmooth/man/bkde2D.html" class="external-link">bkde2D</a></code>, <code><a href="https://rdrr.io/pkg/r2d2/man/conf2d.html" class="external-link">conf2d</a></code>,
-  <code><a href="https://rdrr.io/pkg/KernSmooth/man/dpik.html" class="external-link">dpik</a></code>, <code><a href="hist2d.html">hist2d</a></code></p></div>
+<code><a href="https://rdrr.io/pkg/KernSmooth/man/dpik.html" class="external-link">dpik</a></code>, <code><a href="hist2d.html">hist2d</a></code></p></div>
+    </div>
+    <div id="author">
+    <h2>Author</h2>
+    <p>Gregory R. Warnes <a href="mailto:greg@warnes.net">greg@warnes.net</a></p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span>   <span class="co">####</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span>   <span class="co">####</span></span></span>
 <span class="r-in"><span>   <span class="co">## Basic usage </span></span></span>
 <span class="r-in"><span>   <span class="co">####</span></span></span>
 <span class="r-in"><span>   <span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">geyser</span>, package<span class="op">=</span><span class="st">"MASS"</span><span class="op">)</span></span></span>
@@ -237,7 +254,6 @@
 <span class="r-in"><span> </span></span>
 <span class="r-in"><span>   <span class="co"># Require same scale for each axis, this looks oval</span></span></span>
 <span class="r-in"><span>   <span class="fu">ci2d</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>, range.x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">20</span>,<span class="fl">20</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">20</span>,<span class="fl">20</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Binning grid too coarse for current (small) bandwidth: consider increasing 'gridsize'</span>
 <span class="r-plt img"><img src="ci2d-7.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span>   <span class="fu">ci2d</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>, method<span class="op">=</span><span class="st">"hist2d"</span>, same.scale<span class="op">=</span><span class="cn">TRUE</span>, nbins<span class="op">=</span><span class="fl">25</span><span class="op">)</span> <span class="co"># hist2d </span></span></span>
 <span class="r-plt img"><img src="ci2d-8.png" alt="" width="700" height="433"></span>
@@ -614,6 +630,7 @@
 <span class="r-in"><span>   <span class="va">ci</span> <span class="op">&lt;-</span> <span class="fu">ci2d</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span><span class="op">)</span></span></span>
 <span class="r-in"><span>   <span class="va">ci</span></span></span>
 <span class="r-in"><span>   <span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -628,7 +645,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
       </footer></div>

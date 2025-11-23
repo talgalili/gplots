@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.3.0</span>
       </span>
     </div>
 
@@ -54,7 +54,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Compute and Plot a 2-Dimensional Histogram</h1>
-
+    <small class="dont-index">Source: <a href="https://github.com/talgalili/gplots/blob/master/R/hist2d.R" class="external-link"><code>R/hist2d.R</code></a></small>
     <div class="hidden name"><code>hist2d.Rd</code></div>
     </div>
 
@@ -63,91 +63,108 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">hist2d</span><span class="op">(</span><span class="va">x</span>,y<span class="op">=</span><span class="cn">NULL</span>, nbins<span class="op">=</span><span class="fl">200</span>, same.scale<span class="op">=</span><span class="cn">FALSE</span>, na.rm<span class="op">=</span><span class="cn">TRUE</span>, show<span class="op">=</span><span class="cn">TRUE</span>,</span>
-<span>       col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">heat.colors</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span><span class="op">)</span>, FUN<span class="op">=</span><span class="fu">base</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span>, <span class="va">xlab</span>, <span class="va">ylab</span>,</span>
-<span>       <span class="va">...</span> <span class="op">)</span></span>
-<span><span class="co"># S3 method for class 'hist2d'</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">hist2d</span><span class="op">(</span></span>
+<span>  <span class="va">x</span>,</span>
+<span>  y <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  nbins <span class="op">=</span> <span class="fl">200</span>,</span>
+<span>  same.scale <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  na.rm <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  show <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"black"</span>, <span class="fu"><a href="https://rdrr.io/r/grDevices/palettes.html" class="external-link">heat.colors</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  FUN <span class="op">=</span> <span class="fu">base</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span>,</span>
+<span>  <span class="va">xlab</span>,</span>
+<span>  <span class="va">ylab</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <p></p>
+
+
 <dl><dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
-<dd><p>either a vector containing the x coordinates
-    or a matrix with 2 columns.</p></dd>
+<dd><p>either a vector containing the x coordinates or a matrix with 2
+columns.</p></dd>
 
-  <dt id="arg-y">y<a class="anchor" aria-label="anchor" href="#arg-y"></a></dt>
-<dd><p>a vector contianing the y coordinates, not required if `x'
-    is matrix</p></dd>
 
-  <dt id="arg-nbins">nbins<a class="anchor" aria-label="anchor" href="#arg-nbins"></a></dt>
-<dd><p>number of bins in each dimension. May be a scalar or a
-    2 element vector.  Defaults to 200.</p></dd>
+<dt id="arg-y">y<a class="anchor" aria-label="anchor" href="#arg-y"></a></dt>
+<dd><p>a vector contianing the y coordinates, not required if `x' is
+matrix</p></dd>
 
-  <dt id="arg-same-scale">same.scale<a class="anchor" aria-label="anchor" href="#arg-same-scale"></a></dt>
+
+<dt id="arg-nbins">nbins<a class="anchor" aria-label="anchor" href="#arg-nbins"></a></dt>
+<dd><p>number of bins in each dimension. May be a scalar or a 2
+element vector.  Defaults to 200.</p></dd>
+
+
+<dt id="arg-same-scale">same.scale<a class="anchor" aria-label="anchor" href="#arg-same-scale"></a></dt>
 <dd><p>use the same range for x and y. Defaults to FALSE.</p></dd>
 
-  <dt id="arg-na-rm">na.rm<a class="anchor" aria-label="anchor" href="#arg-na-rm"></a></dt>
-<dd><p>Indicates whether missing values should be
-    removed. Defaults to TRUE.</p></dd>
 
-  <dt id="arg-show">show<a class="anchor" aria-label="anchor" href="#arg-show"></a></dt>
-<dd><p>Indicates whether the histogram be displayed using
-    <code>image</code> once it has
-    been computed. Defaults to TRUE.</p></dd>
+<dt id="arg-na-rm">na.rm<a class="anchor" aria-label="anchor" href="#arg-na-rm"></a></dt>
+<dd><p>Indicates whether missing values should be removed. Defaults
+to TRUE.</p></dd>
 
-  <dt id="arg-col">col<a class="anchor" aria-label="anchor" href="#arg-col"></a></dt>
-<dd><p>Colors for the histogram. Defaults to "black" for
-    bins containing no elements, a set of 16 heat colors for other bins.</p></dd>
 
-  <dt id="arg-fun">FUN<a class="anchor" aria-label="anchor" href="#arg-fun"></a></dt>
+<dt id="arg-show">show<a class="anchor" aria-label="anchor" href="#arg-show"></a></dt>
+<dd><p>Indicates whether the histogram be displayed using <code>image</code>
+once it has been computed. Defaults to TRUE.</p></dd>
+
+
+<dt id="arg-col">col<a class="anchor" aria-label="anchor" href="#arg-col"></a></dt>
+<dd><p>Colors for the histogram. Defaults to "black" for bins
+containing no elements, a set of 16 heat colors for other bins.</p></dd>
+
+
+<dt id="arg-fun">FUN<a class="anchor" aria-label="anchor" href="#arg-fun"></a></dt>
 <dd><p>Function used to summarize bin contents.  Defaults to
-    <code><a href="https://rdrr.io/r/base/length.html" class="external-link">base::length</a></code>. Use, e.g., <code>mean</code> to calculate means for each bin
-    instead of counts.</p></dd>
+<code><a href="https://rdrr.io/r/base/length.html" class="external-link">base::length</a></code>. Use, e.g., <code>mean</code> to calculate means for each bin
+instead of counts.</p></dd>
 
-  <dt id="arg-xlab-ylab">xlab,ylab<a class="anchor" aria-label="anchor" href="#arg-xlab-ylab"></a></dt>
+
+<dt id="arg-xlab-ylab">xlab, ylab<a class="anchor" aria-label="anchor" href="#arg-xlab-ylab"></a></dt>
 <dd><p>(Optional) x and y axis labels</p></dd>
 
-  <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
+
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Parameters passed to the image function.</p></dd>
 
 </dl></div>
-    <div id="details">
-    <h2>Details</h2>
-    <p>This fucntion creates a 2-dimensional histogram by cutting the x and
-  y dimensions into <code>nbins</code> sections.  A 2-dimensional matrix is
-  then constucted which holds the counts of the number of observed (x,y) pairs
-  that fall into each bin.  If <code>show=TRUE</code>, this matrix is then
-  then passed to <code>image</code> for display.</p>
-    </div>
     <div id="value">
     <h2>Value</h2>
     <p>A list containing 5 elements:</p>
 <dl><dt>counts</dt>
-<dd><p>Matrix containing the number of points falling into each
-    bin</p></dd>
-
-  <dt>x.breaks, y.breaks</dt>
-<dd><p>Lower and upper limits of each bin</p></dd>
-
-  <dt>x,y</dt>
+<dd><p>Matrix containing the
+number of points falling into each bin</p></dd>
+ <dt>x.breaks, y.breaks</dt>
+<dd><p>Lower and
+upper limits of each bin</p></dd>
+ <dt>x,y</dt>
 <dd><p>midpoints of each bin</p></dd>
 
-  </dl></div>
-    <div id="author">
-    <h2>Author</h2>
-    <p>Gregory R. Warnes <a href="mailto:greg@warnes.net">greg@warnes.net</a></p>
+</dl></div>
+    <div id="details">
+    <h2>Details</h2>
+    <p>This fucntion creates a 2-dimensional histogram by cutting the x and y
+dimensions into <code>nbins</code> sections.  A 2-dimensional matrix is then
+constucted which holds the counts of the number of observed (x,y) pairs
+that fall into each bin.  If <code>show=TRUE</code>, this matrix is then then
+passed to <code>image</code> for display.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
     <div class="dont-index"><p><code><a href="https://rdrr.io/r/graphics/image.html" class="external-link">image</a></code>, <code><a href="https://rdrr.io/r/graphics/persp.html" class="external-link">persp</a></code>, <code><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></code>,
-  <code><a href="https://rdrr.io/pkg/r2d2/man/freq2d.html" class="external-link">freq2d</a></code></p></div>
+<code><a href="https://rdrr.io/pkg/r2d2/man/freq2d.html" class="external-link">freq2d</a></code></p></div>
+    </div>
+    <div id="author">
+    <h2>Author</h2>
+    <p>Gregory R. Warnes <a href="mailto:greg@warnes.net">greg@warnes.net</a></p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span>   <span class="co">## example data, bivariate normal, no correlation</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span>   <span class="co">## example data, bivariate normal, no correlation</span></span></span>
 <span class="r-in"><span>   <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">2000</span>, sd<span class="op">=</span><span class="fl">4</span><span class="op">)</span></span></span>
 <span class="r-in"><span>   <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">2000</span>, sd<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
@@ -249,6 +266,7 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -263,7 +281,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
       </footer></div>
