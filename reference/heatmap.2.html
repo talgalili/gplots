@@ -23,7 +23,7 @@ This heatmap provides a number of extensions to the standard R
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.3.0</span>
       </span>
     </div>
 
@@ -455,9 +455,9 @@ This heatmap provides a number of extensions to the standard R
     <h2>Note</h2>
     <p>The original rows and columns are reordered to match the dendrograms
   <code>Rowv</code> and <code>Colv</code> (if present).</p>
-<p><code>heatmap.2()</code> uses <code><a href="https://rdrr.io/r/graphics/layout.html" class="external-link">layout</a></code> to arragent the plot
+<p><code>heatmap.2()</code> uses <code>layout</code> to arragent the plot
   elements. Consequentially, it can <b>not</b> be used in a multi
-  column/row layout using <code><a href="https://rdrr.io/r/graphics/layout.html" class="external-link">layout</a>(...)</code>,
+  column/row layout using <code>layout(...)</code>,
   <code><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a>(mfrow=...)</code> or <code>(mfcol=...)</code>.</p>
     </div>
     <div id="value">
@@ -559,64 +559,95 @@ This heatmap provides a number of extensions to the standard R
 <span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, reorderfun<span class="op">=</span><span class="kw">function</span><span class="op">(</span><span class="va">d</span>, <span class="va">w</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html" class="external-link">reorder</a></span><span class="op">(</span><span class="va">d</span>, <span class="va">w</span>, agglo.FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span> <span class="op">)</span></span></span>
 <span class="r-plt img"><img src="heatmap.2-8.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span> <span class="co">## Color branches of dendrograms by cluster membership using dendextend:</span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://talgalili.github.io/dendextend/" class="external-link">dendextend</a></span><span class="op">)</span>  <span class="co"># for color_branches</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ---------------------</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Welcome to dendextend version 1.19.1</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Type citation('dendextend') for how to cite the package.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Type browseVignettes(package = 'dendextend') for the package vignette.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The github page is: https://github.com/talgalili/dendextend/</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Suggestions and bug-reports can be submitted at: https://github.com/talgalili/dendextend/issues</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> You may ask questions at stackoverflow, use the r and dendextend tags: </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 	 https://stackoverflow.com/questions/tagged/dendextend</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 	To suppress this message use:  suppressPackageStartupMessages(library(dendextend))</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ---------------------</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Attaching package: ‘dendextend’</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> The following object is masked from ‘package:stats’:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>     cutree</span>
+<span class="r-in"><span> <span class="va">full</span> <span class="op">&lt;-</span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="co"># we use it to easily get the dendrograms</span></span></span>
+<span class="r-plt img"><img src="heatmap.2-9.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, </span></span>
+<span class="r-in"><span>          Rowv<span class="op">=</span><span class="fu"><a href="https://talgalili.github.io/dendextend/reference/color_branches.html" class="external-link">color_branches</a></span><span class="op">(</span><span class="va">full</span><span class="op">$</span><span class="va">rowDendrogram</span>, k <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>          Colv<span class="op">=</span><span class="fu"><a href="https://talgalili.github.io/dendextend/reference/color_branches.html" class="external-link">color_branches</a></span><span class="op">(</span><span class="va">full</span><span class="op">$</span><span class="va">colDendrogram</span>, k <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required namespace: colorspace</span>
+<span class="r-plt img"><img src="heatmap.2-10.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span> <span class="co"># Look at the vignette for more details:</span></span></span>
+<span class="r-in"><span> <span class="co"># https://cran.r-project.org/web/packages/dendextend/vignettes/dendextend.html</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co">## plot a sub-cluster using the same color coding as for the full heatmap</span></span></span>
 <span class="r-in"><span> <span class="va">full</span> <span class="op">&lt;-</span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="heatmap.2-9.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, Colv<span class="op">=</span><span class="va">full</span><span class="op">$</span><span class="va">colDendrogram</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, breaks<span class="op">=</span><span class="va">full</span><span class="op">$</span><span class="va">breaks</span><span class="op">)</span>  <span class="co"># column subset</span></span></span>
-<span class="r-plt img"><img src="heatmap.2-10.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, Rowv<span class="op">=</span><span class="va">full</span><span class="op">$</span><span class="va">rowDendrogram</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, breaks<span class="op">=</span><span class="va">full</span><span class="op">$</span><span class="va">breaks</span><span class="op">)</span>  <span class="co"># row subset</span></span></span>
 <span class="r-plt img"><img src="heatmap.2-11.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, Colv<span class="op">=</span><span class="va">full</span><span class="op">$</span><span class="va">colDendrogram</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>, breaks<span class="op">=</span><span class="va">full</span><span class="op">$</span><span class="va">breaks</span><span class="op">)</span>  <span class="co"># column subset</span></span></span>
+<span class="r-plt img"><img src="heatmap.2-12.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, Rowv<span class="op">=</span><span class="va">full</span><span class="op">$</span><span class="va">rowDendrogram</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, breaks<span class="op">=</span><span class="va">full</span><span class="op">$</span><span class="va">breaks</span><span class="op">)</span>  <span class="co"># row subset</span></span></span>
+<span class="r-plt img"><img src="heatmap.2-13.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, Colv<span class="op">=</span><span class="va">full</span><span class="op">$</span><span class="va">colDendrogram</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span>,</span></span>
 <span class="r-in"><span>              Rowv<span class="op">=</span><span class="va">full</span><span class="op">$</span><span class="va">rowDendrogram</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, breaks<span class="op">=</span><span class="va">full</span><span class="op">$</span><span class="va">breaks</span><span class="op">)</span>  <span class="co"># both</span></span></span>
-<span class="r-plt img"><img src="heatmap.2-12.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="heatmap.2-14.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co">## Show effect of row and column label rotation</span></span></span>
 <span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtCol<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="heatmap.2-13.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtCol<span class="op">=</span><span class="fl">0</span>,   adjCol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>,<span class="fl">1</span><span class="op">)</span> <span class="op">)</span></span></span>
-<span class="r-plt img"><img src="heatmap.2-14.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtCol<span class="op">=</span><span class="fl">45</span>,  adjCol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>   <span class="op">)</span></span></span>
 <span class="r-plt img"><img src="heatmap.2-15.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtCol<span class="op">=</span><span class="fl">135</span>, adjCol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">0</span><span class="op">)</span>   <span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtCol<span class="op">=</span><span class="fl">0</span>,   adjCol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>,<span class="fl">1</span><span class="op">)</span> <span class="op">)</span></span></span>
 <span class="r-plt img"><img src="heatmap.2-16.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtCol<span class="op">=</span><span class="fl">180</span>, adjCol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>,<span class="fl">0</span><span class="op">)</span> <span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtCol<span class="op">=</span><span class="fl">45</span>,  adjCol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>   <span class="op">)</span></span></span>
 <span class="r-plt img"><img src="heatmap.2-17.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtCol<span class="op">=</span><span class="fl">225</span>, adjCol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span>   <span class="op">)</span> <span class="co">## not very useful</span></span></span>
+<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtCol<span class="op">=</span><span class="fl">135</span>, adjCol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">0</span><span class="op">)</span>   <span class="op">)</span></span></span>
 <span class="r-plt img"><img src="heatmap.2-18.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtCol<span class="op">=</span><span class="fl">270</span>, adjCol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.5</span><span class="op">)</span> <span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtCol<span class="op">=</span><span class="fl">180</span>, adjCol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>,<span class="fl">0</span><span class="op">)</span> <span class="op">)</span></span></span>
 <span class="r-plt img"><img src="heatmap.2-19.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtCol<span class="op">=</span><span class="fl">315</span>, adjCol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span>   <span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtCol<span class="op">=</span><span class="fl">225</span>, adjCol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span>   <span class="op">)</span> <span class="co">## not very useful</span></span></span>
 <span class="r-plt img"><img src="heatmap.2-20.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtCol<span class="op">=</span><span class="fl">360</span>, adjCol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>,<span class="fl">1</span><span class="op">)</span> <span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtCol<span class="op">=</span><span class="fl">270</span>, adjCol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.5</span><span class="op">)</span> <span class="op">)</span></span></span>
 <span class="r-plt img"><img src="heatmap.2-21.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtCol<span class="op">=</span><span class="fl">315</span>, adjCol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span>   <span class="op">)</span></span></span>
+<span class="r-plt img"><img src="heatmap.2-22.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtCol<span class="op">=</span><span class="fl">360</span>, adjCol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>,<span class="fl">1</span><span class="op">)</span> <span class="op">)</span></span></span>
+<span class="r-plt img"><img src="heatmap.2-23.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtRow<span class="op">=</span><span class="fl">45</span>, adjRow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span> <span class="op">)</span></span></span>
-<span class="r-plt img"><img src="heatmap.2-22.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtRow<span class="op">=</span><span class="fl">45</span>, adjRow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, srtCol<span class="op">=</span><span class="fl">45</span>, adjCol<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span> <span class="op">)</span></span></span>
-<span class="r-plt img"><img src="heatmap.2-23.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtRow<span class="op">=</span><span class="fl">45</span>, adjRow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, srtCol<span class="op">=</span><span class="fl">270</span>, adjCol<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.5</span><span class="op">)</span> <span class="op">)</span></span></span>
 <span class="r-plt img"><img src="heatmap.2-24.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtRow<span class="op">=</span><span class="fl">45</span>, adjRow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, srtCol<span class="op">=</span><span class="fl">45</span>, adjCol<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span> <span class="op">)</span></span></span>
+<span class="r-plt img"><img src="heatmap.2-25.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtRow<span class="op">=</span><span class="fl">45</span>, adjRow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, srtCol<span class="op">=</span><span class="fl">270</span>, adjCol<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.5</span><span class="op">)</span> <span class="op">)</span></span></span>
+<span class="r-plt img"><img src="heatmap.2-26.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co">## Show effect of offsetRow/offsetCol (only works when srtRow/srtCol is</span></span></span>
 <span class="r-in"><span> <span class="co">## not also present)</span></span></span>
 <span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, offsetRow<span class="op">=</span><span class="fl">0</span>, offsetCol<span class="op">=</span><span class="fl">0</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="heatmap.2-25.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, offsetRow<span class="op">=</span><span class="fl">1</span>, offsetCol<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="heatmap.2-26.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, offsetRow<span class="op">=</span><span class="fl">2</span>, offsetCol<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="heatmap.2-27.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, offsetRow<span class="op">=</span><span class="op">-</span><span class="fl">1</span>, offsetCol<span class="op">=</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, offsetRow<span class="op">=</span><span class="fl">1</span>, offsetCol<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="heatmap.2-28.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, offsetRow<span class="op">=</span><span class="fl">2</span>, offsetCol<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="heatmap.2-29.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, offsetRow<span class="op">=</span><span class="op">-</span><span class="fl">1</span>, offsetCol<span class="op">=</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="heatmap.2-30.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtRow<span class="op">=</span><span class="fl">0</span>, srtCol<span class="op">=</span><span class="fl">90</span>, offsetRow<span class="op">=</span><span class="fl">0</span>, offsetCol<span class="op">=</span><span class="fl">0</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="heatmap.2-29.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtRow<span class="op">=</span><span class="fl">0</span>, srtCol<span class="op">=</span><span class="fl">90</span>, offsetRow<span class="op">=</span><span class="fl">1</span>, offsetCol<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="heatmap.2-30.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtRow<span class="op">=</span><span class="fl">0</span>, srtCol<span class="op">=</span><span class="fl">90</span>, offsetRow<span class="op">=</span><span class="fl">2</span>, offsetCol<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="heatmap.2-31.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtRow<span class="op">=</span><span class="fl">0</span>, srtCol<span class="op">=</span><span class="fl">90</span>, offsetRow<span class="op">=</span><span class="op">-</span><span class="fl">1</span>, offsetCol<span class="op">=</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtRow<span class="op">=</span><span class="fl">0</span>, srtCol<span class="op">=</span><span class="fl">90</span>, offsetRow<span class="op">=</span><span class="fl">1</span>, offsetCol<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="heatmap.2-32.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtRow<span class="op">=</span><span class="fl">0</span>, srtCol<span class="op">=</span><span class="fl">90</span>, offsetRow<span class="op">=</span><span class="fl">2</span>, offsetCol<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="heatmap.2-33.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, srtRow<span class="op">=</span><span class="fl">0</span>, srtCol<span class="op">=</span><span class="fl">90</span>, offsetRow<span class="op">=</span><span class="op">-</span><span class="fl">1</span>, offsetCol<span class="op">=</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="heatmap.2-34.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co">## Show how to use 'extrafun' to replace the 'key' with a scatterplot</span></span></span>
@@ -631,7 +662,7 @@ This heatmap provides a number of extensions to the standard R
 <span class="r-in"><span>           <span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, lmat<span class="op">=</span><span class="va">lmat</span>, lhei<span class="op">=</span><span class="va">lhei</span>, lwid<span class="op">=</span><span class="va">lwid</span>, key<span class="op">=</span><span class="cn">FALSE</span>, extrafun<span class="op">=</span><span class="va">myplot</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="heatmap.2-33.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="heatmap.2-35.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co">## show how to customize the color key</span></span></span>
 <span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>,</span></span>
@@ -648,7 +679,7 @@ This heatmap provides a number of extensions to the standard R
 <span class="r-in"><span>                               <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="va">breaks</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">breaks</span><span class="op">)</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span>                      <span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span>           <span class="op">}</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="heatmap.2-34.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="heatmap.2-36.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>,</span></span>
 <span class="r-in"><span>          breaks<span class="op">=</span><span class="fl">256</span>,</span></span>
@@ -668,14 +699,14 @@ This heatmap provides a number of extensions to the standard R
 <span class="r-in"><span>                     line<span class="op">=</span><span class="va">line</span>, cex<span class="op">=</span><span class="va">cex</span>, col<span class="op">=</span><span class="va">col</span>, font<span class="op">=</span><span class="va">font</span><span class="op">)</span></span></span>
 <span class="r-in"><span>               <span class="kw"><a href="https://rdrr.io/r/base/function.html" class="external-link">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>labels<span class="op">=</span><span class="cn">FALSE</span>, tick<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span>          <span class="op">}</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="heatmap.2-35.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="heatmap.2-37.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co">##</span></span></span>
 <span class="r-in"><span> <span class="co">## Show effect of z-score scaling within columns, blue-red color scale</span></span></span>
 <span class="r-in"><span> <span class="co">##</span></span></span>
 <span class="r-in"><span> <span class="va">hv</span> <span class="op">&lt;-</span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, col<span class="op">=</span><span class="va">bluered</span>, scale<span class="op">=</span><span class="st">"column"</span>, tracecol<span class="op">=</span><span class="st">"#303030"</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="heatmap.2-36.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="heatmap.2-38.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co">###</span></span></span>
 <span class="r-in"><span> <span class="co">## Look at the return values</span></span></span>
@@ -728,7 +759,7 @@ This heatmap provides a number of extensions to the standard R
 <span class="r-in"><span>         xlab<span class="op">=</span><span class="st">"specification variables"</span>, ylab<span class="op">=</span> <span class="st">"Car Models"</span>,</span></span>
 <span class="r-in"><span>         main<span class="op">=</span><span class="st">"heatmap(&lt;Mtcars data&gt;, ..., scale=\"column\")"</span>,</span></span>
 <span class="r-in"><span>         tracecol<span class="op">=</span><span class="st">"green"</span>, density<span class="op">=</span><span class="st">"density"</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="heatmap.2-37.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="heatmap.2-39.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span> <span class="co">## Note that the breakpoints are now symmetric about 0</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co">## Color the labels to match RowSideColors and ColSideColors</span></span></span>
@@ -738,7 +769,7 @@ This heatmap provides a number of extensions to the standard R
 <span class="r-in"><span>         main<span class="op">=</span><span class="st">"heatmap(&lt;Mtcars data&gt;, ..., scale=\"column\")"</span>,</span></span>
 <span class="r-in"><span>         tracecol<span class="op">=</span><span class="st">"green"</span>, density<span class="op">=</span><span class="st">"density"</span>, colRow<span class="op">=</span><span class="va">rc</span>, colCol<span class="op">=</span><span class="va">cc</span>,</span></span>
 <span class="r-in"><span>         srtCol<span class="op">=</span><span class="fl">45</span>, adjCol<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-plt img"><img src="heatmap.2-38.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="heatmap.2-40.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
@@ -768,17 +799,17 @@ This heatmap provides a number of extensions to the standard R
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co"># with reorder</span></span></span>
 <span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">Ca</span>,      symm<span class="op">=</span><span class="cn">TRUE</span>, margin<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">6</span><span class="op">)</span>, trace<span class="op">=</span><span class="st">"none"</span> <span class="op">)</span></span></span>
-<span class="r-plt img"><img src="heatmap.2-39.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="heatmap.2-41.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co"># without reorder</span></span></span>
 <span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">Ca</span>, Rowv<span class="op">=</span><span class="cn">FALSE</span>, symm<span class="op">=</span><span class="cn">TRUE</span>, margin<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">6</span><span class="op">)</span>, trace<span class="op">=</span><span class="st">"none"</span> <span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Discrepancy: Rowv is FALSE, while dendrogram is `both'. Omitting row dendogram.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Discrepancy: Colv is FALSE, while dendrogram is `column'. Omitting column dendogram.</span>
-<span class="r-plt img"><img src="heatmap.2-40.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="heatmap.2-42.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co">## Place the color key below the image plot</span></span></span>
 <span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, lmat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">1</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">4</span><span class="op">)</span> <span class="op">)</span>, lhei<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.5</span>, <span class="fl">4</span>, <span class="fl">2</span> <span class="op">)</span> <span class="op">)</span></span></span>
-<span class="r-plt img"><img src="heatmap.2-41.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="heatmap.2-43.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co">## Place the color key to the top right of the image plot</span></span></span>
 <span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, lmat<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">0</span> <span class="op">)</span> <span class="op">)</span>, lwid<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1.5</span>, <span class="fl">4</span>, <span class="fl">2</span> <span class="op">)</span> <span class="op">)</span></span></span>
@@ -806,7 +837,7 @@ This heatmap provides a number of extensions to the standard R
 <span class="r-in"><span>              distfun<span class="op">=</span><span class="kw">function</span><span class="op">(</span><span class="va">c</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/dist.html" class="external-link">as.dist</a></span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">c</span><span class="op">)</span>, trace<span class="op">=</span><span class="st">"none"</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Discrepancy: Rowv is FALSE, while dendrogram is `both'. Omitting row dendogram.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Discrepancy: Colv is FALSE, while dendrogram is `column'. Omitting column dendogram.</span>
-<span class="r-plt img"><img src="heatmap.2-42.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="heatmap.2-44.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co">## The Correlation matrix with same reordering:</span></span></span>
 <span class="r-in"><span> <span class="va">hM</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="va">cU</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
@@ -845,7 +876,7 @@ This heatmap provides a number of extensions to the standard R
 <span class="r-in"><span>             cellnote<span class="op">=</span><span class="va">hM</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Discrepancy: Rowv is FALSE, while dendrogram is `both'. Omitting row dendogram.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Discrepancy: Colv is FALSE, while dendrogram is `column'. Omitting column dendogram.</span>
-<span class="r-plt img"><img src="heatmap.2-43.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="heatmap.2-45.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co">## genechip data examples</span></span></span>
 <span class="r-in"><span> <span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
@@ -864,6 +895,26 @@ This heatmap provides a number of extensions to the standard R
 <span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">data</span>, breaks<span class="op">=</span><span class="fl">16</span>, col<span class="op">=</span><span class="va">redgreen</span>, tracecol<span class="op">=</span><span class="st">"blue"</span>,</span></span>
 <span class="r-in"><span>               main<span class="op">=</span><span class="st">"SpikeIn@pm Fold Changes\nrelative to 12.50 sample"</span>,</span></span>
 <span class="r-in"><span>               xlab<span class="op">=</span><span class="st">"Relative Concentration"</span>, ylab<span class="op">=</span><span class="st">"Probeset"</span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-in"><span> </span></span>
+<span class="r-in"><span> <span class="co">## You can get an interactive version of heatmap.2 using heatmaply:</span></span></span>
+<span class="r-in"><span> <span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+<span class="r-in"><span> <span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="va">x</span>  <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">as.matrix</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span> <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://talgalili.github.io/heatmaply/" class="external-link">heatmaply</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="co"># just use heatmaply instead of heatmap.2</span></span></span>
+<span class="r-in"><span> <span class="fu"><a href="https://talgalili.github.io/heatmaply/reference/heatmaply.html" class="external-link">heatmaply</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></span>
+<span class="r-in"><span> </span></span>
+<span class="r-in"><span> <span class="co"># The default are slightly different, but it supports most of the same arguments.</span></span></span>
+<span class="r-in"><span> <span class="co"># If you want the dendrograms to match perfectly, use this:</span></span></span>
+<span class="r-in"><span> <span class="co">## Color branches of dendrograms by cluster membership using dendextend:</span></span></span>
+<span class="r-in"><span> <span class="va">full</span> <span class="op">&lt;-</span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="co"># we use it to easily get the dendrograms</span></span></span>
+<span class="r-in"><span> <span class="fu"><a href="https://talgalili.github.io/heatmaply/reference/heatmaply.html" class="external-link">heatmaply</a></span><span class="op">(</span><span class="va">x</span>, </span></span>
+<span class="r-in"><span>          Rowv<span class="op">=</span><span class="fu"><a href="https://talgalili.github.io/dendextend/reference/color_branches.html" class="external-link">color_branches</a></span><span class="op">(</span><span class="va">full</span><span class="op">$</span><span class="va">rowDendrogram</span>, k <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>          Colv<span class="op">=</span><span class="fu"><a href="https://talgalili.github.io/dendextend/reference/color_branches.html" class="external-link">color_branches</a></span><span class="op">(</span><span class="va">full</span><span class="op">$</span><span class="va">colDendrogram</span>, k <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="co"># Look at the vignette for more details:</span></span></span>
+<span class="r-in"><span> <span class="co"># https://cran.r-project.org/web/packages/heatmaply/vignettes/heatmaply.html</span></span></span>
 <span class="r-in"><span> <span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
