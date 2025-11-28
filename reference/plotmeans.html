@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.2.0</span>
       </span>
     </div>
 
@@ -54,7 +54,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Plot Group Means and Confidence Intervals</h1>
-    <small class="dont-index">Source: <a href="https://github.com/talgalili/gplots/blob/master/R/plotmeans.R" class="external-link"><code>R/plotmeans.R</code></a></small>
+
     <div class="hidden name"><code>plotmeans.Rd</code></div>
     </div>
 
@@ -63,182 +63,164 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">plotmeans</span><span class="op">(</span></span>
-<span>  <span class="va">formula</span>,</span>
-<span>  data <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  <span class="va">subset</span>,</span>
-<span>  <span class="va">na.action</span>,</span>
-<span>  bars <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  p <span class="op">=</span> <span class="fl">0.95</span>,</span>
-<span>  minsd <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>  minbar <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  maxbar <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  xlab <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">mf</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>,</span>
-<span>  ylab <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">mf</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,</span>
-<span>  mean.labels <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  ci.label <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  n.label <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  text.n.label <span class="op">=</span> <span class="st">"n="</span>,</span>
-<span>  digits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"digits"</span><span class="op">)</span>,</span>
-<span>  col <span class="op">=</span> <span class="st">"black"</span>,</span>
-<span>  barwidth <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>  barcol <span class="op">=</span> <span class="st">"blue"</span>,</span>
-<span>  connect <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  ccol <span class="op">=</span> <span class="va">col</span>,</span>
-<span>  legends <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">means</span><span class="op">)</span>,</span>
-<span>  <span class="va">xaxt</span>,</span>
-<span>  use.t <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"lwd"</span><span class="op">)</span>,</span>
-<span>  <span class="va">...</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">plotmeans</span><span class="op">(</span><span class="va">formula</span>, data<span class="op">=</span><span class="cn">NULL</span>, <span class="va">subset</span>, <span class="va">na.action</span>,</span>
+<span>          bars<span class="op">=</span><span class="cn">TRUE</span>, p<span class="op">=</span><span class="fl">0.95</span>, minsd<span class="op">=</span><span class="fl">0</span>, <span class="va">minbar</span>, <span class="va">maxbar</span>,</span>
+<span>          xlab<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">mf</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, ylab<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">mf</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, mean.labels<span class="op">=</span><span class="cn">FALSE</span>,</span>
+<span>          ci.label<span class="op">=</span><span class="cn">FALSE</span>, n.label<span class="op">=</span><span class="cn">TRUE</span>, text.n.label<span class="op">=</span><span class="st">"n="</span>,</span>
+<span>          digits<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"digits"</span><span class="op">)</span>, col<span class="op">=</span><span class="st">"black"</span>, barwidth<span class="op">=</span><span class="fl">1</span>,</span>
+<span>          barcol<span class="op">=</span><span class="st">"blue"</span>, connect<span class="op">=</span><span class="cn">TRUE</span>, ccol<span class="op">=</span></span>
+<span>          <span class="va">col</span>, legends<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">means</span><span class="op">)</span>, <span class="va">xaxt</span>, use.t<span class="op">=</span><span class="cn">TRUE</span>,</span>
+<span>          lwd<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"lwd"</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-
-
+    <p></p>
 <dl><dt id="arg-formula">formula<a class="anchor" aria-label="anchor" href="#arg-formula"></a></dt>
-<dd><p>symbolic expression specifying the outcome (continuous) and
-grouping variable (factor).  See lm() for details.</p></dd>
+<dd><p>symbolic expression specifying the outcome (continuous)
+    and grouping variable (factor).  See lm() for details.</p></dd>
 
 
-<dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
+  <dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
 <dd><p>optional data frame containing the variables in the model.</p></dd>
 
 
-<dt id="arg-subset">subset<a class="anchor" aria-label="anchor" href="#arg-subset"></a></dt>
+  <dt id="arg-subset">subset<a class="anchor" aria-label="anchor" href="#arg-subset"></a></dt>
 <dd><p>an optional vector specifying a subset of observations to be
-used in the fitting process.</p></dd>
+    used in the fitting process.</p></dd>
 
 
-<dt id="arg-na-action">na.action<a class="anchor" aria-label="anchor" href="#arg-na-action"></a></dt>
-<dd><p>a function which indicates what should happen when the
-data contain `NA's.  See lm() for details.</p></dd>
+  <dt id="arg-na-action">na.action<a class="anchor" aria-label="anchor" href="#arg-na-action"></a></dt>
+<dd><p>a function which indicates what should happen when the data
+    contain `NA's.  See lm() for details.</p></dd>
 
 
-<dt id="arg-bars">bars<a class="anchor" aria-label="anchor" href="#arg-bars"></a></dt>
-<dd><p>a logical value indicating whether confidence interval bars
-should be plotted. Defaults to TRUE.</p></dd>
+  <dt id="arg-bars">bars<a class="anchor" aria-label="anchor" href="#arg-bars"></a></dt>
+<dd><p>a logical value indicating whether confidence interval
+    bars should be plotted. Defaults to TRUE.</p></dd>
 
 
-<dt id="arg-p">p<a class="anchor" aria-label="anchor" href="#arg-p"></a></dt>
+  <dt id="arg-p">p<a class="anchor" aria-label="anchor" href="#arg-p"></a></dt>
 <dd><p>confidence level for error bars.  Defaults to 0.95.</p></dd>
 
 
-<dt id="arg-minsd">minsd<a class="anchor" aria-label="anchor" href="#arg-minsd"></a></dt>
-<dd><p>minumum permitted value for the standard deviation within each
-factor level.  Any standard deviation estimates smaller than <code>minsd</code>
-will be replaced with <code>minsd</code>. Defaults to 0.</p></dd>
+  <dt id="arg-minsd">minsd<a class="anchor" aria-label="anchor" href="#arg-minsd"></a></dt>
+<dd><p>minumum permitted value for the standard deviation within
+    each factor level.  Any standard deviation estimates smaller than
+    <code>minsd</code> will be replaced with <code>minsd</code>. Defaults to 0.</p></dd>
 
 
-<dt id="arg-minbar">minbar<a class="anchor" aria-label="anchor" href="#arg-minbar"></a></dt>
-<dd><p>minumum allowed value for bar ends.  If specified, values
-smaller than <code>minbar</code> will be replaced with <code>minbar</code>.</p></dd>
+  <dt id="arg-minbar">minbar<a class="anchor" aria-label="anchor" href="#arg-minbar"></a></dt>
+<dd><p>minumum allowed value for bar ends.  If specified,
+    values smaller than <code>minbar</code> will be replaced with
+    <code>minbar</code>.</p></dd>
 
 
-<dt id="arg-maxbar">maxbar<a class="anchor" aria-label="anchor" href="#arg-maxbar"></a></dt>
-<dd><p>maximum allowed value for bar ends.  If specified, values
-larger than <code>maxbar</code> will be replaced with <code>maxbar</code>.</p></dd>
+  <dt id="arg-maxbar">maxbar<a class="anchor" aria-label="anchor" href="#arg-maxbar"></a></dt>
+<dd><p>maximum allowed value for bar ends.  If specified,
+    values larger than <code>maxbar</code> will be replaced with
+    <code>maxbar</code>.</p></dd>
 
 
-<dt id="arg-xlab">xlab<a class="anchor" aria-label="anchor" href="#arg-xlab"></a></dt>
+  <dt id="arg-xlab">xlab<a class="anchor" aria-label="anchor" href="#arg-xlab"></a></dt>
 <dd><p>x-axis label.</p></dd>
 
-
-<dt id="arg-ylab">ylab<a class="anchor" aria-label="anchor" href="#arg-ylab"></a></dt>
+  <dt id="arg-ylab">ylab<a class="anchor" aria-label="anchor" href="#arg-ylab"></a></dt>
 <dd><p>y-axis label.</p></dd>
 
 
-<dt id="arg-mean-labels">mean.labels<a class="anchor" aria-label="anchor" href="#arg-mean-labels"></a></dt>
+  <dt id="arg-mean-labels">mean.labels<a class="anchor" aria-label="anchor" href="#arg-mean-labels"></a></dt>
 <dd><p>either a logical value indicating whether the circles
-representing the group means should be replaced with text giving the actual
-mean values or a vector containing labels to use instead. Defaults to
-FALSE.</p></dd>
+    representing the group means should be replaced with text giving the
+    actual mean values or a vector containing labels to use
+    instead. Defaults to FALSE.</p></dd>
 
 
-<dt id="arg-ci-label">ci.label<a class="anchor" aria-label="anchor" href="#arg-ci-label"></a></dt>
-<dd><p>a logical value indicating whether text giving the actual
-interval end values should be placed at the end of each confidence interval
-bar. Defaults to FALSE.</p></dd>
+  <dt id="arg-ci-label">ci.label<a class="anchor" aria-label="anchor" href="#arg-ci-label"></a></dt>
+<dd><p>a logical value indicating whether text giving the
+    actual interval end values should be placed at the end of each
+    confidence interval bar. Defaults to FALSE.</p></dd>
 
 
-<dt id="arg-n-label">n.label<a class="anchor" aria-label="anchor" href="#arg-n-label"></a></dt>
+  <dt id="arg-n-label">n.label<a class="anchor" aria-label="anchor" href="#arg-n-label"></a></dt>
 <dd><p>a logical value indicating whether text giving the number of
-observations in each group should should be added to the plot.</p></dd>
+    observations in each group should should be added to the plot.</p></dd>
 
 
-<dt id="arg-text-n-label">text.n.label<a class="anchor" aria-label="anchor" href="#arg-text-n-label"></a></dt>
-<dd><p>Prefix text for labeling observation counts.  Defaults
-to "n=".</p></dd>
+  <dt id="arg-text-n-label">text.n.label<a class="anchor" aria-label="anchor" href="#arg-text-n-label"></a></dt>
+<dd><p>Prefix text for labeling observation counts.
+    Defaults to "n=".</p></dd>
 
 
-<dt id="arg-digits">digits<a class="anchor" aria-label="anchor" href="#arg-digits"></a></dt>
-<dd><p>number of significant digits to use when displaying mean or
-confidince limit values.</p></dd>
+  <dt id="arg-digits">digits<a class="anchor" aria-label="anchor" href="#arg-digits"></a></dt>
+<dd><p>number of significant digits to use when displaying
+    mean or confidince limit values.</p></dd>
 
 
-<dt id="arg-col">col<a class="anchor" aria-label="anchor" href="#arg-col"></a></dt>
+  <dt id="arg-col">col<a class="anchor" aria-label="anchor" href="#arg-col"></a></dt>
 <dd><p>color of cicles marking group means.  Default is "black".</p></dd>
 
 
-<dt id="arg-barwidth">barwidth<a class="anchor" aria-label="anchor" href="#arg-barwidth"></a></dt>
-<dd><p>linewidth of interval bars and end marks. Default is 1.</p></dd>
+  <dt id="arg-barwidth">barwidth<a class="anchor" aria-label="anchor" href="#arg-barwidth"></a></dt>
+<dd><p>linewidth of interval bars and end marks. Default is
+    1.</p></dd>
 
 
-<dt id="arg-barcol">barcol<a class="anchor" aria-label="anchor" href="#arg-barcol"></a></dt>
-<dd><p>color of interval bars and end marks.  Default is "blue".</p></dd>
+  <dt id="arg-barcol">barcol<a class="anchor" aria-label="anchor" href="#arg-barcol"></a></dt>
+<dd><p>color of interval bars and end marks.  Default is
+    "blue".</p></dd>
 
 
-<dt id="arg-connect">connect<a class="anchor" aria-label="anchor" href="#arg-connect"></a></dt>
-<dd><p>either a logical value indicating whether the means of each
-group should be connected by a line, or a list of vectors giving the index
-of bars that should be connected by a line. Defaults to TRUE.</p></dd>
+  <dt id="arg-connect">connect<a class="anchor" aria-label="anchor" href="#arg-connect"></a></dt>
+<dd><p>either a logical value indicating whether the means of
+    each group should be connected by a line, or a list of vectors giving the
+    index of bars that should be connected by a line. Defaults to TRUE.</p></dd>
 
 
-<dt id="arg-ccol">ccol<a class="anchor" aria-label="anchor" href="#arg-ccol"></a></dt>
-<dd><p>color of lines used to connect means. Defaults to the same
-color as "col".</p></dd>
+  <dt id="arg-ccol">ccol<a class="anchor" aria-label="anchor" href="#arg-ccol"></a></dt>
+<dd><p>color of lines used to connect means. Defaults to the
+    same color as "col".</p></dd>
 
 
-<dt id="arg-legends">legends<a class="anchor" aria-label="anchor" href="#arg-legends"></a></dt>
-<dd><p>vector containing strings used to label groups along the x
-axis. Defaults to group names.</p></dd>
+  <dt id="arg-legends">legends<a class="anchor" aria-label="anchor" href="#arg-legends"></a></dt>
+<dd><p>vector containing strings used to label groups along
+    the x axis. Defaults to group names.</p></dd>
 
 
-<dt id="arg-xaxt">xaxt<a class="anchor" aria-label="anchor" href="#arg-xaxt"></a></dt>
+  <dt id="arg-xaxt">xaxt<a class="anchor" aria-label="anchor" href="#arg-xaxt"></a></dt>
 <dd><p>A character which specifies the axis type. Specifying `"n"'
-causes an axis to be set up, but not plotted.</p></dd>
+          causes an axis to be set up, but not plotted.</p></dd>
 
 
-<dt id="arg-use-t">use.t<a class="anchor" aria-label="anchor" href="#arg-use-t"></a></dt>
-<dd><p>a logical value indicating whether the t distribution should
-be used to compute confidence intervals.  If <code>TRUE</code>, the default, a t
-distribution will the correct number of degrees of freedom for each group
-be used.  If <code>FALSE</code>, the a normal distribution will be used.</p></dd>
+  <dt id="arg-use-t">use.t<a class="anchor" aria-label="anchor" href="#arg-use-t"></a></dt>
+<dd><p>a logical value indicating whether the t distribution
+    should be used to compute confidence intervals.  If <code>TRUE</code>, the
+    default, a t distribution will the correct number of degrees of
+    freedom for each group be used.  If <code>FALSE</code>, the a normal
+    distribution will be used.</p></dd>
 
 
-<dt id="arg-lwd">lwd<a class="anchor" aria-label="anchor" href="#arg-lwd"></a></dt>
+  <dt id="arg-lwd">lwd<a class="anchor" aria-label="anchor" href="#arg-lwd"></a></dt>
 <dd><p>Width of connecting lines</p></dd>
 
 
-<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
+  <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>optional plotting parameters.</p></dd>
 
-</dl></div>
-    <div id="see-also">
-    <h2>See also</h2>
-    <div class="dont-index"><p><code><a href="plotCI.html">plotCI</a></code>, <code><a href="https://rdrr.io/r/graphics/boxplot.html" class="external-link">boxplot</a></code></p></div>
-    </div>
+
+  </dl></div>
     <div id="author">
     <h2>Author</h2>
     <p>Gregory R. Warnes <a href="mailto:greg@warnes.net">greg@warnes.net</a></p>
     </div>
+    <div id="see-also">
+    <h2>See also</h2>
+    <div class="dont-index"><p><code><a href="plotCI.html">plotCI</a></code>, <code><a href="https://rdrr.io/r/graphics/boxplot.html" class="external-link">boxplot</a></code></p></div>
+    </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span>  <span class="co"># library(gplots)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span>  <span class="co"># library(gplots)</span></span></span>
 <span class="r-in"><span>  <span class="co"># show comparison with boxplot</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">state</span><span class="op">)</span></span></span>
 <span class="r-in"><span>  <span class="fu">plotmeans</span><span class="op">(</span><span class="va">state.area</span> <span class="op">~</span> <span class="va">state.region</span><span class="op">)</span></span></span>
@@ -286,8 +268,6 @@ be used.  If <code>FALSE</code>, the a normal distribution will be used.</p></dd
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>zero-length arrow is of indeterminate angle and so skipped</span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html" class="external-link">abline</a></span><span class="op">(</span>v<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6.5</span>, <span class="fl">12.5</span>, <span class="fl">18.5</span><span class="op">)</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plotmeans-4.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

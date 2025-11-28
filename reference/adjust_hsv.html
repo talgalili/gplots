@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.2.0</span>
       </span>
     </div>
 
@@ -54,7 +54,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Adjust Color in HSV Space</h1>
-    <small class="dont-index">Source: <a href="https://github.com/talgalili/gplots/blob/master/R/adjust_hsv.R" class="external-link"><code>R/adjust_hsv.R</code></a></small>
+
     <div class="hidden name"><code>adjust_hsv.Rd</code></div>
     </div>
 
@@ -63,59 +63,52 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">adjust_hsv</span><span class="op">(</span><span class="va">col</span>, h <span class="op">=</span> <span class="cn">NULL</span>, s <span class="op">=</span> <span class="cn">NULL</span>, v <span class="op">=</span> <span class="cn">NULL</span>, alpha <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">adjust_hsv</span><span class="op">(</span><span class="va">col</span>, h<span class="op">=</span><span class="cn">NULL</span>, s<span class="op">=</span><span class="cn">NULL</span>, v<span class="op">=</span><span class="cn">NULL</span>, alpha<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-
-
+    <p></p>
 <dl><dt id="arg-col">col<a class="anchor" aria-label="anchor" href="#arg-col"></a></dt>
 <dd><p>a color or vector of colors.</p></dd>
 
-
-<dt id="arg-h">h<a class="anchor" aria-label="anchor" href="#arg-h"></a></dt>
+  <dt id="arg-h">h<a class="anchor" aria-label="anchor" href="#arg-h"></a></dt>
 <dd><p>the desired hue.</p></dd>
 
-
-<dt id="arg-s">s<a class="anchor" aria-label="anchor" href="#arg-s"></a></dt>
+  <dt id="arg-s">s<a class="anchor" aria-label="anchor" href="#arg-s"></a></dt>
 <dd><p>the desired saturation.</p></dd>
 
-
-<dt id="arg-v">v<a class="anchor" aria-label="anchor" href="#arg-v"></a></dt>
+  <dt id="arg-v">v<a class="anchor" aria-label="anchor" href="#arg-v"></a></dt>
 <dd><p>the desired value.</p></dd>
 
-
-<dt id="arg-alpha">alpha<a class="anchor" aria-label="anchor" href="#arg-alpha"></a></dt>
+  <dt id="arg-alpha">alpha<a class="anchor" aria-label="anchor" href="#arg-alpha"></a></dt>
 <dd><p>the desired opacity.</p></dd>
 
 </dl></div>
+    <div id="details">
+    <h2>Details</h2>
+    <p>Colors can be specified as a color name, a hexadecimal string, or an integer.</p>
+<p>Hue, saturation, value, and opacity are specified as values from 0 to 1, or
+  <code>NULL</code> to leave unchanged.</p>
+    </div>
     <div id="value">
     <h2>Value</h2>
     <p>Adjusted colors in hexadecimal string format.</p>
-    </div>
-    <div id="details">
-    <h2>Details</h2>
-    <p>Colors can be specified as a color name, a hexadecimal string, or an
-integer.</p>
-<p>Hue, saturation, value, and opacity are specified as values from 0 to 1, or
-<code>NULL</code> to leave unchanged.</p>
-    </div>
-    <div id="see-also">
-    <h2>See also</h2>
-    <div class="dont-index"><p><code><a href="https://rdrr.io/r/grDevices/adjustcolor.html" class="external-link">adjustcolor</a></code> adjusts colors in RGB space.</p>
-<p><code><a href="https://rdrr.io/r/grDevices/col2rgb.html" class="external-link">col2rgb</a></code>, <code><a href="https://rdrr.io/r/grDevices/rgb2hsv.html" class="external-link">rgb2hsv</a></code>, and <code><a href="https://rdrr.io/r/grDevices/hsv.html" class="external-link">hsv</a></code> are the
-underlying functions used to convert and adjust the colors.</p></div>
     </div>
     <div id="author">
     <h2>Author</h2>
     <p>Arni Magnusson.</p>
     </div>
+    <div id="see-also">
+    <h2>See also</h2>
+    <div class="dont-index"><p><code><a href="https://rdrr.io/r/grDevices/adjustcolor.html" class="external-link">adjustcolor</a></code> adjusts colors in RGB space.</p>
+<p><code><a href="https://rdrr.io/r/grDevices/col2rgb.html" class="external-link">col2rgb</a></code>, <code><a href="https://rdrr.io/r/grDevices/rgb2hsv.html" class="external-link">rgb2hsv</a></code>, and <code><a href="https://rdrr.io/r/grDevices/hsv.html" class="external-link">hsv</a></code> are the
+  underlying functions used to convert and adjust the colors.</p></div>
+    </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">col</span> <span class="op">&lt;-</span> <span class="st">"#123456"</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">col</span> <span class="op">&lt;-</span> <span class="st">"#123456"</span></span></span>
 <span class="r-in"><span><span class="va">col2</span> <span class="op">&lt;-</span> <span class="fu">adjust_hsv</span><span class="op">(</span><span class="va">col</span>, h<span class="op">=</span><span class="fl">0.1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">col3</span> <span class="op">&lt;-</span> <span class="fu">adjust_hsv</span><span class="op">(</span><span class="va">col</span>, s<span class="op">=</span><span class="fl">0.1</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">col4</span> <span class="op">&lt;-</span> <span class="fu">adjust_hsv</span><span class="op">(</span><span class="va">col</span>, v<span class="op">=</span><span class="fl">0.7</span><span class="op">)</span></span></span>
@@ -123,7 +116,6 @@ underlying functions used to convert and adjust the colors.</p></div>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html" class="external-link">barplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span>, col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">col</span>, <span class="va">col2</span>, <span class="va">col3</span>, <span class="va">col4</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>        names<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"original"</span>, <span class="st">"h"</span>, <span class="st">"s"</span>, <span class="st">"v"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="adjust_hsv-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
