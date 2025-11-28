@@ -78,7 +78,7 @@ out.</p>
 <span>  distfun <span class="op">=</span> <span class="va">dist</span>,</span>
 <span>  hclustfun <span class="op">=</span> <span class="va">hclust</span>,</span>
 <span>  dendrogram <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"both"</span>, <span class="st">"row"</span>, <span class="st">"column"</span>, <span class="st">"none"</span><span class="op">)</span>,</span>
-<span>  reorderfun <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">d</span>, <span class="va">w</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html" class="external-link">reorder</a></span><span class="op">(</span><span class="va">d</span>, <span class="va">w</span><span class="op">)</span>,</span>
+<span>  reorderfun <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">d</span>, <span class="va">w</span><span class="op">)</span> <span class="fu"><a href="reorder.html">reorder</a></span><span class="op">(</span><span class="va">d</span>, <span class="va">w</span><span class="op">)</span>,</span>
 <span>  symm <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  scale <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"none"</span>, <span class="st">"row"</span>, <span class="st">"column"</span><span class="op">)</span>,</span>
 <span>  na.rm <span class="op">=</span> <span class="cn">TRUE</span>,</span>
@@ -471,7 +471,7 @@ as.dendrogram(hclustfun(distfun(X)))</code> where <code>X</code> is either <code
 <code>t(x)</code>.<br></p>
 <p>If either is a vector (of “weights”) then the appropriate dendrogram
 is reordered according to the supplied values subject to the constraints
-imposed by the dendrogram, by <code><a href="https://talgalili.github.io/gplots/reference/gplots-reorder.html" class="external-link">reorder</a>(dd, Rowv)</code>, in the row
+imposed by the dendrogram, by <code><a href="reorder.html">reorder</a>(dd, Rowv)</code>, in the row
 case.  <!-- %% If either is missing, as by default, then the ordering of the -->
 corresponding dendrogram is by the mean value of the rows/columns, i.e., in
 the case of rows, <code>Rowv &lt;- rowMeans(x, na.rm=na.rm)</code>.  <!-- %% If either is -->
@@ -548,7 +548,7 @@ Warnes, revisions.</p>
 <span class="r-plt img"><img src="heatmap.2-7.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co">## Reorder dendrogram by branch means rather than sums</span></span></span>
-<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, reorderfun<span class="op">=</span><span class="kw">function</span><span class="op">(</span><span class="va">d</span>, <span class="va">w</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/stats/reorder.factor.html" class="external-link">reorder</a></span><span class="op">(</span><span class="va">d</span>, <span class="va">w</span>, agglo.FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span> <span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="fu">heatmap.2</span><span class="op">(</span><span class="va">x</span>, reorderfun<span class="op">=</span><span class="kw">function</span><span class="op">(</span><span class="va">d</span>, <span class="va">w</span><span class="op">)</span> <span class="fu"><a href="reorder.html">reorder</a></span><span class="op">(</span><span class="va">d</span>, <span class="va">w</span>, agglo.FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span> <span class="op">)</span></span></span>
 <span class="r-plt img"><img src="heatmap.2-8.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span> <span class="co">## plot a sub-cluster using the same color coding as for the full heatmap</span></span></span>
