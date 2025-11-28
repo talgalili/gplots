@@ -157,6 +157,7 @@ details on the algorithm.</p>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># fixed mean, changing variance</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">1000</span></span></span>
 <span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">1000</span>, mean<span class="op">=</span><span class="fl">1</span>, sd<span class="op">=</span><span class="fl">1</span> <span class="op">+</span> <span class="va">x</span><span class="op">/</span><span class="fl">1000</span> <span class="op">)</span></span></span>
@@ -214,6 +215,7 @@ details on the algorithm.</p>
 <span class="r-in"><span><span class="co"># the mean trend but leaves the trend in variability</span></span></span>
 <span class="r-in"><span><span class="fu">bandplot</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">reg</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/stats/residuals.html" class="external-link">resid</a></span><span class="op">(</span><span class="va">reg</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="bandplot-6.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
