@@ -4,6 +4,11 @@ Development - YYYY-MM-DD
 
 ## Bug Fixes:
 
+gplots 3.2.0 - 2024-10-05
+==========================
+
+## Other Changes:
+* Showcase dendextend and heatmaply in heatmap.2 Rd.
 
 gplots 3.2.0 - 2024-10-05
 ==========================

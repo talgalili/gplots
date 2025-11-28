@@ -353,6 +353,15 @@ heatmap.2 (x,
  ## Reorder dendrogram by branch means rather than sums
  heatmap.2(x, reorderfun=function(d, w) reorder(d, w, agglo.FUN = mean) )
 
+ ## Color branches of dendrograms by cluster membership using dendextend:
+ library(dendextend)  # for color_branches
+ full <- heatmap.2(x) # we use it to easily get the dendrograms
+ heatmap.2(x, 
+          Rowv=color_branches(full$rowDendrogram, k = 3),
+          Colv=color_branches(full$colDendrogram, k = 2))
+ # Look at the vignette for more details:
+ # https://cran.r-project.org/web/packages/dendextend/vignettes/dendextend.html
+
  ## plot a sub-cluster using the same color coding as for the full heatmap
  full <- heatmap.2(x)
  heatmap.2(x, Colv=full$colDendrogram[[2]], breaks=full$breaks)  # column subset
@@ -530,6 +539,26 @@ heatmap.2 (x,
  heatmap.2(data, breaks=16, col=redgreen, tracecol="blue",
                main="SpikeIn@pm Fold Changes\nrelative to 12.50 sample",
                xlab="Relative Concentration", ylab="Probeset")
+ }
+ 
+ ## You can get an interactive version of heatmap.2 using heatmaply:
+ \dontrun{
+ data(mtcars)
+ x  <- as.matrix(mtcars)
+
+ library(heatmaply)
+ # just use heatmaply instead of heatmap.2
+ heatmaply(x)
+ 
+ # The default are slightly different, but it supports most of the same arguments.
+ # If you want the dendrograms to match perfectly, use this:
+ ## Color branches of dendrograms by cluster membership using dendextend:
+ full <- heatmap.2(x) # we use it to easily get the dendrograms
+ heatmaply(x, 
+          Rowv=color_branches(full$rowDendrogram, k = 3),
+          Colv=color_branches(full$colDendrogram, k = 2))
+ # Look at the vignette for more details:
+ # https://cran.r-project.org/web/packages/heatmaply/vignettes/heatmaply.html
  }
 
 }
