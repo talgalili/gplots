@@ -52,7 +52,7 @@ jobs:
         if: matrix.config.os == 'macOS-latest'
         env:
           R_BUILD_VIGNETTES: false
-          R_CHECK_VIGNETTES: false
+          _R_CHECK_VIGNETTES_: false
         uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
