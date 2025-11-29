@@ -1,0 +1,401 @@
+---
+title: "Enhanced Heat Maps with `heatmap.2`"
+date: "`r Sys.Date()`"
+author: "Tal Galili"
+output: 
+  html_vignette: 
+    toc: yes
+editor_options: 
+  chunk_output_type: console
+---
+<!--
+%\VignetteEngine{knitr::rmarkdown}
+%\VignetteIndexEntry{Enhanced Heat Maps with `heatmap.2`}
+%\VignetteEncoding{UTF-8}
+-->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  fig.width = 7,
+  fig.height = 7,
+  message = FALSE,
+  warning = FALSE
+)
+```
+
+## Introduction
+
+A heat map is a false color image (essentially `image(t(x))`) with a dendrogram added to the left side and/or to the top. Typically, reordering of the rows and columns according to some set of values (row or column means) within the restrictions imposed by the dendrogram is carried out.
+
+The `heatmap.2` function in the `gplots` package provides a number of extensions to the standard R `heatmap` function, including:
+
+- Color legend (color key) with optional histogram or density plot
+- Side color bars for rows and columns
+- Customizable cell labeling
+- Trace lines showing data values
+- Row and column separation with color blocks
+- Flexible layout control
+
+## Getting Started
+
+First, let's load the `gplots` package and prepare some sample data:
+
+```{r}
+library(gplots)
+
+# Using the mtcars dataset
+data(mtcars)
+x <- as.matrix(mtcars)
+```
+
+## Basic Usage
+
+### Default Heat Map
+
+The simplest way to create a heat map is:
+
+```{r basic-heatmap, fig.height=8}
+heatmap.2(x)
+```
+
+By default, `heatmap.2` computes and displays dendrograms for both rows and columns, reordering them based on row and column means.
+
+## Dendrogram Control
+
+You can control which dendrograms are displayed using the `dendrogram` argument:
+
+```{r dendrogram-options, fig.height=8}
+# No dendrogram plotted, but reordering is still done
+heatmap.2(x, dendrogram = "none")
+```
+
+```{r dendrogram-row, fig.height=8}
+# Only row dendrogram
+heatmap.2(x, dendrogram = "row")
+```
+
+```{r dendrogram-col, fig.height=8}
+# Only column dendrogram
+heatmap.2(x, dendrogram = "column")
+```
+
+You can also disable dendrogram computation entirely using `Rowv` and `Colv`:
+
+```{r no-rowv, fig.height=8}
+# Disable row clustering
+heatmap.2(x, Rowv = FALSE, dendrogram = "column")
+```
+
+### Custom Dendrogram Reordering
+
+You can customize how the dendrogram is reordered using the `reorderfun` argument:
+
+```{r reorder-mean, fig.height=8}
+# Reorder by branch means rather than sums
+heatmap.2(x, reorderfun = function(d, w) reorder(d, w, agglo.FUN = mean))
+```
+
+## Data Scaling
+
+The `scale` argument allows you to scale the data by row or column:
+
+```{r scale-column, fig.height=8}
+# Scale by column (z-score)
+heatmap.2(x, scale = "column", col = bluered, tracecol = "#303030")
+```
+
+When scaling is applied, the color key shows the scaled values (e.g., z-scores) rather than the original data values.
+
+## Color Customization
+
+### Using Different Color Palettes
+
+`heatmap.2` provides several built-in color palette functions:
+
+```{r color-bluered, fig.height=8}
+# Blue-red color palette
+heatmap.2(x, col = bluered(100), scale = "column", trace = "none")
+```
+
+```{r color-cm, fig.height=8}
+# Using cm.colors
+heatmap.2(x, col = cm.colors(255), scale = "column", trace = "none")
+```
+
+You can also use color palettes from other packages like `RColorBrewer`.
+
+## Side Color Bars
+
+You can add color annotations to rows and columns:
+
+```{r side-colors, fig.height=8}
+# Create color vectors for rows and columns
+rc <- rainbow(nrow(x), start = 0, end = 0.3)
+cc <- rainbow(ncol(x), start = 0, end = 0.3)
+
+heatmap.2(x, 
+          col = cm.colors(255), 
+          scale = "column",
+          RowSideColors = rc, 
+          ColSideColors = cc, 
+          margins = c(5, 10),
+          trace = "none")
+```
+
+You can also color the row and column labels to match the side colors:
+
+```{r colored-labels, fig.height=8}
+heatmap.2(x, 
+          col = cm.colors(255), 
+          scale = "column",
+          RowSideColors = rc, 
+          ColSideColors = cc, 
+          margins = c(5, 10),
+          trace = "none",
+          colRow = rc, 
+          colCol = cc,
+          srtCol = 45, 
+          adjCol = c(0.5, 1))
+```
+
+## Cell Labels
+
+You can add text annotations inside the cells using `cellnote`:
+
+```{r cellnote, fig.height=8}
+# Correlation matrix example
+data(attitude)
+Ca <- round(cor(attitude), 2)
+hM <- format(Ca)
+
+heatmap.2(Ca, 
+          Rowv = FALSE, 
+          symm = TRUE, 
+          col = rev(heat.colors(16)),
+          distfun = function(c) as.dist(1 - c), 
+          trace = "none",
+          cellnote = hM,
+          notecol = "black",
+          margins = c(6, 6))
+```
+
+## Row and Column Labeling
+
+### Label Rotation
+
+You can rotate row and column labels using `srtRow` and `srtCol`:
+
+```{r label-rotation, fig.height=8}
+heatmap.2(x, srtCol = 45, adjCol = c(1, 1), trace = "none")
+```
+
+### Label Offset
+
+Adjust the distance of labels from the plot area:
+
+```{r label-offset, fig.height=8}
+heatmap.2(x, offsetRow = 1, offsetCol = 1, trace = "none")
+```
+
+## Color Key Customization
+
+### Key Size
+
+Adjust the size of the color key:
+
+```{r keysize, fig.height=8}
+heatmap.2(x, keysize = 2, trace = "none")
+```
+
+### Density Information
+
+The color key can display distribution information:
+
+```{r density-info, fig.height=8}
+# With histogram (default)
+heatmap.2(x, scale = "column", density.info = "histogram", trace = "none")
+```
+
+```{r density-plot, fig.height=8}
+# With density plot
+heatmap.2(x, scale = "column", density.info = "density", trace = "none")
+```
+
+```{r density-none, fig.height=8}
+# Without density information
+heatmap.2(x, scale = "column", density.info = "none", trace = "none")
+```
+
+### Custom Key Appearance
+
+You can customize the color key appearance:
+
+```{r custom-key, fig.height=8}
+heatmap.2(x,
+          key.title = NA,
+          key.xlab = NA,
+          key.par = list(mgp = c(1.5, 0.5, 0),
+                         mar = c(2.5, 2.5, 1, 0)),
+          trace = "none",
+          key.xtickfun = function() {
+            breaks <- parent.frame()$breaks
+            return(list(
+              at = parent.frame()$scale01(c(breaks[1], breaks[length(breaks)])),
+              labels = c(as.character(breaks[1]), as.character(breaks[length(breaks)]))
+            ))
+          })
+```
+
+## Layout Customization
+
+### Custom Layout
+
+You can customize the position of plot components using `lmat`, `lhei`, and `lwid`:
+
+```{r layout-bottom, fig.height=8}
+# Color key at bottom
+heatmap.2(x, 
+          lmat = rbind(c(0, 3), c(2, 1), c(0, 4)), 
+          lhei = c(1.5, 4, 2),
+          trace = "none")
+```
+
+```{r layout-right, fig.height=8}
+# Color key to the right
+heatmap.2(x, 
+          lmat = rbind(c(0, 3, 4), c(2, 1, 0)), 
+          lwid = c(1.5, 4, 2),
+          trace = "none")
+```
+
+### Replacing the Key with Custom Plot
+
+You can replace the color key with a custom plot using `extrafun`:
+
+```{r extrafun, fig.height=8}
+lmat <- rbind(c(5, 3, 4), c(2, 1, 4))
+lhei <- c(1.5, 4)
+lwid <- c(1.5, 4, 0.75)
+
+myplot <- function() {
+  oldpar <- par("mar")
+  par(mar = c(5.1, 4.1, 0.5, 0.5))
+  plot(mpg ~ hp, data = mtcars)
+}
+
+heatmap.2(x, lmat = lmat, lhei = lhei, lwid = lwid, key = FALSE, extrafun = myplot)
+```
+
+## Row and Column Separators
+
+You can add separators between rows or columns:
+
+```{r separators, fig.height=8}
+heatmap.2(x, 
+          rowsep = c(5, 15), 
+          colsep = c(3, 6), 
+          sepcolor = "black",
+          sepwidth = c(0.02, 0.02),
+          trace = "none")
+```
+
+## Working with Correlation Matrices
+
+`heatmap.2` is particularly useful for visualizing correlation matrices:
+
+```{r correlation, fig.height=8}
+# Using USJudgeRatings dataset
+data(USJudgeRatings)
+cU <- cor(USJudgeRatings)
+
+heatmap.2(cU, 
+          Rowv = FALSE, 
+          symm = TRUE, 
+          col = topo.colors(16),
+          distfun = function(c) as.dist(1 - c), 
+          trace = "none",
+          margins = c(8, 8))
+```
+
+## Return Values
+
+`heatmap.2` invisibly returns a list containing useful information:
+
+```{r return-values}
+hv <- heatmap.2(x, col = bluered, scale = "column", tracecol = "#303030")
+names(hv)
+```
+
+The return value includes:
+
+- `rowInd`, `colInd`: Row and column index permutation vectors
+- `rowMeans`, `rowSDs`, `colMeans`, `colSDs`: Scaling statistics (when scaling is used)
+- `carpet`: The reordered and scaled values
+- `rowDendrogram`, `colDendrogram`: The dendrogram objects
+- `breaks`, `col`: Color break points and colors used
+- `colorTable`: Mapping of values to colors
+
+The `colorTable` component is particularly useful for understanding the color mapping:
+
+```{r colortable}
+head(hv$colorTable)
+```
+
+## Sub-clustering
+
+You can extract sub-clusters using the dendrograms from a full heatmap:
+
+```{r subclusters, fig.height=8}
+full <- heatmap.2(x, trace = "none")
+
+# Plot a column sub-cluster with same colors
+heatmap.2(x, 
+          Colv = full$colDendrogram[[2]], 
+          breaks = full$breaks,
+          trace = "none")
+```
+
+## Integration with dendextend
+
+The `dendextend` package can be used to color dendrogram branches:
+```{r dendextend, eval=requireNamespace("dendextend", quietly=TRUE), fig.height=8}
+library(dendextend)
+
+full <- heatmap.2(x, trace = "none")
+
+heatmap.2(x, 
+          Rowv = color_branches(full$rowDendrogram, k = 3),
+          Colv = color_branches(full$colDendrogram, k = 2),
+          trace = "none")
+```
+
+## Interactive Heatmaps with heatmaply
+
+For interactive heatmaps, consider using the `heatmaply` package, which provides similar functionality with interactive features:
+
+```{r heatmaply, eval=FALSE}
+library(heatmaply)
+heatmaply(x)
+```
+
+For more details, see the [heatmaply vignette](https://cran.r-project.org/web/packages/heatmaply/vignettes/heatmaply.html).
+
+## Notes and Limitations
+
+- `heatmap.2()` uses `layout()` to arrange plot elements. Therefore, it cannot be used in a multi-column/row layout using `layout()`, `par(mfrow = ...)`, or `par(mfcol = ...)`.
+- The default colors (`heat.colors`) may not be ideal for all applications. Consider using `RColorBrewer` or other color palette packages for better results.
+
+## Summary
+
+The `heatmap.2` function provides a flexible and feature-rich way to create heat maps in R. Key features include:
+
+- Customizable dendrograms and clustering
+- Data scaling (row, column, or none)
+- Side color bars for row and column annotations
+- Cell labeling
+- Flexible color key with histogram or density plots
+- Custom layout options
+- Rich return values for programmatic access
+
+For more information, see `?heatmap.2` for the complete documentation.
