@@ -281,7 +281,7 @@ lwid <- c(1.5, 4, 0.75)
 myplot <- function() {
   oldpar <- par("mar")
   par(mar = c(5.1, 4.1, 0.5, 0.5))
-  plot(mpg ~ hp, data = mtcars)
+  plot(mpg ~ hp, data = x)
 }
 
 heatmap.2(x, lmat = lmat, lhei = lhei, lwid = lwid, key = FALSE, extrafun = myplot)
