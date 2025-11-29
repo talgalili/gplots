@@ -53,7 +53,7 @@ jobs:
         uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
-          check_args: --no-build-vignettes
+          args: --no-build-vignettes
           build_args: --no-build-vignettes
 
       # Check package (other OS) – build vignettes normally
