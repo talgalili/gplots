@@ -11,6 +11,11 @@ gplots 3.3.0 - 2025-11-29
 * Showcase dendextend and heatmaply in heatmap.2.Rd.
 * Adding heatmap.2.Rmd vignette based on heatmap.2.Rd.
 * Add welcome message.
+* Remove old defunct functions:
+    \alias{boxplot.n}
+    \alias{plot.lm2}
+    \alias{smartlegend}
+
 
 gplots 3.2.0 - 2024-10-05
 ==========================
