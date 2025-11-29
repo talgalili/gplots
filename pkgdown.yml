@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   heatmap.2: heatmap.2.html
   venn: venn.html
-last_built: 2025-11-29T18:22Z
+last_built: 2025-11-29T19:04Z
 urls:
   reference: https://talgalili.github.io/gplots/reference
   article: https://talgalili.github.io/gplots/articles
