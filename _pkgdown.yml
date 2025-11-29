@@ -1,0 +1,10 @@
+url: https://talgalili.github.io/gplots/
+
+home:
+  ignore:
+    - .github/copilot-instructions.md
+
+ignore:
+  - .github
+  - .github/*
+  - .github/copilot-instructions.md

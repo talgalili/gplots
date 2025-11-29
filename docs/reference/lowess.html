@@ -29,7 +29,7 @@ Finally, the plotLowess function both calculates the
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.3.0</span>
       </span>
     </div>
 
@@ -44,6 +44,9 @@ Finally, the plotLowess function both calculates the
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/heatmap.2.html">Enhanced Heat Maps with heatmap.2</a>
+    </li>
+    <li>
       <a href="../articles/venn.html">Venn Diagrams with `gplots`</a>
     </li>
   </ul></li>
@@ -87,14 +90,14 @@ Finally, the plotLowess function both calculates the
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu"><a href="https://talgalili.github.io/gplots/reference/lowess.html" class="external-link">lowess</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu"><a href="https://talgalili.github.io/gplots/reference/lowess.html">lowess</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Default S3 method</span></span>
-<span><span class="fu"><a href="https://talgalili.github.io/gplots/reference/lowess.html" class="external-link">lowess</a></span><span class="op">(</span><span class="va">x</span>, y<span class="op">=</span><span class="cn">NULL</span>, f<span class="op">=</span><span class="fl">2</span><span class="op">/</span><span class="fl">3</span>, iter<span class="op">=</span><span class="fl">3L</span>, delta<span class="op">=</span><span class="fl">0.01</span> <span class="op">*</span></span>
+<span><span class="fu"><a href="https://talgalili.github.io/gplots/reference/lowess.html">lowess</a></span><span class="op">(</span><span class="va">x</span>, y<span class="op">=</span><span class="cn">NULL</span>, f<span class="op">=</span><span class="fl">2</span><span class="op">/</span><span class="fl">3</span>, iter<span class="op">=</span><span class="fl">3L</span>, delta<span class="op">=</span><span class="fl">0.01</span> <span class="op">*</span></span>
 <span>       <span class="fu"><a href="https://rdrr.io/r/base/diff.html" class="external-link">diff</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for class 'formula'</span></span>
-<span><span class="fu"><a href="https://talgalili.github.io/gplots/reference/lowess.html" class="external-link">lowess</a></span><span class="op">(</span><span class="va">formula</span>,data<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sys.parent.html" class="external-link">parent.frame</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">...</span>, <span class="va">subset</span>, f<span class="op">=</span><span class="fl">2</span><span class="op">/</span><span class="fl">3</span>,</span>
+<span><span class="fu"><a href="https://talgalili.github.io/gplots/reference/lowess.html">lowess</a></span><span class="op">(</span><span class="va">formula</span>,data<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sys.parent.html" class="external-link">parent.frame</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">...</span>, <span class="va">subset</span>, f<span class="op">=</span><span class="fl">2</span><span class="op">/</span><span class="fl">3</span>,</span>
 <span>       iter<span class="op">=</span><span class="fl">3L</span>, delta<span class="op">=</span><span class="fl">.01</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/diff.html" class="external-link">diff</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="va">mf</span><span class="op">[</span><span class="op">-</span><span class="va">response</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for class 'lowess'</span></span>
@@ -170,8 +173,8 @@ Finally, the plotLowess function both calculates the
 <span class="r-in"><span><span class="co"># x,y method</span></span></span>
 <span class="r-in"><span><span class="co">#</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">cars</span><span class="op">$</span><span class="va">speed</span>, <span class="va">cars</span><span class="op">$</span><span class="va">dist</span>, main<span class="op">=</span><span class="st">"lowess(cars)"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="fu"><a href="https://talgalili.github.io/gplots/reference/lowess.html" class="external-link">lowess</a></span><span class="op">(</span><span class="va">cars</span><span class="op">$</span><span class="va">speed</span>, <span class="va">cars</span><span class="op">$</span><span class="va">dist</span><span class="op">)</span>, col<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="fu"><a href="https://talgalili.github.io/gplots/reference/lowess.html" class="external-link">lowess</a></span><span class="op">(</span><span class="va">cars</span><span class="op">$</span><span class="va">speed</span>, <span class="va">cars</span><span class="op">$</span><span class="va">dist</span>, f<span class="op">=</span><span class="fl">.2</span><span class="op">)</span>, col<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="fu"><a href="https://talgalili.github.io/gplots/reference/lowess.html">lowess</a></span><span class="op">(</span><span class="va">cars</span><span class="op">$</span><span class="va">speed</span>, <span class="va">cars</span><span class="op">$</span><span class="va">dist</span><span class="op">)</span>, col<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="fu"><a href="https://talgalili.github.io/gplots/reference/lowess.html">lowess</a></span><span class="op">(</span><span class="va">cars</span><span class="op">$</span><span class="va">speed</span>, <span class="va">cars</span><span class="op">$</span><span class="va">dist</span>, f<span class="op">=</span><span class="fl">.2</span><span class="op">)</span>, col<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html" class="external-link">legend</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">120</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"f="</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2/3"</span>, <span class="st">".2"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, lty<span class="op">=</span><span class="fl">1</span>, col<span class="op">=</span><span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="lowess-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
@@ -180,8 +183,8 @@ Finally, the plotLowess function both calculates the
 <span class="r-in"><span><span class="co">#                 then add smooth to the plot</span></span></span>
 <span class="r-in"><span><span class="co">#</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">dist</span> <span class="op">~</span> <span class="va">speed</span>, data<span class="op">=</span><span class="va">cars</span>, main<span class="op">=</span><span class="st">"lowess(cars)"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="fu"><a href="https://talgalili.github.io/gplots/reference/lowess.html" class="external-link">lowess</a></span><span class="op">(</span><span class="va">dist</span> <span class="op">~</span> <span class="va">speed</span>, data<span class="op">=</span><span class="va">cars</span><span class="op">)</span>, col<span class="op">=</span><span class="fl">2</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="fu"><a href="https://talgalili.github.io/gplots/reference/lowess.html" class="external-link">lowess</a></span><span class="op">(</span><span class="va">dist</span> <span class="op">~</span> <span class="va">speed</span>, data<span class="op">=</span><span class="va">cars</span>, f<span class="op">=</span><span class="fl">.2</span><span class="op">)</span>, col<span class="op">=</span><span class="fl">3</span><span class="op">)</span> <span class="co"># smaller bandwith</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="fu"><a href="https://talgalili.github.io/gplots/reference/lowess.html">lowess</a></span><span class="op">(</span><span class="va">dist</span> <span class="op">~</span> <span class="va">speed</span>, data<span class="op">=</span><span class="va">cars</span><span class="op">)</span>, col<span class="op">=</span><span class="fl">2</span>, lty<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html" class="external-link">lines</a></span><span class="op">(</span><span class="fu"><a href="https://talgalili.github.io/gplots/reference/lowess.html">lowess</a></span><span class="op">(</span><span class="va">dist</span> <span class="op">~</span> <span class="va">speed</span>, data<span class="op">=</span><span class="va">cars</span>, f<span class="op">=</span><span class="fl">.2</span><span class="op">)</span>, col<span class="op">=</span><span class="fl">3</span><span class="op">)</span> <span class="co"># smaller bandwith</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html" class="external-link">legend</a></span><span class="op">(</span><span class="fl">5</span>, <span class="fl">120</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"f="</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2/3"</span>, <span class="st">".2"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>, lty<span class="op">=</span><span class="fl">1</span>, col<span class="op">=</span><span class="fl">2</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="lowess-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
@@ -189,7 +192,7 @@ Finally, the plotLowess function both calculates the
 <span class="r-in"><span><span class="co"># formula method: calculate lowess() smoother, then call plot()</span></span></span>
 <span class="r-in"><span><span class="co">#                  on the lowess object</span></span></span>
 <span class="r-in"><span><span class="co">#</span></span></span>
-<span class="r-in"><span><span class="va">lw</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://talgalili.github.io/gplots/reference/lowess.html" class="external-link">lowess</a></span><span class="op">(</span><span class="va">dist</span> <span class="op">~</span> <span class="va">speed</span>, data<span class="op">=</span><span class="va">cars</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">lw</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://talgalili.github.io/gplots/reference/lowess.html">lowess</a></span><span class="op">(</span><span class="va">dist</span> <span class="op">~</span> <span class="va">speed</span>, data<span class="op">=</span><span class="va">cars</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">lw</span>, main<span class="op">=</span><span class="st">"lowess(cars)"</span>  <span class="op">)</span></span></span>
 <span class="r-plt img"><img src="lowess-3.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
@@ -221,7 +224,7 @@ Finally, the plotLowess function both calculates the
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
       </footer></div>

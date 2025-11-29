@@ -18,7 +18,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.3.0</span>
       </span>
     </div>
 
@@ -33,6 +33,9 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/heatmap.2.html">Enhanced Heat Maps with heatmap.2</a>
+    </li>
+    <li>
       <a href="../articles/venn.html">Venn Diagrams with `gplots`</a>
     </li>
   </ul></li>
@@ -259,22 +262,22 @@
 <span class="r-in"><span><span class="co"># show the data</span></span></span>
 <span class="r-in"><span><span class="va">data</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         Car  Color Value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1       bmw    red  93.6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   renault    red 190.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  mercedes    red  94.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4      seat    red 221.1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5       bmw  white  96.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   renault  white 178.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  mercedes  white 237.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8      seat  white  16.7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9       bmw silver  83.3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  renault silver  92.0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 mercedes silver 138.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12     seat silver  82.9</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13      bmw  green -59.4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  renault  green -46.4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 mercedes  green 179.2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16     seat  green  81.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1       bmw    red 190.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   renault    red  94.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  mercedes    red 221.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      seat    red  96.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5       bmw  white 178.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   renault  white 237.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  mercedes  white  16.7</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8      seat  white  83.3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9       bmw silver  92.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10  renault silver 138.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11 mercedes silver  82.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12     seat silver -59.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13      bmw  green -46.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14  renault  green 179.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15 mercedes  green  81.6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16     seat  green  -6.9</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># generate balloon plot with default scaling</span></span></span>
 <span class="r-in"><span><span class="fu">balloonplot</span><span class="op">(</span> <span class="va">data</span><span class="op">$</span><span class="va">Car</span>, <span class="va">data</span><span class="op">$</span><span class="va">Color</span>, <span class="va">data</span><span class="op">$</span><span class="va">Value</span><span class="op">)</span></span></span>
@@ -340,7 +343,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
       </footer></div>

@@ -7,6 +7,11 @@ vignettes/\.build\.timestamp
 Makefile
 Rplot001.jpg
 
+^\.github/copilot\-instructions\.md$
+^\.github/copilot-instructions\.md$
+^\\.github/copilot-instructions\\.md$
+^.*github.*md$
+
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.travis\.yml$
@@ -26,5 +31,8 @@ Rplot001.jpg
 ^revdep$
 ^appveyor\.yml$
 ^\.github$
+^\.github/copilot-instructions\.md$
+^\.github/copilot-instructions.md$
 ^doc$
 ^Meta$
+^\.github

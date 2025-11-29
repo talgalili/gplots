@@ -19,7 +19,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">gplots</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.3.0</span>
       </span>
     </div>
 
@@ -34,6 +34,9 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
+      <a href="../articles/heatmap.2.html">Enhanced Heat Maps with heatmap.2</a>
+    </li>
+    <li>
       <a href="../articles/venn.html">Venn Diagrams with `gplots`</a>
     </li>
   </ul></li>
@@ -265,7 +268,7 @@
 
   <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>further graphical parameters (<code><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></code>) are
-    passed to <code><a href="https://rdrr.io/r/graphics/plot.window.html" class="external-link">plot.window</a>()</code>, <code><a href="https://rdrr.io/r/graphics/title.html" class="external-link">title</a>()</code> and
+    passed to <code><a href="https://rdrr.io/r/graphics/plot.window.html" class="external-link">plot.window()</a></code>, <code><a href="https://rdrr.io/r/graphics/title.html" class="external-link">title()</a></code> and
     <code><a href="https://rdrr.io/r/graphics/axis.html" class="external-link">axis</a></code>.</p></dd>
 
 </dl></div>
@@ -335,8 +338,8 @@
 <span class="r-in"><span>     <span class="va">VADeaths</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span> Age<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">50</span>,<span class="fl">55</span>,<span class="fl">60</span>,<span class="fl">65</span>,<span class="fl">70</span><span class="op">)</span>, <span class="va">VADeaths</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>     <span class="va">mp</span> <span class="op">&lt;-</span> <span class="fu">ooplot</span><span class="op">(</span><span class="va">VADeaths</span><span class="op">)</span> <span class="co"># default</span></span></span>
-<span class="r-in"><span>     <span class="va">mp</span> <span class="op">&lt;-</span> <span class="fu">ooplot</span><span class="op">(</span><span class="va">VADeaths</span>, type<span class="op">=</span><span class="st">"xyplot"</span><span class="op">)</span>  <span class="co"># same as default</span></span></span>
 <span class="r-plt img"><img src="ooplot-1.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span>     <span class="va">mp</span> <span class="op">&lt;-</span> <span class="fu">ooplot</span><span class="op">(</span><span class="va">VADeaths</span>, type<span class="op">=</span><span class="st">"xyplot"</span><span class="op">)</span>  <span class="co"># same as default</span></span></span>
 <span class="r-in"><span>     <span class="va">mp</span> <span class="op">&lt;-</span> <span class="fu">ooplot</span><span class="op">(</span><span class="va">VADeaths</span>, type<span class="op">=</span><span class="st">"linear"</span><span class="op">)</span>  <span class="co"># linear scale</span></span></span>
 <span class="r-plt img"><img src="ooplot-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span>     <span class="va">mp</span> <span class="op">&lt;-</span> <span class="fu">ooplot</span><span class="op">(</span><span class="va">VADeaths</span>, type<span class="op">=</span><span class="st">"linear"</span>, log<span class="op">=</span><span class="st">"y"</span><span class="op">)</span> <span class="co"># log scale on y axis</span></span></span>
@@ -380,7 +383,7 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> null device </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>           1 </span>
 <span class="r-in"><span>     <span class="va">mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">16</span><span class="op">)</span>,<span class="fl">4</span>,<span class="fl">4</span>,byrow<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-in"><span>     <span class="fu"><a href="https://rdrr.io/r/graphics/layout.html" class="external-link">layout</a></span><span class="op">(</span><span class="va">mat</span><span class="op">)</span></span></span>
+<span class="r-in"><span>     <span class="fu">layout</span><span class="op">(</span><span class="va">mat</span><span class="op">)</span></span></span>
 <span class="r-in"><span>     </span></span>
 <span class="r-in"><span>     <span class="fu">ooplot</span><span class="op">(</span><span class="va">test1f</span>,type<span class="op">=</span><span class="st">"barplot"</span>,col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span>     <span class="fu"><a href="https://rdrr.io/r/graphics/title.html" class="external-link">title</a></span><span class="op">(</span>main<span class="op">=</span><span class="st">"barplot"</span><span class="op">)</span></span></span>
@@ -407,7 +410,7 @@
 <span class="r-in"><span>     <span class="fu">ooplot</span><span class="op">(</span><span class="va">test5r</span>,type<span class="op">=</span><span class="st">"stackbar"</span>,col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"red"</span>,<span class="st">"blue"</span>,<span class="st">"green"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>     <span class="co"># restore default layout (1 plot/page)</span></span></span>
-<span class="r-in"><span>     <span class="fu"><a href="https://rdrr.io/r/graphics/layout.html" class="external-link">layout</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span>     <span class="fu">layout</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -422,7 +425,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
       </footer></div>
