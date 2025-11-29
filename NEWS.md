@@ -4,12 +4,13 @@ Development - YYYY-MM-DD
 
 ## Bug Fixes:
 
-gplots 3.2.0 - 2024-10-05
+gplots 3.3.0 - 2025-11-29
 ==========================
 
 ## documentation:
 * Showcase dendextend and heatmaply in heatmap.2.Rd.
 * Adding heatmap.2.Rmd vignette based on heatmap.2.Rd.
+* Add welcome message.
 
 gplots 3.2.0 - 2024-10-05
 ==========================

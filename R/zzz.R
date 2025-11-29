@@ -1,3 +1,28 @@
+
+
+.onAttach <- function(lib, pkg, ...) {
+  packageStartupMessage(dendextendWelcomeMessage())
+}
+
+
+
+dendextendWelcomeMessage <- function() {
+  paste0(
+    "\n",
+    "---------------------\n",
+    "gplots ", utils::packageDescription("gplots")$Version, " loaded:\n",
+    "  * Use citation('gplots') for citation info.\n",
+    "  * Homepage: https://talgalili.github.io/gplots/\n",
+    "  * Report issues: https://github.com/talgalili/gplots/issues\n",
+    "  * Ask questions: https://stackoverflow.com/questions/tagged/gplots\n",
+    "  * Suppress this message with: suppressPackageStartupMessages(library(gplots))\n",
+    "---------------------\n"
+  )
+}
+
+
+
+
 # Make sure to have: 
   # sudo apt-get install texinfo
   # sudo apt-get install texlive

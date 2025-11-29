@@ -26,7 +26,7 @@ Suggests: grid, MASS, knitr, rmarkdown, r2d2, nlme, dendextend, heatmaply
 LazyData: yes
 VignetteBuilder: knitr
 Version: 3.3.0
-Date: 2025-11-28
+Date: 2025-11-29
 Authors@R: c(
     person("Gregory R.", "Warnes", , role = "aut"),
     person("Ben", "Bolker", , role = "aut"),
