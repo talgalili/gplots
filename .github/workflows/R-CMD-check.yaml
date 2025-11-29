@@ -50,11 +50,12 @@ jobs:
       # Check package (macOS) – skip vignettes
       - name: Check package (macOS)
         if: matrix.config.os == 'macOS-latest'
+        env:
+          R_BUILD_VIGNETTES: false
+          R_CHECK_VIGNETTES: false
         uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
-          args: ["--no-build-vignettes"]
-          build_args: ["--no-build-vignettes"]
 
       # Check package (other OS) – build vignettes normally
       - name: Check package (other OS)
