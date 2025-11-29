@@ -7,8 +7,9 @@ Development - YYYY-MM-DD
 gplots 3.2.0 - 2024-10-05
 ==========================
 
-## Other Changes:
-* Showcase dendextend and heatmaply in heatmap.2 Rd.
+## documentation:
+* Showcase dendextend and heatmaply in heatmap.2.Rd.
+* Adding heatmap.2.Rmd vignette based on heatmap.2.Rd.
 
 gplots 3.2.0 - 2024-10-05
 ==========================
