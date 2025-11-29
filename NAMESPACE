@@ -28,7 +28,6 @@ export(
        residplot,
        rich.colors,
        sinkplot,
-       smartlegend,
        space,
        textplot,
        venn,
