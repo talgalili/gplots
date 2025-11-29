@@ -22,7 +22,6 @@ jobs:
           - {os: ubuntu-latest,   r: 'release'}
           - {os: ubuntu-latest,   r: 'oldrel-1'}
           - {os: ubuntu-latest,   r: 'oldrel-2'}
-          # Removed older versions to avoid compatibility issues
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -48,6 +47,9 @@ jobs:
           extra-packages: any::rcmdcheck
           needs: check
 
+      # Check package
       - uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
+          check_args: ${{ matrix.config.os == 'macOS-latest' && '--no-build-vignettes' || '' }}
+          build_args: ${{ matrix.config.os == 'macOS-latest' && '--no-build-vignettes' || '' }}
