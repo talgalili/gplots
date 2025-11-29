@@ -47,9 +47,18 @@ jobs:
           extra-packages: any::rcmdcheck
           needs: check
 
-      # Check package
-      - uses: r-lib/actions/check-r-package@v2
+      # Check package (macOS) – skip vignettes
+      - name: Check package (macOS)
+        if: matrix.config.os == 'macOS-latest'
+        uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
-          check_args: ${{ matrix.config.os == 'macOS-latest' && '--no-build-vignettes' || '' }}
-          build_args: ${{ matrix.config.os == 'macOS-latest' && '--no-build-vignettes' || '' }}
+          check_args: --no-build-vignettes
+          build_args: --no-build-vignettes
+
+      # Check package (other OS) – build vignettes normally
+      - name: Check package (other OS)
+        if: matrix.config.os != 'macOS-latest'
+        uses: r-lib/actions/check-r-package@v2
+        with:
+          upload-snapshots: true
