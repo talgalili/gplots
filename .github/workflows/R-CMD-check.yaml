@@ -18,10 +18,10 @@ jobs:
         config:
           - {os: macOS-latest,   r: 'release'}
           - {os: windows-latest, r: 'release'}
-          - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
-          - {os: ubuntu-latest,   r: 'release'}
-          - {os: ubuntu-latest,   r: 'oldrel-1'}
-          - {os: ubuntu-latest,   r: 'oldrel-2'}
+          - {os: ubuntu-latest,  r: 'devel', http-user-agent: 'release'}
+          - {os: ubuntu-latest,  r: 'release'}
+          - {os: ubuntu-latest,  r: 'oldrel-1'}
+          - {os: ubuntu-latest,  r: 'oldrel-2'}
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -38,7 +38,6 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
-      # Install Hmisc with dependencies, only when needed
       - name: Install Hmisc package
         run: Rscript -e 'if (!requireNamespace("Hmisc", quietly = TRUE)) install.packages("Hmisc", dependencies = TRUE)'
 
@@ -47,14 +46,13 @@ jobs:
           extra-packages: any::rcmdcheck
           needs: check
 
-      # Check package (macOS) – skip vignettes
-      - name: Check package (macOS)
+      # Check package (macOS) – skip vignettes using flags
+      - name: Check package (macOS – skip vignettes)
         if: matrix.config.os == 'macOS-latest'
-        env:
-          R_BUILD_VIGNETTES: false
-          _R_CHECK_VIGNETTES_: false
         uses: r-lib/actions/check-r-package@v2
         with:
+          args: 'c("--no-manual", "--ignore-vignettes")'
+          build_args: 'c("--no-build-vignettes")'
           upload-snapshots: true
 
       # Check package (other OS) – build vignettes normally
