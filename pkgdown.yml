@@ -2,5 +2,9 @@ pandoc: 3.1.11
 pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
+  heatmap.2: heatmap.2.html
   venn: venn.html
-last_built: 2025-11-29T14:10Z
+last_built: 2025-11-29T17:42Z
+urls:
+  reference: https://talgalili.github.io/gplots/reference
+  article: https://talgalili.github.io/gplots/articles
